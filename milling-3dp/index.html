@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HAUS Production Report — Milling · 3D Printing 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:#0F172A;overflow:hidden}
+.gr-layout{display:flex;flex-direction:column;height:100vh;width:100vw}
+.gr-top{height:56px;min-height:56px;background:#1E293B;display:flex;align-items:center;gap:16px;padding:0 18px;border-bottom:1px solid rgba(255,255,255,.08);z-index:10}
+.gr-logo{display:flex;align-items:center;gap:11px}
+.gr-logo-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#F97316,#EA580C);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:#fff;flex-shrink:0}
+.gr-logo-name{font-weight:800;font-size:14px;color:#fff;line-height:1.2}
+.gr-logo-sub{font-size:9.5px;color:rgba(255,255,255,.45);margin-top:1px}
+.gr-tabs{display:flex;gap:6px;margin-left:6px}
+.gr-tab{padding:7px 15px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:rgba(255,255,255,.72);border-radius:8px;cursor:pointer;font-size:12.5px;font-weight:600;font-family:inherit;transition:.15s;display:flex;align-items:center;gap:8px}
+.gr-tab:hover{background:rgba(255,255,255,.1);color:#fff}
+.gr-tab.active{background:linear-gradient(135deg,#F97316,#EA580C);border-color:#F97316;color:#fff;box-shadow:0 3px 10px rgba(249,115,22,.35)}
+.gr-ico{font-size:14px}
+.gr-badge{font-size:9px;font-family:'JetBrains Mono';background:rgba(255,255,255,.16);color:rgba(255,255,255,.85);padding:2px 6px;border-radius:5px}
+.gr-tab.active .gr-badge{background:rgba(255,255,255,.25);color:#fff}
+.gr-spacer{flex:1}
+.gr-lang{display:flex;gap:5px}
+.gr-lng{padding:6px 12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:rgba(255,255,255,.72);border-radius:7px;cursor:pointer;font-size:11px;font-weight:700;letter-spacing:.04em;font-family:inherit;transition:.15s}
+.gr-lng:hover{background:rgba(255,255,255,.1)}
+.gr-lng.lact{background:#F97316;border-color:#F97316;color:#fff}
+.gr-content{flex:1;position:relative;background:#F8FAFC}
+.gr-frame{width:100%;height:100%;border:none;display:none}
+.gr-frame.active{display:block}</style>
+</head>
+<body>
+<div class="gr-layout">
+  <div class="gr-top">
+    <div class="gr-logo">
+      <div class="gr-logo-icon">H</div>
+      <div><div class="gr-logo-name">HAUS Production Report</div><div class="gr-logo-sub">Milling · 3D Printing · 2026.01–05 · v2.0</div></div>
+    </div>
+    <div class="gr-tabs"><button class="gr-tab active" data-id="milling" onclick="grSwitch('milling')"><span class="gr-ico">⚙️</span><span>Milling</span><span class="gr-badge">41,574</span></button><button class="gr-tab" data-id="printing" onclick="grSwitch('printing')"><span class="gr-ico">🖨️</span><span>3D Printing</span><span class="gr-badge">4,113</span></button></div>
+    <div class="gr-spacer"></div>
+    <div class="gr-lang">
+      <button class="gr-lng" data-l="ko" onclick="setGroupLang('ko')">KO</button>
+      <button class="gr-lng lact" data-l="en" onclick="setGroupLang('en')">EN</button>
+      <button class="gr-lng" data-l="es" onclick="setGroupLang('es')">ES</button>
+    </div>
+  </div>
+  <div class="gr-content">
+    <iframe class="gr-frame active" id="frame-milling" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0&quot;&gt;
+&lt;title&gt;[v2.13] HAUS Milling M0~M6 — 생산 리포트 2026&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;style&gt;
+@import url(&#x27;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap&#x27;);
+:root {
+  --primary:#1E40AF; --primary-md:#3B82F6; --primary-lt:#EFF6FF; --primary-xl:#DBEAFE;
+  --teal:#0891B2; --red:#DC2626; --amber:#D97706;
+  --zir:#F97316; --ticro:#16A34A; --other:#8B5CF6;
+  --t1:#0F172A; --t2:#475569; --t3:#94A3B8;
+  --surface:#FFFFFF; --bg:#F0F5FF; --bg2:#EBF0F9; --bg3:#F5F7FF;
+  --glass:rgba(255,255,255,.92); --gb:#E2EAF4;
+  --border:#E2EAF4; --border2:#CBD5E1;
+  --text2:#475569;  /* used in JS */
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --shadow-md:0 4px 12px rgba(0,0,0,.08);
+  --r:12px; --r-sm:8px;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:&#x27;Inter&#x27;,sans-serif; background:var(--bg); color:var(--t1); min-height:100vh; }
+.app-shell { display:flex; min-height:100vh; }
+
+/* DARK SIDEBAR */
+.mill-sidebar {
+  width:220px; min-width:220px;
+  background:#1E293B;
+  display:flex; flex-direction:column;
+  position:sticky; top:0; height:100vh; overflow-y:auto; z-index:100;
+}
+.mill-sb-logo { padding:18px 16px 14px; border-bottom:1px solid rgba(255,255,255,.08); }
+.mill-sb-logo-row { display:flex; align-items:center; gap:10px; }
+.mill-sb-icon {
+  width:34px; height:34px; border-radius:9px; flex-shrink:0;
+  background:linear-gradient(135deg,#F97316,#EA580C);
+  display:flex; align-items:center; justify-content:center;
+  font-size:16px; font-weight:900; color:#fff;
+}
+.mill-sb-name { font-weight:800; font-size:14px; color:#fff; }
+.mill-sb-sub { font-size:10px; color:rgba(255,255,255,.4); margin-top:1px; }
+.mill-sb-nav { padding:10px 8px; flex:1; }
+.mill-sb-section { font-size:9px; font-weight:700; color:rgba(255,255,255,.3); letter-spacing:.12em; text-transform:uppercase; padding:8px 12px 5px; }
+
+/* .stab = milling sheet tab (used by JS) */
+.stab {
+  display:flex; align-items:center; gap:10px;
+  padding:9px 12px; border-radius:7px; cursor:pointer;
+  font-size:12px; font-weight:500; color:rgba(255,255,255,.55);
+  transition:all .15s; margin-bottom:2px;
+  border:none; background:none; font-family:&#x27;Inter&#x27;; width:100%; text-align:left;
+}
+.stab:hover { background:rgba(255,255,255,.08); color:rgba(255,255,255,.85); }
+.stab.active { background:#3B82F6; color:#fff; font-weight:600; }
+.stab-icon { font-size:13px; width:18px; text-align:center; flex-shrink:0; }
+.stab-badge { font-size:9px; font-family:&#x27;JetBrains Mono&#x27;; background:rgba(255,255,255,.1); color:rgba(255,255,255,.65); padding:2px 5px; border-radius:4px; margin-left:auto; }
+.stab.active .stab-badge { background:rgba(255,255,255,.2); color:#fff; }
+.mill-sb-stat { padding:13px 15px; border-top:1px solid rgba(255,255,255,.08); }
+.mill-sb-row { display:flex; justify-content:space-between; margin-bottom:4px; }
+.mill-sb-row:last-child { margin:0; }
+.mill-sb-lbl { font-size:10px; color:rgba(255,255,255,.33); }
+.mill-sb-val { font-size:10px; font-family:&#x27;JetBrains Mono&#x27;; font-weight:700; color:rgba(255,255,255,.6); }
+
+/* MAIN */
+.main-area { flex:1; display:flex; flex-direction:column; min-width:0; }
+.top-bar { background:var(--surface); border-bottom:1px solid var(--border); padding:0 26px; height:54px; display:flex; align-items:center; gap:12px; position:sticky; top:0; z-index:90; }
+.tb-title { font-size:15px; font-weight:700; color:var(--t1); }
+.tb-tag { padding:3px 10px; border-radius:20px; font-size:10px; font-weight:700; background:var(--primary-lt); color:var(--primary); border:1px solid var(--primary-xl); }
+.tb-meta { margin-left:auto; font-size:11px; font-family:&#x27;JetBrains Mono&#x27;; color:var(--t2); }
+.content-area { padding:22px 26px; }
+
+/* SHEET PANELS */
+.sheet-panel { display:none; }
+.sheet-panel.active { display:block; animation:fadeUp .25s ease; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+.sec-label { display:flex; align-items:center; gap:8px; font-size:10px; font-weight:700; color:var(--t3); letter-spacing:.1em; text-transform:uppercase; margin:24px 0 12px; }
+.sec-label::before { content:&#x27;&#x27;; width:3px; height:12px; background:var(--primary-md); border-radius:2px; }
+.sec-label::after { content:&#x27;&#x27;; flex:1; height:1px; background:var(--border); }
+.sec-label:first-child { margin-top:0; }
+
+/* KPI */
+.kpi-row { display:flex; gap:11px; flex-wrap:wrap; margin-bottom:18px; }
+.kpi { flex:1; min-width:140px; background:var(--surface); border:1px solid var(--border); border-top:3px solid var(--accent,#3B82F6); border-radius:var(--r); padding:15px 17px; box-shadow:var(--shadow-sm); }
+.kpi-lbl { font-size:10px; font-weight:700; color:var(--t3); letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px; }
+.kpi-val { font-family:&#x27;JetBrains Mono&#x27;; font-size:22px; font-weight:700; line-height:1; }
+.kpi-sub { font-size:10px; color:var(--t2); margin-top:4px; }
+
+/* CARD */
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--r); padding:20px; box-shadow:var(--shadow-sm); }
+.card-title { font-size:13px; font-weight:700; color:var(--t1); margin-bottom:3px; }
+.card-sub { font-size:11px; color:var(--t2); margin-bottom:14px; }
+.g2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.g3 { display:grid; grid-template-columns:2fr 1fr; gap:14px; }
+.g4 { display:grid; grid-template-columns:3fr 2fr; gap:14px; }
+.mt16 { margin-top:16px; }
+
+/* TECH LEGEND */
+.tleg { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+.tleg-item { display:flex; align-items:center; gap:4px; font-size:11px; color:var(--t2); }
+.tleg-dot { width:7px; height:7px; border-radius:50%; }
+
+/* TOGGLE */
+.tog-grp { display:inline-flex; background:var(--bg); border:1px solid var(--border); border-radius:6px; padding:3px; gap:2px; margin-bottom:12px; }
+.tog { padding:6px 14px; border:none; border-radius:4px; cursor:pointer; font-family:&#x27;Inter&#x27;; font-size:11px; font-weight:600; color:var(--t2); background:none; transition:all .15s; }
+.tog:hover { color:var(--t1); }
+.tog.on { background:var(--primary-md); color:#fff; box-shadow:0 1px 3px rgba(59,130,246,.3); }
+
+/* TABLE */
+.tbl { width:100%; border-collapse:collapse; font-size:12px; }
+.tbl thead { position:sticky; top:0; z-index:1; }
+.tbl th { text-align:left; padding:9px 11px; font-size:10px; font-weight:700; color:var(--t2); letter-spacing:.06em; text-transform:uppercase; border-bottom:2px solid var(--border2); background:var(--bg); white-space:nowrap; }
+.tbl td { padding:8px 11px; border-bottom:1px solid var(--border); }
+.tbl tbody tr:hover td { background:var(--primary-lt); }
+.tbl .r { text-align:right; font-family:&#x27;JetBrains Mono&#x27;; }
+.tbl .hl { font-weight:700; color:var(--primary-md); }
+.tbl .tot td { background:var(--primary-lt); font-weight:700; }
+.rate { display:inline-flex; padding:2px 7px; border-radius:12px; font-size:10px; font-weight:700; font-family:&#x27;JetBrains Mono&#x27;; }
+.rate.hi { background:#FEE2E2; color:#DC2626; }
+.rate.mid { background:#FEF3C7; color:#D97706; }
+.rate.lo { background:#DCFCE7; color:#16A34A; }
+.bar-bg { flex:1; height:4px; background:var(--border); border-radius:2px; min-width:40px; }
+.bar-fill { height:100%; border-radius:2px; transition:width .6s ease; }
+.bar-cell { display:flex; align-items:center; gap:6px; }
+
+/* FUNNEL */
+.funnel-row { display:flex; align-items:center; gap:10px; padding:7px 0; border-bottom:1px solid var(--border); }
+.funnel-label { font-size:12px; width:78px; color:var(--t2); font-weight:500; }
+.funnel-bar-wrap { flex:1; background:var(--border); border-radius:5px; height:22px; overflow:hidden; }
+.funnel-bar { height:100%; border-radius:5px; display:flex; align-items:center; padding-left:8px; transition:width .7s cubic-bezier(.4,0,.2,1); font-size:11px; font-weight:700; font-family:&#x27;JetBrains Mono&#x27;; color:#fff; }
+.funnel-pct { font-family:&#x27;JetBrains Mono&#x27;; font-size:11px; color:var(--t2); width:36px; text-align:right; }
+
+::-webkit-scrollbar { width:5px; height:5px; }
+::-webkit-scrollbar-thumb { background:var(--border2); border-radius:3px; }
+@media(max-width:900px) { .g2,.g3,.g4{grid-template-columns:1fr} .kpi-row{flex-wrap:wrap} }
+
+.lang-sel{display:flex;align-items:center;gap:3px;margin-left:10px}
+.lang-btn{padding:4px 9px;border:1px solid var(--border);border-radius:5px;background:none;cursor:pointer;font-size:11px;font-weight:700;color:var(--t2);transition:all .15s;font-family:&#x27;Inter&#x27;;}
+.lang-btn:hover{border-color:var(--primary-md);color:var(--primary)}
+.lang-btn.lact{background:var(--primary-md);border-color:var(--primary-md);color:#fff}
+.lang-sep{font-size:10px;color:var(--t3)}
+.ver-badge{font-size:10px;font-family:&#x27;JetBrains Mono&#x27;;color:var(--t3);padding:2px 7px;border:1px solid var(--border);border-radius:4px}
+
+/* ===== HAUS unified theme polish (v1.14) ===== */
+body{ -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility; }
+.tbl{ font-variant-numeric:tabular-nums lining-nums; }
+.tbl th{ font-weight:600;letter-spacing:.015em; }
+.tbl td.r,.tbl th.r{ font-variant-numeric:tabular-nums; }
+.kpi-v{ font-variant-numeric:tabular-nums;letter-spacing:-.015em; }
+.card-title{ letter-spacing:-.01em; }
+.card{ border-radius:12px; }
+.stab-badge,.hub-badge{ font-variant-numeric:tabular-nums; }
+&lt;/style&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;div class=&quot;app-shell&quot;&gt;
+  &lt;aside class=&quot;mill-sidebar&quot;&gt;
+    &lt;div class=&quot;mill-sb-logo&quot;&gt;
+      &lt;div class=&quot;mill-sb-logo-row&quot;&gt;
+        &lt;div class=&quot;mill-sb-icon&quot;&gt;⚙&lt;/div&gt;
+        &lt;div&gt;&lt;div class=&quot;mill-sb-name&quot;&gt;Milling&lt;/div&gt;&lt;div class=&quot;mill-sb-sub&quot;&gt;생산 리포트 2026&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;nav class=&quot;mill-sb-nav&quot;&gt;
+      &lt;div class=&quot;mill-sb-section&quot;&gt;시트별 분석&lt;/div&gt;
+      &lt;button class=&quot;stab active&quot; onclick=&quot;sw(0)&quot;&gt;
+      &lt;span class=&quot;stab-icon&quot;&gt;📊&lt;/span&gt;M0 &lt;span data-i18n=&quot;nav-m0&quot;&gt;부서종합&lt;/span&gt;
+      &lt;span class=&quot;stab-badge&quot;&gt;41,574&lt;/span&gt;
+    &lt;/button&gt;
+&lt;button class=&quot;stab &quot; onclick=&quot;sw(1)&quot;&gt;
+      &lt;span class=&quot;stab-icon&quot;&gt;💎&lt;/span&gt;M1 &lt;span data-i18n=&quot;nav-m1&quot;&gt;Zirconia&lt;/span&gt;
+      &lt;span class=&quot;stab-badge&quot;&gt;23,321&lt;/span&gt;
+    &lt;/button&gt;
+&lt;button class=&quot;stab &quot; onclick=&quot;sw(2)&quot;&gt;
+      &lt;span class=&quot;stab-icon&quot;&gt;⚙️&lt;/span&gt;M2 &lt;span data-i18n=&quot;nav-m2&quot;&gt;Ti/Croco&lt;/span&gt;
+      &lt;span class=&quot;stab-badge&quot;&gt;2,777&lt;/span&gt;
+    &lt;/button&gt;
+&lt;button class=&quot;stab &quot; onclick=&quot;sw(3)&quot;&gt;
+      &lt;span class=&quot;stab-icon&quot;&gt;🔬&lt;/span&gt;M3 &lt;span data-i18n=&quot;nav-m3&quot;&gt;기타재료&lt;/span&gt;
+      &lt;span class=&quot;stab-badge&quot;&gt;645&lt;/span&gt;
+    &lt;/button&gt;
+&lt;button class=&quot;stab &quot; onclick=&quot;sw(4)&quot;&gt;
+      &lt;span class=&quot;stab-icon&quot;&gt;🎯&lt;/span&gt;M4 &lt;span data-i18n=&quot;nav-m4&quot;&gt;Option Qty&lt;/span&gt;
+      &lt;span class=&quot;stab-badge&quot;&gt;519&lt;/span&gt;
+    &lt;/button&gt;
+&lt;button class=&quot;stab &quot; onclick=&quot;sw(5)&quot;&gt;
+      &lt;span class=&quot;stab-icon&quot;&gt;🔁&lt;/span&gt;M5 &lt;span data-i18n=&quot;nav-m5&quot;&gt;Redo 분석&lt;/span&gt;
+      &lt;span class=&quot;stab-badge&quot;&gt;488 Unit&lt;/span&gt;
+    &lt;/button&gt;
+&lt;button class=&quot;stab &quot; onclick=&quot;sw(6)&quot;&gt;
+      &lt;span class=&quot;stab-icon&quot;&gt;⏱️&lt;/span&gt;M6 &lt;span data-i18n=&quot;nav-m6&quot;&gt;Hourly&lt;/span&gt;
+      &lt;span class=&quot;stab-badge&quot;&gt;효율&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;/nav&gt;
+    &lt;div class=&quot;mill-sb-stat&quot;&gt;
+      &lt;div class=&quot;mill-sb-row&quot;&gt;&lt;span class=&quot;mill-sb-lbl&quot; data-i18n=&quot;sb-ytd&quot;&gt;YTD 생산&lt;/span&gt;&lt;span class=&quot;mill-sb-val&quot;&gt;41,574&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;mill-sb-row&quot;&gt;&lt;span class=&quot;mill-sb-lbl&quot; data-i18n=&quot;sb-period&quot;&gt;기간&lt;/span&gt;&lt;span class=&quot;mill-sb-val&quot;&gt;Jan~May&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;mill-sb-row&quot;&gt;&lt;span class=&quot;mill-sb-lbl&quot; data-i18n=&quot;sb-tech&quot;&gt;테크니션&lt;/span&gt;&lt;span class=&quot;mill-sb-val&quot;&gt;5명&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/aside&gt;
+
+  &lt;div class=&quot;main-area&quot;&gt;
+    &lt;div class=&quot;top-bar&quot;&gt;
+      &lt;div class=&quot;tb-title&quot; id=&quot;millTitle&quot;&gt;M0 — 부서종합&lt;/div&gt;
+      &lt;div class=&quot;tb-tag&quot;&gt;Milling Dept&lt;/div&gt;
+      &lt;div class=&quot;ver-badge&quot;&gt;v2.15&lt;/div&gt;
+&lt;div class=&quot;lang-sel&quot;&gt;
+  &lt;button class=&quot;lang-btn lact&quot; data-lang=&quot;ko&quot; onclick=&quot;setLang(&#x27;ko&#x27;)&quot;&gt;🇰🇷 KO&lt;/button&gt;
+  &lt;span class=&quot;lang-sep&quot;&gt;|&lt;/span&gt;
+  &lt;button class=&quot;lang-btn&quot; data-lang=&quot;en&quot; onclick=&quot;setLang(&#x27;en&#x27;)&quot;&gt;🇺🇸 EN&lt;/button&gt;
+  &lt;span class=&quot;lang-sep&quot;&gt;|&lt;/span&gt;
+  &lt;button class=&quot;lang-btn&quot; data-lang=&quot;es&quot; onclick=&quot;setLang(&#x27;es&#x27;)&quot;&gt;🇪🇸 ES&lt;/button&gt;
+&lt;/div&gt;
+    &lt;div class=&quot;tb-meta&quot; data-i18n=&quot;tag-meta&quot;&gt;Paul Seo 제외 · Final Item Unit&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;content-area&quot;&gt;
+
+&lt;!-- M0 --&gt;
+&lt;div class=&quot;sheet-panel active&quot; id=&quot;s0&quot;&gt;
+  &lt;div class=&quot;kpi-row&quot;&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#1E40AF&quot;&gt;&lt;div class=&quot;kpi-lbl&quot;&gt;2026 생산량 (Haus Link + 로컬/수기)&lt;/div&gt;&lt;div class=&quot;kpi-val&quot; style=&quot;color:#1E40AF&quot;&gt;41,574&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot;&gt;월평균 8,315 · Jan~May&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#1E40AF&quot;&gt;&lt;div class=&quot;kpi-lbl&quot;&gt;당월(5월) 생산량 (Haus Link + 로컬/수기)&lt;/div&gt;&lt;div class=&quot;kpi-val&quot; style=&quot;color:#1E40AF&quot;&gt;8,571&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot;&gt;직전월 9,140&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#DC2626&quot;&gt;&lt;div class=&quot;kpi-lbl&quot;&gt;전월대비 성장률&lt;/div&gt;&lt;div class=&quot;kpi-val&quot; style=&quot;color:#DC2626&quot;&gt;−6.2%&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot;&gt;▼ 569 units&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#16A34A&quot;&gt;&lt;div class=&quot;kpi-lbl&quot;&gt;월평균대비 증감률&lt;/div&gt;&lt;div class=&quot;kpi-val&quot; style=&quot;color:#16A34A&quot;&gt;+3.1%&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot;&gt;월평균 8,315 → 8,571&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#64748B&quot;&gt;&lt;div class=&quot;kpi-lbl&quot;&gt;전월대비 특이사항&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot; style=&quot;line-height:1.65;margin-top:5px&quot;&gt;• 당월 전월비 −6.2% 감소 (−569)&lt;br&gt;• 월평균 8,315 대비 +3.1% 상회&lt;br&gt;• 5월 생산성 6.23/h · 49.8/day (수기 1,965)&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;g4&quot;&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;m0-stack&quot;&gt;월별 재료 그룹&lt;/div&gt;&lt;div class=&quot;card-sub&quot;&gt;Stacked Bar&lt;/div&gt;&lt;div style=&quot;position:relative;height:240px;width:100%&quot;&gt;&lt;canvas id=&quot;m0-stack&quot; height=&quot;200&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;m0-src&quot;&gt;Haus Link vs 수기&lt;/div&gt;&lt;div class=&quot;card-sub&quot;&gt;월별 비교&lt;/div&gt;&lt;div style=&quot;position:relative;height:240px;width:100%&quot;&gt;&lt;canvas id=&quot;m0-src&quot; height=&quot;200&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;g2 mt16&quot;&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;m0-avg&quot;&gt;메인 태스크별 월평균 유닛&lt;/div&gt;&lt;div class=&quot;card-sub&quot;&gt;YTD ÷ 5개월&lt;/div&gt;&lt;div style=&quot;overflow-y:auto;max-height:280px&quot;&gt;&lt;table class=&quot;tbl&quot; id=&quot;m0-avg-tbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;m0-sum&quot;&gt;수기 + Haus Link 합계&lt;/div&gt;&lt;table class=&quot;tbl&quot; id=&quot;m0-src-tbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- M1 --&gt;
+&lt;div class=&quot;sheet-panel&quot; id=&quot;s1&quot;&gt;
+  &lt;div class=&quot;g4&quot;&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;trend-title&quot;&gt;테크니션별 월별 트렌드&lt;/div&gt;&lt;div class=&quot;card-sub&quot;&gt;Crown · Coping · Cutback · Full Arch · I-Bar Shell&lt;/div&gt;&lt;div class=&quot;tleg&quot; id=&quot;m1-leg&quot;&gt;&lt;/div&gt;&lt;div style=&quot;position:relative;height:250px;width:100%&quot;&gt;&lt;canvas id=&quot;m1-line&quot; height=&quot;210&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;donut-title&quot;&gt;YTD 비중&lt;/div&gt;&lt;div style=&quot;position:relative;height:250px;width:100%&quot;&gt;&lt;canvas id=&quot;m1-donut&quot; height=&quot;210&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;card mt16&quot;&gt;
+    &lt;div class=&quot;card-title&quot; data-i18n=&quot;tbl-title&quot;&gt;테크니션 × 작업종류&lt;/div&gt;
+    &lt;div class=&quot;tog-grp&quot;&gt;&lt;button class=&quot;tog on&quot; onclick=&quot;m1view(&#x27;ytd&#x27;,this)&quot;&gt;YTD&lt;/button&gt;&lt;button class=&quot;tog&quot; onclick=&quot;m1view(&#x27;jan&#x27;,this)&quot;&gt;Jan&lt;/button&gt;&lt;button class=&quot;tog&quot; onclick=&quot;m1view(&#x27;feb&#x27;,this)&quot;&gt;Feb&lt;/button&gt;&lt;button class=&quot;tog&quot; onclick=&quot;m1view(&#x27;mar&#x27;,this)&quot;&gt;Mar&lt;/button&gt;&lt;button class=&quot;tog&quot; onclick=&quot;m1view(&#x27;apr&#x27;,this)&quot;&gt;Apr&lt;/button&gt;&lt;button class=&quot;tog&quot; onclick=&quot;m1view(&#x27;may&#x27;,this)&quot;&gt;May&lt;/button&gt;&lt;/div&gt;
+    &lt;div style=&quot;overflow-x:auto&quot;&gt;&lt;table class=&quot;tbl&quot; id=&quot;m1-tbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- M2 --&gt;
+&lt;div class=&quot;sheet-panel&quot; id=&quot;s2&quot;&gt;
+  &lt;div class=&quot;g4&quot;&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;trend-title&quot;&gt;테크니션별 월별 트렌드&lt;/div&gt;&lt;div class=&quot;card-sub&quot;&gt;Ti/Croco Abut · Bar · Crown · Thimble · I-Bar Bar&lt;/div&gt;&lt;div class=&quot;tleg&quot; id=&quot;m2-leg&quot;&gt;&lt;/div&gt;&lt;div style=&quot;position:relative;height:250px;width:100%&quot;&gt;&lt;canvas id=&quot;m2-line&quot; height=&quot;210&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;donut-title&quot;&gt;YTD 비중&lt;/div&gt;&lt;div style=&quot;position:relative;height:250px;width:100%&quot;&gt;&lt;canvas id=&quot;m2-donut&quot; height=&quot;210&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;card mt16&quot;&gt;
+    &lt;div class=&quot;tog-grp&quot;&gt;&lt;button class=&quot;tog on&quot; onclick=&quot;m2view(&#x27;ytd&#x27;,this)&quot;&gt;YTD&lt;/button&gt;&lt;button class=&quot;tog&quot; onclick=&quot;m2view(&#x27;jan&#x27;,this)&quot;&gt;Jan&lt;/button&gt;&lt;button class=&quot;tog&quot; onclick=&quot;m2view(&#x27;feb&#x27;,this)&quot;&gt;Feb&lt;/button&gt;&lt;button class=&quot;tog&quot; onclick=&quot;m2view(&#x27;mar&#x27;,this)&quot;&gt;Mar&lt;/button&gt;&lt;button class=&quot;tog&quot; onclick=&quot;m2view(&#x27;apr&#x27;,this)&quot;&gt;Apr&lt;/button&gt;&lt;button class=&quot;tog&quot; onclick=&quot;m2view(&#x27;may&#x27;,this)&quot;&gt;May&lt;/button&gt;&lt;/div&gt;
+    &lt;div style=&quot;overflow-x:auto&quot;&gt;&lt;table class=&quot;tbl&quot; id=&quot;m2-tbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- M3 --&gt;
+&lt;div class=&quot;sheet-panel&quot; id=&quot;s3&quot;&gt;
+  &lt;div class=&quot;g4&quot;&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;trend-title&quot;&gt;테크니션별 월별 트렌드&lt;/div&gt;&lt;div class=&quot;card-sub&quot;&gt;Emax · Ivotion · PMMA · Bar (Tri-Lor)&lt;/div&gt;&lt;div class=&quot;tleg&quot; id=&quot;m3-leg&quot;&gt;&lt;/div&gt;&lt;div style=&quot;position:relative;height:250px;width:100%&quot;&gt;&lt;canvas id=&quot;m3-line&quot; height=&quot;210&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;donut-title&quot;&gt;YTD 비중&lt;/div&gt;&lt;div style=&quot;position:relative;height:250px;width:100%&quot;&gt;&lt;canvas id=&quot;m3-donut&quot; height=&quot;210&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;card mt16&quot;&gt;
+    &lt;div class=&quot;tog-grp&quot;&gt;&lt;button class=&quot;tog on&quot; onclick=&quot;m3view(&#x27;ytd&#x27;,this)&quot;&gt;YTD&lt;/button&gt;&lt;button class=&quot;tog&quot; onclick=&quot;m3view(&#x27;jan&#x27;,this)&quot;&gt;Jan&lt;/button&gt;&lt;button class=&quot;tog&quot; onclick=&quot;m3view(&#x27;feb&#x27;,this)&quot;&gt;Feb&lt;/button&gt;&lt;button class=&quot;tog&quot; onclick=&quot;m3view(&#x27;mar&#x27;,this)&quot;&gt;Mar&lt;/button&gt;&lt;button class=&quot;tog&quot; onclick=&quot;m3view(&#x27;apr&#x27;,this)&quot;&gt;Apr&lt;/button&gt;&lt;button class=&quot;tog&quot; onclick=&quot;m3view(&#x27;may&#x27;,this)&quot;&gt;May&lt;/button&gt;&lt;/div&gt;
+    &lt;div style=&quot;overflow-x:auto&quot;&gt;&lt;table class=&quot;tbl&quot; id=&quot;m3-tbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- M4 --&gt;
+&lt;div class=&quot;sheet-panel&quot; id=&quot;s4&quot;&gt;
+  &lt;div class=&quot;kpi-row&quot;&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#0EA5E9&quot;&gt;&lt;div class=&quot;kpi-lbl&quot; data-i18n=&quot;kpi-gs&quot;&gt;Greenstate&lt;/div&gt;&lt;div class=&quot;kpi-val&quot;&gt;87&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#16A34A&quot;&gt;&lt;div class=&quot;kpi-lbl&quot; data-i18n=&quot;kpi-mi&quot;&gt;Model (in-house)&lt;/div&gt;&lt;div class=&quot;kpi-val&quot;&gt;308&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#D97706&quot;&gt;&lt;div class=&quot;kpi-lbl&quot; data-i18n=&quot;kpi-wc&quot;&gt;White Coloring&lt;/div&gt;&lt;div class=&quot;kpi-val&quot;&gt;124&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#1E40AF&quot;&gt;&lt;div class=&quot;kpi-lbl&quot; data-i18n=&quot;kpi-ot&quot;&gt;핵심 옵션 합계&lt;/div&gt;&lt;div class=&quot;kpi-val&quot; style=&quot;color:#1E40AF&quot;&gt;519&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;g2&quot;&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;m4-bar&quot;&gt;핵심 옵션 월별&lt;/div&gt;&lt;div style=&quot;position:relative;height:260px;width:100%&quot;&gt;&lt;canvas id=&quot;m4-bar&quot; height=&quot;230&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;m4-line&quot;&gt;월별 Sub-Total&lt;/div&gt;&lt;div style=&quot;position:relative;height:260px;width:100%&quot;&gt;&lt;canvas id=&quot;m4-line&quot; height=&quot;230&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;card mt16&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;m4-tbl&quot;&gt;핵심 옵션 상세표&lt;/div&gt;&lt;table class=&quot;tbl&quot; id=&quot;m4-tbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- M5 --&gt;
+&lt;div class=&quot;sheet-panel&quot; id=&quot;s5&quot;&gt;
+  &lt;div class=&quot;kpi-row&quot;&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#DC2626&quot;&gt;&lt;div class=&quot;kpi-lbl&quot; data-i18n=&quot;kpi-ytd-redo&quot;&gt;YTD Redo&lt;/div&gt;&lt;div class=&quot;kpi-val&quot; style=&quot;color:#DC2626&quot;&gt;488&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#DC2626&quot;&gt;&lt;div class=&quot;kpi-lbl&quot; data-i18n=&quot;kpi-top-rsn&quot;&gt;최다 사유&lt;/div&gt;&lt;div class=&quot;kpi-val&quot; style=&quot;font-size:16px;color:#DC2626&quot;&gt;Machine&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot;&gt;268 Unit · 54.9%&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#D97706&quot;&gt;&lt;div class=&quot;kpi-lbl&quot; data-i18n=&quot;kpi-apr-r&quot;&gt;Apr Redo&lt;/div&gt;&lt;div class=&quot;kpi-val&quot; style=&quot;color:#D97706&quot;&gt;202&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#D97706&quot;&gt;&lt;div class=&quot;kpi-lbl&quot; data-i18n=&quot;kpi-top-t&quot;&gt;최다 테크니션&lt;/div&gt;&lt;div class=&quot;kpi-val&quot; style=&quot;font-size:13px;color:#D97706&quot;&gt;Hyunbin Oh&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot;&gt;239 Unit&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;g2&quot;&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;m5-line&quot;&gt;사유별 월별 추이 (Top 5)&lt;/div&gt;&lt;div style=&quot;position:relative;height:260px;width:100%&quot;&gt;&lt;canvas id=&quot;m5-line&quot; height=&quot;230&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;m5-donut&quot;&gt;YTD 사유별 비중&lt;/div&gt;&lt;div style=&quot;position:relative;height:260px;width:100%&quot;&gt;&lt;canvas id=&quot;m5-donut&quot; height=&quot;230&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;g2 mt16&quot;&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;m5-rtbl&quot;&gt;사유별 상세표&lt;/div&gt;&lt;div style=&quot;overflow-y:auto;max-height:300px&quot;&gt;&lt;table class=&quot;tbl&quot; id=&quot;m5-reason-tbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;m5-ttbl&quot;&gt;테크니션별 Redo&lt;/div&gt;&lt;table class=&quot;tbl&quot; id=&quot;m5-tech-tbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- M6 --&gt;
+&lt;div class=&quot;sheet-panel&quot; id=&quot;s6&quot;&gt;
+  &lt;div id=&quot;m6-kpi-row&quot; class=&quot;kpi-row&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;g2&quot;&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;m6-unit&quot;&gt;테크니션별 월별 생산량&lt;/div&gt;&lt;div class=&quot;card-sub&quot;&gt;Final Item Unit&lt;/div&gt;&lt;div style=&quot;position:relative;height:240px;width:100%&quot;&gt;&lt;canvas id=&quot;m6-unit&quot; height=&quot;210&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;m6-rate&quot;&gt;테크니션별 Unit/Hrs&lt;/div&gt;&lt;div class=&quot;card-sub&quot;&gt;Unit ÷ Total Hours&lt;/div&gt;&lt;div style=&quot;position:relative;height:240px;width:100%&quot;&gt;&lt;canvas id=&quot;m6-rate&quot; height=&quot;210&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;card mt16&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;m6-ytd&quot;&gt;YTD 생산성 요약&lt;/div&gt;&lt;div style=&quot;overflow-x:auto&quot;&gt;&lt;table class=&quot;tbl&quot; id=&quot;m6-ytd-tbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;card mt16&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;m6-det&quot;&gt;월별 상세 — 테크니션 × 시간 × 생산성&lt;/div&gt;&lt;div style=&quot;overflow-x:auto&quot;&gt;&lt;table class=&quot;tbl&quot; id=&quot;m6-detail-tbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+// ══════════════════════════════════
+//  DATA
+// ══════════════════════════════════
+const D = {
+  months:[&#x27;Jan&#x27;,&#x27;Feb&#x27;,&#x27;Mar&#x27;,&#x27;Apr&#x27;,&#x27;May&#x27;],
+  techColors:[&#x27;#EA580C&#x27;,&#x27;#16A34A&#x27;,&#x27;#2563EB&#x27;,&#x27;#D97706&#x27;,&#x27;#7C3AED&#x27;],
+  techs:[&#x27;Hyunbin Oh&#x27;,&#x27;Jaeyoung Kim&#x27;,&#x27;Jin hee Park&#x27;,&#x27;Min woo Kim&#x27;,&#x27;Seungwoo Han&#x27;],
+  m0:{
+    groups:{Zirconia:[5306,5784,6292,5939,5636],Ti_Croco:[660,726,715,676,788],기타:[171,171,149,154,182]},
+    manual:[329,1750,1810,2371,1965],haus:[6137,6681,7156,6769,6606],
+    mt_avg:{&quot;Crown&quot;:5536.2,&quot;Coping&quot;:137.6,&quot;Cutback&quot;:54.6,&quot;Full Arch&quot;:45.6,&quot;I-Bar - Shell&quot;:17.4,&quot;Ti/Croco Abut&quot;:597.4,&quot;Ti/Croco Bar&quot;:65.0,&quot;Ti/Croco Crown&quot;:38.8,&quot;Ti/Croco Thimble Bar&quot;:2.6,&quot;I-Bar - Bar&quot;:9.2,&quot;Emax&quot;:66.2,&quot;Ivotion&quot;:5.4,&quot;PMMA&quot;:93.2,&quot;Bar(Tri-Lor)&quot;:0.6},
+    mt_group:{&quot;Crown&quot;:&quot;Zirconia&quot;,&quot;Coping&quot;:&quot;Zirconia&quot;,&quot;Cutback&quot;:&quot;Zirconia&quot;,&quot;Full Arch&quot;:&quot;Zirconia&quot;,&quot;I-Bar - Shell&quot;:&quot;Zirconia&quot;,
+              &quot;Ti/Croco Abut&quot;:&quot;Ti/Croco&quot;,&quot;Ti/Croco Bar&quot;:&quot;Ti/Croco&quot;,&quot;Ti/Croco Crown&quot;:&quot;Ti/Croco&quot;,&quot;Ti/Croco Thimble Bar&quot;:&quot;Ti/Croco&quot;,&quot;I-Bar - Bar&quot;:&quot;Ti/Croco&quot;,
+              &quot;Emax&quot;:&quot;기타재료&quot;,&quot;Ivotion&quot;:&quot;기타재료&quot;,&quot;PMMA&quot;:&quot;기타재료&quot;,&quot;Bar(Tri-Lor)&quot;:&quot;기타재료&quot;}
+  },
+  m1:{
+    tasks:[&#x27;Crown&#x27;,&#x27;Coping&#x27;,&#x27;Cutback&#x27;,&#x27;Full Arch&#x27;,&#x27;I-Bar - Shell&#x27;],
+    data:{
+      &#x27;Hyunbin Oh&#x27;:{ytd:9490,tasks:{Crown:9219,Coping:197,Cutback:70,&#x27;Full Arch&#x27;:3,&#x27;I-Bar - Shell&#x27;:1},monthly:[1573,1680,2263,2472,1502]},
+      &#x27;Jaeyoung Kim&#x27;:{ytd:1197,tasks:{Crown:1085,Coping:66,Cutback:41,&#x27;Full Arch&#x27;:3,&#x27;I-Bar - Shell&#x27;:2},monthly:[484,248,143,96,226]},
+      &#x27;Jin hee Park&#x27;:{ytd:14963,tasks:{Crown:14199,Coping:341,Cutback:124,&#x27;Full Arch&#x27;:220,&#x27;I-Bar - Shell&#x27;:79},monthly:[2566,2997,3227,2898,3275]},
+      &#x27;Min woo Kim&#x27;:{ytd:565,tasks:{Crown:542,Coping:15,Cutback:7,&#x27;Full Arch&#x27;:0,&#x27;I-Bar - Shell&#x27;:1},monthly:[23,21,149,95,277]},
+      &#x27;Seungwoo Han&#x27;:{ytd:2742,tasks:{Crown:2636,Coping:69,Cutback:31,&#x27;Full Arch&#x27;:2,&#x27;I-Bar - Shell&#x27;:4},monthly:[660,838,510,378,356]}
+    }
+  },
+  m2:{
+    tasks:[&#x27;Ti/Croco Abut&#x27;,&#x27;Ti/Croco Bar&#x27;,&#x27;Ti/Croco Crown&#x27;,&#x27;Ti/Croco Thimble Bar&#x27;,&#x27;I-Bar - Bar&#x27;],
+    data:{
+      &#x27;Jaeyoung Kim&#x27;:{ytd:79,tasks:{&#x27;Ti/Croco Abut&#x27;:68,&#x27;Ti/Croco Bar&#x27;:6,&#x27;Ti/Croco Crown&#x27;:3,&#x27;Ti/Croco Thimble Bar&#x27;:1,&#x27;I-Bar - Bar&#x27;:1},monthly:[15,3,22,16,23]},
+      &#x27;Min woo Kim&#x27;:{ytd:2132,tasks:{&#x27;Ti/Croco Abut&#x27;:1796,&#x27;Ti/Croco Bar&#x27;:195,&#x27;Ti/Croco Crown&#x27;:116,&#x27;Ti/Croco Thimble Bar&#x27;:8,&#x27;I-Bar - Bar&#x27;:17},monthly:[381,490,410,408,443]},
+      &#x27;Seungwoo Han&#x27;:{ytd:1349,tasks:{&#x27;Ti/Croco Abut&#x27;:1118,&#x27;Ti/Croco Bar&#x27;:124,&#x27;Ti/Croco Crown&#x27;:75,&#x27;Ti/Croco Thimble Bar&#x27;:4,&#x27;I-Bar - Bar&#x27;:28},monthly:[264,233,283,252,317]},&#x27;Jin hee Park&#x27;:{ytd:5,tasks:{&#x27;Ti/Croco Abut&#x27;:5,&#x27;Ti/Croco Bar&#x27;:0,&#x27;Ti/Croco Crown&#x27;:0,&#x27;Ti/Croco Thimble Bar&#x27;:0,&#x27;I-Bar - Bar&#x27;:0},monthly:[0,0,0,0,5]}
+    }
+  },
+  m3:{
+    tasks:[&#x27;Emax&#x27;,&#x27;Ivotion&#x27;,&#x27;PMMA&#x27;,&#x27;Bar(Tri-Lor)&#x27;],
+    data:{
+      &#x27;Hyunbin Oh&#x27;:{ytd:76,tasks:{Emax:1,Ivotion:0,PMMA:75,&#x27;Bar(Tri-Lor)&#x27;:0},monthly:[1,8,1,34,32]},
+      &#x27;Jaeyoung Kim&#x27;:{ytd:24,tasks:{Emax:12,Ivotion:6,PMMA:6,&#x27;Bar(Tri-Lor)&#x27;:0},monthly:[9,0,14,1,0]},
+      &#x27;Jin hee Park&#x27;:{ytd:323,tasks:{Emax:15,Ivotion:0,PMMA:308,&#x27;Bar(Tri-Lor)&#x27;:0},monthly:[66,72,82,53,50]},
+      &#x27;Min woo Kim&#x27;:{ytd:26,tasks:{Emax:11,Ivotion:1,PMMA:13,&#x27;Bar(Tri-Lor)&#x27;:1},monthly:[10,5,7,3,1]},
+      &#x27;Seungwoo Han&#x27;:{ytd:378,tasks:{Emax:292,Ivotion:20,PMMA:64,&#x27;Bar(Tri-Lor)&#x27;:2},monthly:[85,86,45,63,99]}
+    }
+  },
+  m4:{
+    opts:[&#x27;Greenstate&#x27;,&#x27;Model (in-house)&#x27;,&#x27;White Coloring&#x27;],
+    optColors:[&#x27;#4FC3F7&#x27;,&#x27;#A5D6A7&#x27;,&#x27;#FFCC80&#x27;],
+    data:{Greenstate:[25,17,23,22,49],&#x27;Model (in-house)&#x27;:[54,63,72,119,62],&#x27;White Coloring&#x27;:[29,28,33,34,41]},
+    sub:[108,108,128,175,152]
+  },
+  m5:{
+    total:679,
+    reasons:[&#x27;Machine&#x27;,&#x27;Chipped Margin&#x27;,&#x27;Cutting / Cleaning&#x27;,&#x27;Nesting Mistake (Other)&#x27;,&#x27;Designing&#x27;,&#x27;Nesting Mistake (Me)&#x27;,&#x27;Finishing&#x27;,&#x27;T) Designing&#x27;,&#x27;Others&#x27;,&#x27;Customer Request&#x27;,&#x27;T) Wrong system&#x27;,&#x27;Fitting&#x27;,&#x27;T) Nesting&#x27;,&#x27;Finishing Mistake (Other)&#x27;],
+    reason_data:{
+      &#x27;Machine&#x27;:[19,33,106,110,63],&#x27;Chipped Margin&#x27;:[3,15,21,54,41],&#x27;Cutting / Cleaning&#x27;:[0,15,28,19,51],
+      &#x27;Nesting Mistake (Other)&#x27;:[0,6,7,8,25],&#x27;Designing&#x27;:[2,4,3,0,4],&#x27;Nesting Mistake (Me)&#x27;:[0,3,0,5,1],
+      &#x27;Finishing&#x27;:[0,2,2,3,5],&#x27;T) Designing&#x27;:[2,0,2,2,1],&#x27;Others&#x27;:[3,0,1,1,0],&#x27;Customer Request&#x27;:[2,2,1,0,0],
+      &#x27;T) Wrong system&#x27;:[0,0,2,0,0],&#x27;Fitting&#x27;:[0,0,1,0,0],&#x27;T) Nesting&#x27;:[0,0,1,0,0],&#x27;Finishing Mistake (Other)&#x27;:[0,0,0,0,0]
+    },
+    tech_data:{
+      &#x27;Hyunbin Oh&#x27;:{work:8266,redo:297,monthly:[1,21,97,120,58]},
+      &#x27;Jaeyoung Kim&#x27;:{work:1039,redo:15,monthly:[3,8,2,0,2]},
+      &#x27;Jin hee Park&#x27;:{work:12709,redo:283,monthly:[22,39,52,68,102]},
+      &#x27;Min woo Kim&#x27;:{work:2545,redo:34,monthly:[3,5,7,4,15]},
+      &#x27;Seungwoo Han&#x27;:{work:3882,redo:50,monthly:[2,7,17,10,14]}
+    }
+  },
+  m6:{
+    &#x27;Hyunbin Oh&#x27;:{1:{unit:1574,reg:151.2,ot:2.83,total:154.03},2:{unit:1688,reg:160,ot:12.02,total:172.02},3:{unit:2264,reg:176.32,ot:4.53,total:180.85},4:{unit:2506,reg:175.63,ot:1.18,total:176.82},5:{unit:1534,reg:157.02,ot:1.28,total:158.3}},
+    &#x27;Jaeyoung Kim&#x27;:{1:{unit:508,reg:157.25,ot:13.6,total:170.85},2:{unit:251,reg:160,ot:37.02,total:197.02},3:{unit:179,reg:176.83,ot:9.23,total:186.07},4:{unit:113,reg:170.05,ot:10.95,total:181},5:{unit:249,reg:163.72,ot:8.17,total:171.88}},
+    &#x27;Jin hee Park&#x27;:{1:{unit:2632,reg:157.73,ot:0.73,total:158.47},2:{unit:3069,reg:160,ot:11.4,total:171.4},3:{unit:3309,reg:175.9,ot:2.82,total:178.72},4:{unit:2951,reg:176.27,ot:0.62,total:176.88},5:{unit:3330,reg:162.3,ot:5.58,total:167.88}},
+    &#x27;Min woo Kim&#x27;:{1:{unit:414,reg:132.53,ot:0,total:132.53},2:{unit:516,reg:159.77,ot:6.03,total:165.8},3:{unit:566,reg:165.97,ot:1.93,total:167.9},4:{unit:506,reg:165.82,ot:0,total:165.82},5:{unit:721,reg:161.5,ot:3.67,total:165.17}},
+    &#x27;Seungwoo Han&#x27;:{1:{unit:1009,reg:161.43,ot:4.03,total:165.47},2:{unit:1157,reg:156.22,ot:16.03,total:172.25},3:{unit:838,reg:164.54,ot:5.05,total:169.58},4:{unit:693,reg:165.9,ot:3.2,total:169.1},5:{unit:772,reg:161.37,ot:4.55,total:165.92}}
+  }
+};
+// ── 월별 상세(task×month) 주입 — 버튼 클릭 시 동적 표시용 ──
+const MILL_TM={&quot;m1&quot;: {&quot;Hyunbin Oh&quot;: {&quot;Crown&quot;: [1538, 1637, 2212, 2388, 1444], &quot;Coping&quot;: [18, 24, 42, 64, 49], &quot;Cutback&quot;: [17, 19, 9, 18, 7], &quot;Full Arch&quot;: [0, 0, 0, 2, 1], &quot;I-Bar - Shell&quot;: [0, 0, 0, 0, 1]}, &quot;Jaeyoung Kim&quot;: {&quot;Crown&quot;: [446, 209, 138, 90, 202], &quot;Coping&quot;: [18, 29, 5, 1, 13], &quot;Cutback&quot;: [20, 7, 0, 3, 11], &quot;Full Arch&quot;: [0, 3, 0, 0, 0], &quot;I-Bar - Shell&quot;: [0, 0, 0, 2, 0]}, &quot;Jin hee Park&quot;: {&quot;Crown&quot;: [2420, 2859, 3080, 2755, 3085], &quot;Coping&quot;: [74, 47, 66, 74, 80], &quot;Cutback&quot;: [17, 21, 19, 25, 42], &quot;Full Arch&quot;: [43, 49, 53, 35, 40], &quot;I-Bar - Shell&quot;: [12, 21, 9, 9, 28]}, &quot;Min woo Kim&quot;: {&quot;Crown&quot;: [23, 21, 137, 95, 266], &quot;Coping&quot;: [0, 0, 6, 0, 9], &quot;Cutback&quot;: [0, 0, 5, 0, 2], &quot;Full Arch&quot;: [0, 0, 0, 0, 0], &quot;I-Bar - Shell&quot;: [0, 0, 1, 0, 0]}, &quot;Seungwoo Han&quot;: {&quot;Crown&quot;: [646, 789, 500, 355, 346], &quot;Coping&quot;: [8, 32, 4, 15, 10], &quot;Cutback&quot;: [5, 14, 4, 8, 0], &quot;Full Arch&quot;: [1, 1, 0, 0, 0], &quot;I-Bar - Shell&quot;: [0, 2, 2, 0, 0]}}, &quot;m2&quot;: {&quot;Jaeyoung Kim&quot;: {&quot;Ti/Croco Abut&quot;: [12, 1, 20, 15, 20], &quot;Ti/Croco Bar&quot;: [0, 2, 2, 1, 1], &quot;Ti/Croco Crown&quot;: [2, 0, 0, 0, 1], &quot;Ti/Croco Thimble Bar&quot;: [1, 0, 0, 0, 0], &quot;I-Bar - Bar&quot;: [0, 0, 0, 0, 1]}, &quot;Min woo Kim&quot;: {&quot;Ti/Croco Abut&quot;: [359, 412, 338, 350, 337], &quot;Ti/Croco Bar&quot;: [17, 44, 57, 28, 49], &quot;Ti/Croco Crown&quot;: [5, 29, 9, 26, 47], &quot;Ti/Croco Thimble Bar&quot;: [0, 2, 3, 0, 3], &quot;I-Bar - Bar&quot;: [0, 3, 3, 4, 7]}, &quot;Seungwoo Han&quot;: {&quot;Ti/Croco Abut&quot;: [233, 199, 235, 196, 255], &quot;Ti/Croco Bar&quot;: [16, 17, 20, 39, 32], &quot;Ti/Croco Crown&quot;: [14, 16, 23, 9, 13], &quot;Ti/Croco Thimble Bar&quot;: [1, 1, 1, 0, 1], &quot;I-Bar - Bar&quot;: [0, 0, 4, 8, 16]}, &quot;Jin hee Park&quot;: {&quot;Ti/Croco Abut&quot;: [0, 0, 0, 0, 5], &quot;Ti/Croco Bar&quot;: [0, 0, 0, 0, 0], &quot;Ti/Croco Crown&quot;: [0, 0, 0, 0, 0], &quot;Ti/Croco Thimble Bar&quot;: [0, 0, 0, 0, 0], &quot;I-Bar - Bar&quot;: [0, 0, 0, 0, 0]}}, &quot;m3&quot;: {&quot;Hyunbin Oh&quot;: {&quot;Emax&quot;: [0, 0, 1, 0, 0], &quot;Ivotion&quot;: [0, 0, 0, 0, 0], &quot;PMMA&quot;: [1, 8, 0, 34, 32], &quot;Bar(Tri-Lor)&quot;: [0, 0, 0, 0, 0]}, &quot;Jaeyoung Kim&quot;: {&quot;Emax&quot;: [2, 0, 10, 0, 0], &quot;Ivotion&quot;: [1, 0, 4, 1, 0], &quot;PMMA&quot;: [6, 0, 0, 0, 0], &quot;Bar(Tri-Lor)&quot;: [0, 0, 0, 0, 0]}, &quot;Jin hee Park&quot;: {&quot;Emax&quot;: [1, 0, 8, 6, 0], &quot;Ivotion&quot;: [0, 0, 0, 0, 0], &quot;PMMA&quot;: [65, 72, 74, 47, 50], &quot;Bar(Tri-Lor)&quot;: [0, 0, 0, 0, 0]}, &quot;Min woo Kim&quot;: {&quot;Emax&quot;: [9, 1, 0, 1, 0], &quot;Ivotion&quot;: [0, 0, 0, 1, 0], &quot;PMMA&quot;: [1, 4, 7, 0, 1], &quot;Bar(Tri-Lor)&quot;: [0, 0, 0, 1, 0]}, &quot;Seungwoo Han&quot;: {&quot;Emax&quot;: [39, 64, 38, 55, 96], &quot;Ivotion&quot;: [9, 2, 5, 2, 2], &quot;PMMA&quot;: [37, 20, 2, 4, 1], &quot;Bar(Tri-Lor)&quot;: [0, 0, 0, 2, 0]}}};
+[&#x27;m1&#x27;,&#x27;m2&#x27;,&#x27;m3&#x27;].forEach(s=&gt;{Object.keys(MILL_TM[s]).forEach(t=&gt;{if(D[s].data[t])D[s].data[t].tm=MILL_TM[s][t];});});
+
+// ══════════════════════════════════
+//  CHART DEFAULTS
+// ══════════════════════════════════
+Chart.defaults.color=&#x27;#64748B&#x27;;
+Chart.defaults.plugins.tooltip.titleColor=&#x27;#0F172A&#x27;;
+Chart.defaults.plugins.tooltip.bodyColor=&#x27;#334155&#x27;;
+Chart.defaults.plugins.tooltip.borderColor=&#x27;rgba(37,99,235,0.28)&#x27;;
+Chart.defaults.plugins.tooltip.borderWidth=1;
+Chart.defaults.plugins.tooltip.padding=12;
+Chart.defaults.interaction={mode:&#x27;index&#x27;,intersect:false};
+Chart.defaults.font.family=&quot;&#x27;JetBrains Mono&#x27;&quot;;
+Chart.defaults.font.size=10;
+Chart.defaults.plugins.legend.labels.usePointStyle=true;
+Chart.defaults.plugins.legend.labels.pointStyleWidth=7;
+Chart.defaults.plugins.legend.labels.padding=12;
+Chart.defaults.plugins.tooltip.backgroundColor=&#x27;rgba(255,255,255,0.97)&#x27;;
+Chart.defaults.plugins.tooltip.borderColor=&#x27;rgba(37,99,235,.25)&#x27;;
+Chart.defaults.plugins.tooltip.borderWidth=1;
+Chart.defaults.plugins.tooltip.padding=10;
+Chart.defaults.plugins.tooltip.callbacks.label=function(ctx){
+  return ctx.dataset.label+&#x27;: &#x27;+((ctx.raw||0).toLocaleString());
+};
+const G={color:&#x27;rgba(0,0,0,.05)&#x27;,drawBorder:false};
+
+// ══════════════════════════════════
+//  TABS
+// ══════════════════════════════════
+const panels=document.querySelectorAll(&#x27;.sheet-panel&#x27;);
+const tabs=document.querySelectorAll(&#x27;.stab&#x27;);
+function sw(i){
+  panels.forEach((p,j)=&gt;p.classList.toggle(&#x27;active&#x27;,j===i));
+  tabs.forEach((t,j)=&gt;t.classList.toggle(&#x27;active&#x27;,j===i));
+  setTimeout(()=&gt;Object.values(charts).forEach(c=&gt;c&amp;&amp;c.resize&amp;&amp;c.resize()),30);
+}
+const charts={};
+
+// ══════════════════════════════════
+//  M0
+// ══════════════════════════════════
+function initM0(){
+  // 그룹 스택
+  charts.m0stack=new Chart(document.getElementById(&#x27;m0-stack&#x27;),{
+    type:&#x27;bar&#x27;,
+    data:{labels:D.months,datasets:[
+      {label:&#x27;Zirconia&#x27;,data:D.m0.groups.Zirconia,backgroundColor:&#x27;rgba(255,138,101,.75)&#x27;,stack:&#x27;g&#x27;},
+      {label:&#x27;Ti/Croco&#x27;,data:D.m0.groups.Ti_Croco,backgroundColor:&#x27;rgba(129,199,132,.75)&#x27;,stack:&#x27;g&#x27;},
+      {label:&#x27;기타재료&#x27;,data:D.m0.groups.기타,backgroundColor:&#x27;rgba(206,147,216,.75)&#x27;,stack:&#x27;g&#x27;},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:&#x27;index&#x27;,intersect:false},
+      plugins:{legend:{position:&#x27;top&#x27;}},
+      scales:{x:{stacked:true,grid:G},y:{stacked:true,grid:G,ticks:{callback:v=&gt;v.toLocaleString()}}}}
+  });
+  // Haus vs 수기
+  charts.m0src=new Chart(document.getElementById(&#x27;m0-src&#x27;),{
+    type:&#x27;bar&#x27;,
+    data:{labels:D.months,datasets:[
+      {label:&#x27;Haus Link&#x27;,data:D.m0.haus,backgroundColor:&#x27;rgba(100,181,246,.7)&#x27;,borderRadius:3},
+      {label:&#x27;수기(로컬)&#x27;,data:D.m0.manual,backgroundColor:&#x27;rgba(255,179,0,.6)&#x27;,borderRadius:3},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:&#x27;index&#x27;,intersect:false},
+      plugins:{legend:{position:&#x27;top&#x27;}},
+      scales:{x:{grid:G},y:{grid:G,ticks:{callback:v=&gt;v.toLocaleString()}}}}
+  });
+  // 월평균 표
+  const tbl=document.getElementById(&#x27;m0-avg-tbl&#x27;);
+  tbl.innerHTML=&#x27;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Main Task&lt;/th&gt;&lt;th&gt;그룹&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;월평균&lt;/th&gt;&lt;th style=&quot;width:100px&quot;&gt;스케일&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&#x27;;
+  const tb=document.createElement(&#x27;tbody&#x27;); const maxV=5584.5;
+  const grpColor={Zirconia:&#x27;#F97316&#x27;,Ti_Croco:&#x27;#16A34A&#x27;,&#x27;Ti/Croco&#x27;:&#x27;#16A34A&#x27;,기타재료:&#x27;#8B5CF6&#x27;};
+  Object.entries(D.m0.mt_avg).forEach(([mt,v])=&gt;{
+    const grp=D.m0.mt_group[mt]||&#x27;기타재료&#x27;;
+    const cl=grp===&#x27;Zirconia&#x27;?&#x27;zir-c&#x27;:grp===&#x27;Ti/Croco&#x27;?&#x27;ticro-c&#x27;:&#x27;other-c&#x27;;
+    const pct=Math.round(v/maxV*100);
+    tb.innerHTML+=`&lt;tr&gt;&lt;td&gt;${mt}&lt;/td&gt;&lt;td class=&quot;${cl}&quot; style=&quot;font-size:10px&quot;&gt;${grp}&lt;/td&gt;&lt;td class=&quot;r hl&quot;&gt;${v.toLocaleString()}&lt;/td&gt;
+      &lt;td&gt;&lt;div class=&quot;bar-bg&quot;&gt;&lt;div class=&quot;bar-fill&quot; style=&quot;width:${pct}%;background:${grp===&#x27;Zirconia&#x27;?&#x27;#F97316&#x27;:grp===&#x27;Ti/Croco&#x27;?&#x27;#16A34A&#x27;:&#x27;#8B5CF6&#x27;}&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;`;
+  });
+  tbl.appendChild(tb);
+  // 수기+Haus 표
+  const tbl2=document.getElementById(&#x27;m0-src-tbl&#x27;);
+  const ytdH=D.m0.haus.reduce((a,b)=&gt;a+b,0), ytdM=D.m0.manual.reduce((a,b)=&gt;a+b,0);
+  tbl2.innerHTML=`&lt;thead&gt;&lt;tr&gt;&lt;th&gt;구분&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Jan&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Feb&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Mar&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Apr&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;May&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;YTD&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td style=&quot;color:#64B5F6&quot;&gt;Haus Link&lt;/td&gt;${D.m0.haus.map(v=&gt;`&lt;td class=&quot;r&quot;&gt;${v.toLocaleString()}&lt;/td&gt;`).join(&#x27;&#x27;)}&lt;td class=&quot;r hl&quot;&gt;${ytdH.toLocaleString()}&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td style=&quot;color:#FFB300&quot;&gt;수기(로컬)&lt;/td&gt;${D.m0.manual.map(v=&gt;`&lt;td class=&quot;r&quot;&gt;${v.toLocaleString()}&lt;/td&gt;`).join(&#x27;&#x27;)}&lt;td class=&quot;r hl&quot;&gt;${ytdM.toLocaleString()}&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr class=&quot;tot&quot;&gt;&lt;td&gt;합계&lt;/td&gt;${D.m0.haus.map((v,i)=&gt;`&lt;td class=&quot;r&quot;&gt;${(v+D.m0.manual[i]).toLocaleString()}&lt;/td&gt;`).join(&#x27;&#x27;)}&lt;td class=&quot;r&quot; style=&quot;color:#1E40AF&quot;&gt;${(ytdH+ytdM).toLocaleString()}&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;`;
+}
+
+// ══════════════════════════════════
+//  WORKER SHEET BUILDER
+// ══════════════════════════════════
+function buildWorkerSheet(id, data, tasks, lineId, donutId, tblId, legId){
+  const techs=Object.keys(data);
+  const techColors=D.techColors;
+  // Legend
+  const leg=document.getElementById(legId);
+  techs.forEach((t,i)=&gt;{
+    const el=document.createElement(&#x27;div&#x27;);
+    el.className=&#x27;tleg-item&#x27;;
+    el.innerHTML=`&lt;div class=&quot;tleg-dot&quot; style=&quot;background:${techColors[D.techs.indexOf(t)||i]}&quot;&gt;&lt;/div&gt;${t}`;
+    leg.appendChild(el);
+  });
+  // Line chart
+  const lineDS=techs.map((t,i)=&gt;({
+    label:t,data:data[t].monthly,
+    borderColor:techColors[D.techs.indexOf(t)],backgroundColor:techColors[D.techs.indexOf(t)]+&#x27;22&#x27;,
+    borderWidth:2,pointRadius:4,pointHoverRadius:6,tension:0.4,fill:false
+  }));
+  charts[lineId]=new Chart(document.getElementById(lineId),{
+    type:&#x27;line&#x27;,data:{labels:D.months,datasets:lineDS},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:&#x27;index&#x27;,intersect:false},
+      plugins:{legend:{position:&#x27;top&#x27;}},scales:{x:{grid:G},y:{grid:G,ticks:{callback:v=&gt;v.toLocaleString()}}}}
+  });
+  // Donut (월평균)
+  const donutData=techs.map(t=&gt;Math.round(data[t].ytd/5));
+  const donutTotal=Math.max(donutData.reduce((a,b)=&gt;a+b,0),1);
+  charts[donutId]=new Chart(document.getElementById(donutId),{
+    type:&#x27;doughnut&#x27;,
+    data:{labels:techs,datasets:[{data:donutData,backgroundColor:techs.map((t,i)=&gt;techColors[D.techs.indexOf(t)]),borderWidth:0,hoverOffset:6}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:&#x27;65%&#x27;,
+      interaction:{mode:&#x27;nearest&#x27;,intersect:true},
+      plugins:{
+        legend:{position:&#x27;right&#x27;,labels:{usePointStyle:true,pointStyleWidth:8,color:&#x27;#334155&#x27;,font:{size:11},
+          generateLabels:ch=&gt;{const dd=ch.data.datasets[0].data;return ch.data.labels.map((l,i)=&gt;({
+            text:`${l}  ${dd[i].toLocaleString()}  (${(dd[i]/donutTotal*100).toFixed(1)}%)`,
+            fillStyle:ch.data.datasets[0].backgroundColor[i],strokeStyle:&#x27;transparent&#x27;,pointStyle:&#x27;circle&#x27;,index:i}));}
+        }},
+        tooltip:{callbacks:{
+          label:function(ctx){return ctx.label+&#x27;: &#x27;+ctx.raw.toLocaleString()+&#x27; (&#x27;+(ctx.raw/donutTotal*100).toFixed(1)+&#x27;%)&#x27;;}
+        }}
+      }
+    }
+  });
+  // Table builder
+  buildWorkerTable(tblId, data, tasks, &#x27;ytd&#x27;);
+  return {line:charts[lineId],donut:charts[donutId]};
+}
+
+function buildWorkerTable(tblId, data, tasks, view){
+  const tbl=document.getElementById(tblId);
+  const techs=Object.keys(data);
+  const mi=[&#x27;jan&#x27;,&#x27;feb&#x27;,&#x27;mar&#x27;,&#x27;apr&#x27;,&#x27;may&#x27;].indexOf(view); // -1 if ytd
+  // 각 테크니션의 현재 view 기준 작업별 값
+  function techVals(t){
+    const d=data[t];
+    if(view===&#x27;ytd&#x27;) return tasks.map(task=&gt;d.tasks[task]||0);
+    return tasks.map(task=&gt;(d.tm&amp;&amp;d.tm[task])?d.tm[task][mi]||0:0);
+  }
+  // 비중 스케일: 현재 view 기준 행합 최대값
+  const rowSums=techs.map(t=&gt;techVals(t).reduce((a,b)=&gt;a+b,0));
+  const maxRow=Math.max(...rowSums,1);
+  const preTotal=Math.max(rowSums.reduce((a,b)=&gt;a+b,0),1);
+  let html=`&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Technician&lt;/th&gt;`;
+  tasks.forEach(t=&gt;html+=`&lt;th class=&quot;r&quot;&gt;${t.replace(&#x27;Ti/Croco &#x27;,&#x27;&#x27;).replace(&#x27;I-Bar - &#x27;,&#x27;&#x27;)}&lt;/th&gt;`);
+  html+=`&lt;th class=&quot;r&quot;&gt;합계&lt;/th&gt;&lt;th style=&quot;min-width:80px&quot;&gt;비중&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;`;
+  let totals=tasks.map(()=&gt;0); let grandTotal=0;
+  techs.forEach((t,i)=&gt;{
+    const tc=D.techColors[D.techs.indexOf(t)];
+    const vals=techVals(t);
+    const rowSum=vals.reduce((a,b)=&gt;a+b,0);
+    const pct=Math.round(rowSum/maxRow*100);
+    vals.forEach((v,j)=&gt;totals[j]+=v); grandTotal+=rowSum;
+    html+=`&lt;tr&gt;&lt;td&gt;&lt;span style=&quot;display:inline-flex;align-items:center;gap:6px&quot;&gt;&lt;span style=&quot;width:6px;height:6px;border-radius:50%;background:${tc};display:inline-block&quot;&gt;&lt;/span&gt;${t}&lt;/span&gt;&lt;/td&gt;`;
+    vals.forEach(v=&gt;html+=`&lt;td class=&quot;r&quot;&gt;${v?v.toLocaleString():&#x27;—&#x27;}&lt;/td&gt;`);
+    html+=`&lt;td class=&quot;r hl&quot;&gt;${rowSum.toLocaleString()}&lt;/td&gt;
+      &lt;td style=&quot;min-width:110px&quot;&gt;&lt;div style=&quot;display:flex;align-items:center;gap:5px&quot;&gt;&lt;div class=&quot;bar-bg&quot; style=&quot;flex:1&quot;&gt;&lt;div class=&quot;bar-fill&quot; style=&quot;width:${pct}%;background:${tc}&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;span style=&quot;font-size:10px;font-family:&#x27;JetBrains Mono&#x27;;color:${tc};min-width:36px;text-align:right;font-weight:600&quot;&gt;${(rowSum/preTotal*100).toFixed(1)}%&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;`;
+  });
+  html+=`&lt;/tbody&gt;&lt;tfoot class=&quot;tot&quot;&gt;&lt;tr&gt;&lt;td style=&quot;color:#475569&quot;&gt;합계 ${view===&#x27;ytd&#x27;?&#x27;(YTD)&#x27;:&#x27;(&#x27;+view.toUpperCase()+&#x27;)&#x27;}&lt;/td&gt;`;
+  totals.forEach(v=&gt;html+=`&lt;td class=&quot;r&quot;&gt;${v.toLocaleString()}&lt;/td&gt;`);
+  html+=`&lt;td class=&quot;r&quot; style=&quot;color:#1E40AF&quot;&gt;${grandTotal.toLocaleString()}&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;`;
+  tbl.innerHTML=html;
+}
+
+function togView(mId, dataObj, tasks, tblId, view, btn){
+  btn.closest(&#x27;.tog-grp&#x27;).querySelectorAll(&#x27;.tog&#x27;).forEach(b=&gt;b.classList.remove(&#x27;on&#x27;));
+  btn.classList.add(&#x27;on&#x27;);
+  buildWorkerTable(tblId, dataObj, tasks, view);
+}
+function m1view(v,b){togView(&#x27;m1&#x27;,D.m1.data,D.m1.tasks,&#x27;m1-tbl&#x27;,v,b)}
+function m2view(v,b){togView(&#x27;m2&#x27;,D.m2.data,D.m2.tasks,&#x27;m2-tbl&#x27;,v,b)}
+function m3view(v,b){togView(&#x27;m3&#x27;,D.m3.data,D.m3.tasks,&#x27;m3-tbl&#x27;,v,b)}
+
+// ══════════════════════════════════
+//  M4
+// ══════════════════════════════════
+function initM4(){
+  const optC=[&#x27;#4FC3F7&#x27;,&#x27;#A5D6A7&#x27;,&#x27;#FFCC80&#x27;];
+  charts.m4bar=new Chart(document.getElementById(&#x27;m4-bar&#x27;),{
+    type:&#x27;bar&#x27;,
+    data:{labels:D.months,datasets:D.m4.opts.map((o,i)=&gt;({
+      label:o,data:D.m4.data[o],backgroundColor:optC[i]+&#x27;CC&#x27;,borderRadius:3
+    }))},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:&#x27;index&#x27;,intersect:false},
+      plugins:{legend:{position:&#x27;top&#x27;}},scales:{x:{grid:G},y:{grid:G}}}
+  });
+  charts.m4line=new Chart(document.getElementById(&#x27;m4-line&#x27;),{
+    type:&#x27;line&#x27;,
+    data:{labels:D.months,datasets:[{label:&#x27;Sub-Total&#x27;,data:D.m4.sub,borderColor:&#x27;#1E40AF&#x27;,
+      backgroundColor:&#x27;rgba(255,107,53,.1)&#x27;,borderWidth:2.5,pointRadius:5,tension:0.3,fill:true}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+      scales:{x:{grid:G},y:{grid:G}}}
+  });
+  // Table
+  let html=`&lt;thead&gt;&lt;tr&gt;&lt;th&gt;옵션&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Jan&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Feb&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Mar&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Apr&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;May&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;YTD&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;`;
+  D.m4.opts.forEach((o,i)=&gt;{
+    const ytd=D.m4.data[o].reduce((a,b)=&gt;a+b,0);
+    html+=`&lt;tr&gt;&lt;td&gt;&lt;span style=&quot;color:${optC[i]};font-weight:600&quot;&gt;${o}&lt;/span&gt;&lt;/td&gt;${D.m4.data[o].map(v=&gt;`&lt;td class=&quot;r&quot;&gt;${v}&lt;/td&gt;`).join(&#x27;&#x27;)}&lt;td class=&quot;r hl&quot;&gt;${ytd}&lt;/td&gt;&lt;/tr&gt;`;
+  });
+  const stYtd=D.m4.sub.reduce((a,b)=&gt;a+b,0);
+  html+=`&lt;tr class=&quot;tot&quot;&gt;&lt;td&gt;Sub-Total&lt;/td&gt;${D.m4.sub.map(v=&gt;`&lt;td class=&quot;r&quot;&gt;${v}&lt;/td&gt;`).join(&#x27;&#x27;)}&lt;td class=&quot;r&quot; style=&quot;color:#1E40AF&quot;&gt;${stYtd}&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;`;
+  document.getElementById(&#x27;m4-tbl&#x27;).innerHTML=html;
+}
+
+// ══════════════════════════════════
+//  M5
+// ══════════════════════════════════
+function initM5(){
+  const top5=D.m5.reasons.slice(0,5);
+  const rColors=[&#x27;#EF5350&#x27;,&#x27;#FF7043&#x27;,&#x27;#FFA726&#x27;,&#x27;#FFEE58&#x27;,&#x27;#66BB6A&#x27;];
+  charts.m5line=new Chart(document.getElementById(&#x27;m5-line&#x27;),{
+    type:&#x27;line&#x27;,
+    data:{labels:D.months,datasets:top5.map((r,i)=&gt;({
+      label:r,data:D.m5.reason_data[r],borderColor:rColors[i],
+      backgroundColor:rColors[i]+&#x27;22&#x27;,borderWidth:2,pointRadius:3,tension:0.3,fill:false
+    }))},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:&#x27;index&#x27;,intersect:false},
+      plugins:{legend:{position:&#x27;top&#x27;,labels:{font:{size:10}}}},scales:{x:{grid:G},y:{grid:G}}}
+  });
+  const ytds=D.m5.reasons.map(r=&gt;D.m5.reason_data[r].reduce((a,b)=&gt;a+b,0));
+  charts.m5donut=new Chart(document.getElementById(&#x27;m5-donut&#x27;),{
+    type:&#x27;doughnut&#x27;,
+    data:{labels:D.m5.reasons,datasets:[{data:ytds.map(v=&gt;Math.round(v/4)),backgroundColor:D.m5.reasons.map((_,i)=&gt;rColors[i%5]+&#x27;CC&#x27;),borderWidth:0,hoverOffset:4}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:&#x27;60%&#x27;,plugins:{legend:{position:&#x27;right&#x27;,labels:{font:{size:9},padding:8}}}}
+  });
+  // 사유별 표
+  let html=`&lt;thead&gt;&lt;tr&gt;&lt;th&gt;사유&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Jan&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Feb&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Mar&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Apr&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;May&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;YTD&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;비중&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;`;
+  D.m5.reasons.forEach((r,i)=&gt;{
+    const d=D.m5.reason_data[r]; const ytd=d.reduce((a,b)=&gt;a+b,0);
+    const pct=((ytd/D.m5.total)*100).toFixed(1);
+    const rateClass=ytd&gt;100?&#x27;hi&#x27;:ytd&gt;30?&#x27;mid&#x27;:&#x27;lo&#x27;;
+    html+=`&lt;tr&gt;&lt;td style=&quot;font-size:11px&quot;&gt;${r}&lt;/td&gt;${d.map(v=&gt;`&lt;td class=&quot;r&quot;&gt;${v||&#x27;—&#x27;}&lt;/td&gt;`).join(&#x27;&#x27;)}&lt;td class=&quot;r hl&quot;&gt;${ytd}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;&lt;span class=&quot;rate ${rateClass}&quot;&gt;${pct}%&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;`;
+  });
+  const totM=D.months.map((_,i)=&gt;D.m5.reasons.reduce((a,r)=&gt;a+D.m5.reason_data[r][i],0));
+  html+=`&lt;tr class=&quot;tot&quot;&gt;&lt;td&gt;합계&lt;/td&gt;${totM.map(v=&gt;`&lt;td class=&quot;r&quot;&gt;${v}&lt;/td&gt;`).join(&#x27;&#x27;)}&lt;td class=&quot;r&quot; style=&quot;color:#DC2626&quot;&gt;${D.m5.total}&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;`;
+  document.getElementById(&#x27;m5-reason-tbl&#x27;).innerHTML=html;
+  // 테크니션별 표
+  let html2=`&lt;thead&gt;&lt;tr&gt;&lt;th&gt;테크니션&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;총작업&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Redo&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;비율&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Jan&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Feb&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Mar&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Apr&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;May&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;`;
+  Object.entries(D.m5.tech_data).forEach(([t,d],i)=&gt;{
+    const rate=((d.redo/d.work)*100).toFixed(1);
+    const cl=d.redo&gt;200?&#x27;hi&#x27;:d.redo&gt;50?&#x27;mid&#x27;:&#x27;lo&#x27;;
+    html2+=`&lt;tr&gt;&lt;td&gt;${t}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${d.work.toLocaleString()}&lt;/td&gt;&lt;td class=&quot;r hl&quot;&gt;${d.redo}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;&lt;span class=&quot;rate ${cl}&quot;&gt;${rate}%&lt;/span&gt;&lt;/td&gt;${d.monthly.map(v=&gt;`&lt;td class=&quot;r&quot;&gt;${v||&#x27;—&#x27;}&lt;/td&gt;`).join(&#x27;&#x27;)}&lt;/tr&gt;`;
+  });
+  html2+=&#x27;&lt;/tbody&gt;&#x27;;
+  document.getElementById(&#x27;m5-tech-tbl&#x27;).innerHTML=html2;
+}
+
+// ══════════════════════════════════
+//  M6
+// ══════════════════════════════════
+function initM6(){
+  const techs=Object.keys(D.m6);
+  // KPIs (YTD per tech)
+  const kpiRow=document.getElementById(&#x27;m6-kpi-row&#x27;);
+  techs.forEach((t,i)=&gt;{
+    const mths=Object.values(D.m6[t]);
+    const ytdU=mths.reduce((a,m)=&gt;a+m.unit,0);
+    const ytdH=mths.reduce((a,m)=&gt;a+m.total,0);
+    const rate=(ytdU/ytdH).toFixed(1);
+    const tc=D.techColors[D.techs.indexOf(t)];
+    kpiRow.innerHTML+=`&lt;div class=&quot;kpi&quot; style=&quot;--accent:${tc}&quot;&gt;&lt;div class=&quot;kpi-lbl&quot;&gt;${t}&lt;/div&gt;&lt;div class=&quot;kpi-val&quot; style=&quot;font-size:18px;color:${tc}&quot;&gt;${Math.round(ytdU/4).toLocaleString()}&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot;&gt;월평균 unit &amp;nbsp;|&amp;nbsp; ${rate} unit/hr&lt;/div&gt;&lt;/div&gt;`;
+  });
+  // Unit line
+  charts.m6unit=new Chart(document.getElementById(&#x27;m6-unit&#x27;),{
+    type:&#x27;line&#x27;,
+    data:{labels:D.months,datasets:techs.map((t,i)=&gt;({
+      label:t,data:Object.values(D.m6[t]).map(m=&gt;m.unit),
+      borderColor:D.techColors[D.techs.indexOf(t)],backgroundColor:D.techColors[D.techs.indexOf(t)]+&#x27;22&#x27;,
+      borderWidth:2,pointRadius:4,tension:0.4,fill:false
+    }))},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:&#x27;index&#x27;,intersect:false},
+      plugins:{legend:{position:&#x27;top&#x27;}},scales:{x:{grid:G},y:{grid:G,ticks:{callback:v=&gt;v.toLocaleString()}}}}
+  });
+  // Rate line (Unit/Hrs)
+  charts.m6rate=new Chart(document.getElementById(&#x27;m6-rate&#x27;),{
+    type:&#x27;line&#x27;,
+    data:{labels:D.months,datasets:techs.map((t,i)=&gt;{
+      const rates=Object.values(D.m6[t]).map(m=&gt;m.total&gt;0?(m.unit/m.total).toFixed(2):0);
+      return{label:t,data:rates,borderColor:D.techColors[D.techs.indexOf(t)],borderWidth:2,pointRadius:4,tension:0.3,fill:false};
+    })},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:&#x27;index&#x27;,intersect:false},
+      plugins:{legend:{position:&#x27;top&#x27;}},
+      scales:{x:{grid:G},y:{grid:G,title:{display:true,text:&#x27;Unit/Hrs&#x27;,color:&#x27;#8896B3&#x27;}}}}
+  });
+  // YTD summary
+  let html=`&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Technician&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;YTD Unit&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;YTD Reg Hrs&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;YTD OT Hrs&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;YTD Total Hrs&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Unit/Hrs&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Unit/Day&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;`;
+  techs.forEach((t,i)=&gt;{
+    const ms=Object.values(D.m6[t]);
+    const ytdU=ms.reduce((a,m)=&gt;a+m.unit,0);
+    const ytdR=ms.reduce((a,m)=&gt;a+m.reg,0).toFixed(1);
+    const ytdO=ms.reduce((a,m)=&gt;a+m.ot,0).toFixed(1);
+    const ytdT=ms.reduce((a,m)=&gt;a+m.total,0).toFixed(1);
+    const rate=(ytdU/parseFloat(ytdT)).toFixed(2);
+    const dayRate=(ytdU/(parseFloat(ytdT)/8)).toFixed(1);
+    html+=`&lt;tr&gt;&lt;td&gt;${t}&lt;/td&gt;&lt;td class=&quot;r hl&quot;&gt;${ytdU.toLocaleString()}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${ytdR}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${ytdO}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${ytdT}&lt;/td&gt;&lt;td class=&quot;r&quot; style=&quot;color:#0891B2&quot;&gt;${rate}&lt;/td&gt;&lt;td class=&quot;r&quot; style=&quot;color:#0891B2&quot;&gt;${dayRate}&lt;/td&gt;&lt;/tr&gt;`;
+  });
+  document.getElementById(&#x27;m6-ytd-tbl&#x27;).innerHTML=html+&#x27;&lt;/tbody&gt;&#x27;;
+  // Monthly detail
+  let html2=`&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Technician&lt;/th&gt;&lt;th&gt;Month&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Unit&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Reg Hrs&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;OT Hrs&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Total Hrs&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Unit/Hrs&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Unit/Day&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;`;
+  techs.forEach((t,i)=&gt;{
+    const tc=D.techColors[D.techs.indexOf(t)];
+    Object.entries(D.m6[t]).forEach(([mn,m],j)=&gt;{
+      const mLbl=D.months[parseInt(mn)-1];
+      const rate=(m.total&gt;0?(m.unit/m.total).toFixed(2):0);
+      const day=(m.total&gt;0?(m.unit/(m.total/8)).toFixed(1):0);
+      html2+=`&lt;tr&gt;&lt;td style=&quot;color:${tc};font-size:11px&quot;&gt;${j===0?t:&#x27;&#x27;}&lt;/td&gt;&lt;td style=&quot;font-size:11px;color:#475569&quot;&gt;${mLbl}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${m.unit.toLocaleString()}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${m.reg.toFixed(1)}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${m.ot.toFixed(1)}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${m.total.toFixed(1)}&lt;/td&gt;&lt;td class=&quot;r&quot; style=&quot;color:#0891B2;font-weight:600&quot;&gt;${rate}&lt;/td&gt;&lt;td class=&quot;r&quot; style=&quot;color:#0891B2&quot;&gt;${day}&lt;/td&gt;&lt;/tr&gt;`;
+    });
+    html2+=&#x27;&lt;tr style=&quot;height:4px&quot;&gt;&lt;/tr&gt;&#x27;;
+  });
+  document.getElementById(&#x27;m6-detail-tbl&#x27;).innerHTML=html2+&#x27;&lt;/tbody&gt;&#x27;;
+}
+
+// ══════════════════════════════════
+//  INIT ALL
+// ══════════════════════════════════
+window.addEventListener(&#x27;DOMContentLoaded&#x27;,()=&gt;{
+  initM0();
+  buildWorkerSheet(&#x27;m1&#x27;,D.m1.data,D.m1.tasks,&#x27;m1-line&#x27;,&#x27;m1-donut&#x27;,&#x27;m1-tbl&#x27;,&#x27;m1-leg&#x27;);
+  buildWorkerSheet(&#x27;m2&#x27;,D.m2.data,D.m2.tasks,&#x27;m2-line&#x27;,&#x27;m2-donut&#x27;,&#x27;m2-tbl&#x27;,&#x27;m2-leg&#x27;);
+  buildWorkerSheet(&#x27;m3&#x27;,D.m3.data,D.m3.tasks,&#x27;m3-line&#x27;,&#x27;m3-donut&#x27;,&#x27;m3-tbl&#x27;,&#x27;m3-leg&#x27;);
+  initM4();
+  initM5();
+  initM6();
+  try{setLang(&#x27;en&#x27;);}catch(e){}
+});
+
+// sidebar active state sync
+const _sw_orig = sw;
+sw = function(i) {
+  _sw_orig(i);
+  const titles = {&quot;0&quot;: &quot;M0 \u2014 \ubd80\uc11c\uc885\ud569&quot;, &quot;1&quot;: &quot;M1 \u2014 Zirconia&quot;, &quot;2&quot;: &quot;M2 \u2014 Ti/Croco&quot;, &quot;3&quot;: &quot;M3 \u2014 \uae30\ud0c0\uc7ac\ub8cc&quot;, &quot;4&quot;: &quot;M4 \u2014 Option Qty&quot;, &quot;5&quot;: &quot;M5 \u2014 Redo \ubd84\uc11d&quot;, &quot;6&quot;: &quot;M6 \u2014 Hourly&quot;};
+  const el = document.getElementById(&#x27;millTitle&#x27;);
+  if(el) el.textContent = titles[i] || &#x27;&#x27;;
+};
+
+
+// [v2.13] 언어전환
+window._lang=&#x27;ko&#x27;;
+var MILL_I18N={&quot;ko&quot;: {&quot;nav-m0&quot;: &quot;부서종합&quot;, &quot;nav-m1&quot;: &quot;Zirconia&quot;, &quot;nav-m2&quot;: &quot;Ti/Croco&quot;, &quot;nav-m3&quot;: &quot;기타재료&quot;, &quot;nav-m4&quot;: &quot;Option Qty&quot;, &quot;nav-m5&quot;: &quot;Redo 분석&quot;, &quot;nav-m6&quot;: &quot;Hourly&quot;, &quot;sb-ytd&quot;: &quot;YTD 생산&quot;, &quot;sb-period&quot;: &quot;기간&quot;, &quot;sb-tech&quot;: &quot;테크니션&quot;, &quot;tag-meta&quot;: &quot;Paul Seo 제외 · Final Item Unit&quot;, &quot;kpi-total&quot;: &quot;YTD 총 생산&quot;, &quot;kpi-zir&quot;: &quot;Zirconia YTD&quot;, &quot;kpi-ticro&quot;: &quot;Ti/Croco YTD&quot;, &quot;kpi-other&quot;: &quot;기타재료 YTD&quot;, &quot;kpi-manual&quot;: &quot;수기 YTD&quot;, &quot;kpi-gs&quot;: &quot;Greenstate&quot;, &quot;kpi-mi&quot;: &quot;Model (in-house)&quot;, &quot;kpi-wc&quot;: &quot;White Coloring&quot;, &quot;kpi-ot&quot;: &quot;핵심 옵션 합계&quot;, &quot;kpi-ytd-redo&quot;: &quot;YTD Redo&quot;, &quot;kpi-top-rsn&quot;: &quot;최다 사유&quot;, &quot;kpi-apr-r&quot;: &quot;Apr Redo&quot;, &quot;kpi-top-t&quot;: &quot;최다 테크니션&quot;, &quot;m0-stack&quot;: &quot;월별 재료 그룹&quot;, &quot;m0-src&quot;: &quot;Haus Link vs 수기&quot;, &quot;m0-avg&quot;: &quot;메인 태스크별 월평균 유닛&quot;, &quot;m0-sum&quot;: &quot;수기 + Haus Link 합계&quot;, &quot;trend-title&quot;: &quot;테크니션별 월별 트렌드&quot;, &quot;donut-title&quot;: &quot;월평균 비중&quot;, &quot;tbl-title&quot;: &quot;테크니션 × 작업종류&quot;, &quot;m4-bar&quot;: &quot;핵심 옵션 월별&quot;, &quot;m4-line&quot;: &quot;월별 Sub-Total&quot;, &quot;m4-tbl&quot;: &quot;핵심 옵션 상세표&quot;, &quot;m5-line&quot;: &quot;사유별 월별 추이 (Top 5)&quot;, &quot;m5-donut&quot;: &quot;월평균 사유별 비중&quot;, &quot;m5-rtbl&quot;: &quot;사유별 상세표&quot;, &quot;m5-ttbl&quot;: &quot;테크니션별 Redo&quot;, &quot;m6-unit&quot;: &quot;테크니션별 월별 생산량&quot;, &quot;m6-rate&quot;: &quot;테크니션별 Unit/Hrs&quot;, &quot;m6-ytd&quot;: &quot;YTD 생산성 요약&quot;, &quot;m6-det&quot;: &quot;월별 상세 — 테크니션 × 시간 × 생산성&quot;, &quot;months&quot;: [&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;], &quot;titles&quot;: [&quot;M0 — 부서종합&quot;, &quot;M1 — Zirconia&quot;, &quot;M2 — Ti/Croco&quot;, &quot;M3 — 기타재료&quot;, &quot;M4 — Option Qty&quot;, &quot;M5 — Redo 분석&quot;, &quot;M6 — Hourly&quot;]}, &quot;en&quot;: {&quot;nav-m0&quot;: &quot;Dept. Total&quot;, &quot;nav-m1&quot;: &quot;Zirconia&quot;, &quot;nav-m2&quot;: &quot;Ti/Croco&quot;, &quot;nav-m3&quot;: &quot;Others&quot;, &quot;nav-m4&quot;: &quot;Option Qty&quot;, &quot;nav-m5&quot;: &quot;Redo Analysis&quot;, &quot;nav-m6&quot;: &quot;Hourly&quot;, &quot;sb-ytd&quot;: &quot;YTD Production&quot;, &quot;sb-period&quot;: &quot;Period&quot;, &quot;sb-tech&quot;: &quot;Technicians&quot;, &quot;tag-meta&quot;: &quot;Excl. Paul Seo · Final Item Unit&quot;, &quot;kpi-total&quot;: &quot;Total YTD Production&quot;, &quot;kpi-zir&quot;: &quot;Zirconia YTD&quot;, &quot;kpi-ticro&quot;: &quot;Ti/Croco YTD&quot;, &quot;kpi-other&quot;: &quot;Others YTD&quot;, &quot;kpi-manual&quot;: &quot;Manual YTD&quot;, &quot;kpi-gs&quot;: &quot;Greenstate&quot;, &quot;kpi-mi&quot;: &quot;Model (In-house)&quot;, &quot;kpi-wc&quot;: &quot;White Coloring&quot;, &quot;kpi-ot&quot;: &quot;Key Options Total&quot;, &quot;kpi-ytd-redo&quot;: &quot;YTD Redo&quot;, &quot;kpi-top-rsn&quot;: &quot;Top Reason&quot;, &quot;kpi-apr-r&quot;: &quot;Apr Redo&quot;, &quot;kpi-top-t&quot;: &quot;Top Technician&quot;, &quot;m0-stack&quot;: &quot;Monthly Material Groups&quot;, &quot;m0-src&quot;: &quot;Haus Link vs Manual&quot;, &quot;m0-avg&quot;: &quot;Monthly Avg by Task&quot;, &quot;m0-sum&quot;: &quot;Manual + Haus Link Total&quot;, &quot;trend-title&quot;: &quot;Monthly Trend by Technician&quot;, &quot;donut-title&quot;: &quot;Monthly Avg Share&quot;, &quot;tbl-title&quot;: &quot;Technician × Task Type&quot;, &quot;m4-bar&quot;: &quot;Monthly Key Options&quot;, &quot;m4-line&quot;: &quot;Monthly Sub-Total&quot;, &quot;m4-tbl&quot;: &quot;Key Options Details&quot;, &quot;m5-line&quot;: &quot;Monthly Trend by Reason (Top 5)&quot;, &quot;m5-donut&quot;: &quot;Monthly Avg by Reason&quot;, &quot;m5-rtbl&quot;: &quot;Reason Details&quot;, &quot;m5-ttbl&quot;: &quot;Redo by Technician&quot;, &quot;m6-unit&quot;: &quot;Monthly Production by Tech&quot;, &quot;m6-rate&quot;: &quot;Unit/Hrs by Technician&quot;, &quot;m6-ytd&quot;: &quot;YTD Productivity Summary&quot;, &quot;m6-det&quot;: &quot;Monthly Detail — Tech × Hours × Productivity&quot;, &quot;months&quot;: [&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;], &quot;titles&quot;: [&quot;M0 — Dept. Total&quot;, &quot;M1 — Zirconia&quot;, &quot;M2 — Ti/Croco&quot;, &quot;M3 — Others&quot;, &quot;M4 — Option Qty&quot;, &quot;M5 — Redo Analysis&quot;, &quot;M6 — Hourly&quot;]}, &quot;es&quot;: {&quot;nav-m0&quot;: &quot;Total Depto.&quot;, &quot;nav-m1&quot;: &quot;Zirconia&quot;, &quot;nav-m2&quot;: &quot;Ti/Croco&quot;, &quot;nav-m3&quot;: &quot;Otros&quot;, &quot;nav-m4&quot;: &quot;Cant. Opciones&quot;, &quot;nav-m5&quot;: &quot;Análisis Redo&quot;, &quot;nav-m6&quot;: &quot;Por Hora&quot;, &quot;sb-ytd&quot;: &quot;Producción YTD&quot;, &quot;sb-period&quot;: &quot;Período&quot;, &quot;sb-tech&quot;: &quot;Técnicos&quot;, &quot;tag-meta&quot;: &quot;Excl. Paul Seo · Unidad Final&quot;, &quot;kpi-total&quot;: &quot;Producción Total YTD&quot;, &quot;kpi-zir&quot;: &quot;Zirconia YTD&quot;, &quot;kpi-ticro&quot;: &quot;Ti/Croco YTD&quot;, &quot;kpi-other&quot;: &quot;Otros YTD&quot;, &quot;kpi-manual&quot;: &quot;Manual YTD&quot;, &quot;kpi-gs&quot;: &quot;Estado Verde&quot;, &quot;kpi-mi&quot;: &quot;Modelo (Interno)&quot;, &quot;kpi-wc&quot;: &quot;Coloración Blanca&quot;, &quot;kpi-ot&quot;: &quot;Total Opciones Clave&quot;, &quot;kpi-ytd-redo&quot;: &quot;Redo YTD&quot;, &quot;kpi-top-rsn&quot;: &quot;Motivo Principal&quot;, &quot;kpi-apr-r&quot;: &quot;Redo Abr&quot;, &quot;kpi-top-t&quot;: &quot;Técnico Principal&quot;, &quot;m0-stack&quot;: &quot;Grupos Material Mensual&quot;, &quot;m0-src&quot;: &quot;Haus Link vs Manual&quot;, &quot;m0-avg&quot;: &quot;Prom. Mensual por Tarea&quot;, &quot;m0-sum&quot;: &quot;Total Manual + Haus Link&quot;, &quot;trend-title&quot;: &quot;Tendencia Mensual por Técnico&quot;, &quot;donut-title&quot;: &quot;Participación Prom. Mensual&quot;, &quot;tbl-title&quot;: &quot;Técnico × Tipo de Tarea&quot;, &quot;m4-bar&quot;: &quot;Opciones Clave Mensuales&quot;, &quot;m4-line&quot;: &quot;Sub-Total Mensual&quot;, &quot;m4-tbl&quot;: &quot;Detalle Opciones Clave&quot;, &quot;m5-line&quot;: &quot;Tendencia por Motivo (Top 5)&quot;, &quot;m5-donut&quot;: &quot;Prom. Mensual por Motivo&quot;, &quot;m5-rtbl&quot;: &quot;Detalle por Motivo&quot;, &quot;m5-ttbl&quot;: &quot;Redo por Técnico&quot;, &quot;m6-unit&quot;: &quot;Producción Mensual por Técnico&quot;, &quot;m6-rate&quot;: &quot;Unid./Hrs por Técnico&quot;, &quot;m6-ytd&quot;: &quot;Resumen Productividad YTD&quot;, &quot;m6-det&quot;: &quot;Detalle Mensual — Técnico × Horas × Productividad&quot;, &quot;months&quot;: [&quot;Ene&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Abr&quot;, &quot;May&quot;], &quot;titles&quot;: [&quot;M0 — Total Depto.&quot;, &quot;M1 — Zirconia&quot;, &quot;M2 — Ti/Croco&quot;, &quot;M3 — Otros&quot;, &quot;M4 — Cant. Opciones&quot;, &quot;M5 — Análisis Redo&quot;, &quot;M6 — Por Hora&quot;]}};
+function setLang(lang){
+  window._lang=lang;
+  document.querySelectorAll(&#x27;.lang-btn&#x27;).forEach(function(b){b.classList.toggle(&#x27;lact&#x27;,b.dataset.lang===lang);});
+  var t=MILL_I18N[lang]||MILL_I18N[&#x27;ko&#x27;];
+  document.querySelectorAll(&#x27;[data-i18n]&#x27;).forEach(function(el){var k=el.getAttribute(&#x27;data-i18n&#x27;);if(t[k]!==undefined)el.textContent=t[k];});
+  var cur=Array.from(document.querySelectorAll(&#x27;.sheet-panel&#x27;)).findIndex(function(p){return p.classList.contains(&#x27;active&#x27;);});
+  var te=document.getElementById(&#x27;millTitle&#x27;);if(te&amp;&amp;t.titles&amp;&amp;cur&gt;=0)te.textContent=t.titles[cur];
+  window._navTitles=t.titles||[];
+  var months=t.months||[&#x27;Jan&#x27;,&#x27;Feb&#x27;,&#x27;Mar&#x27;,&#x27;Apr&#x27;];
+  Object.keys(charts).forEach(function(key){var ch=charts[key];if(!ch||!ch.data||!ch.data.labels)return;var lbl=ch.data.labels;if(Array.isArray(lbl)&amp;&amp;lbl.length===4&amp;&amp;([&#x27;Jan&#x27;,&#x27;Feb&#x27;,&#x27;Mar&#x27;,&#x27;Apr&#x27;,&#x27;Ene&#x27;].indexOf(String(lbl[0]))&gt;=0)){ch.data.labels=months.slice();ch.update(&#x27;none&#x27;);}});
+}
+var __swB=(typeof sw!==&#x27;undefined&#x27;)?sw:null;
+if(__swB){sw=function(i){__swB(i);var t=MILL_I18N[window._lang]||MILL_I18N[&#x27;ko&#x27;],titles=t.titles||[];var el=document.getElementById(&#x27;millTitle&#x27;);if(el&amp;&amp;titles[i])el.textContent=titles[i];};}
+
+
+
+/* ===== HAUS unified i18n sweep (외형/언어 패치) ===== */
+var GLOSS={&quot;en&quot;: {&quot;부서 전체 — 월별 고급디자인 Main Task&quot;: &quot;Dept Total — Monthly Advanced Design Main Task&quot;, &quot;Section 2 — 월별 누적 생산성 트렌드&quot;: &quot;Section 2 — Monthly Cumulative Productivity Trend&quot;, &quot;월별 상세 — 테크니션 × 시간 × 생산성&quot;: &quot;Monthly Detail — Technician × Hours × Productivity&quot;, &quot;Crown / Abutment — 테크니션별&quot;: &quot;Crown / Abutment — by Technician&quot;, &quot;Seungwoo는 부서별 Unit비율 안분&quot;: &quot;Seungwoo allocated by dept Unit ratio&quot;, &quot;5~12월 데이터 입력 시 자동 갱신&quot;: &quot;Auto-updates when May~Dec data is entered&quot;, &quot;5~12월 데이터 입력 시 갱신&quot;: &quot;Updates when May~Dec data is entered&quot;, &quot;메인 태스크별 월평균 유닛&quot;: &quot;Monthly Avg Unit by Main Task&quot;, &quot;D2 — Crown / Abutment 월별&quot;: &quot;D2 — Crown / Abutment Monthly&quot;, &quot;월별 Unit — Haus Link + 수기&quot;: &quot;Monthly Unit — Haus Link + Manual&quot;, &quot;HAUS Design 생산 리포트 2026&quot;: &quot;HAUS Design Production Report 2026&quot;, &quot;HAUS Scan 생산 리포트 2026&quot;: &quot;HAUS Scan Production Report 2026&quot;, &quot;테크니션별 월별 생산량&quot;: &quot;Monthly Output by Technician&quot;, &quot;수기 + Haus Link 합계&quot;: &quot;Manual + Haus Link Total&quot;, &quot;테크니션별 월별 트렌드&quot;: &quot;Monthly Trend by Technician&quot;, &quot;D1 — 테크니션 × Main Task&quot;: &quot;D1 — Technician × Main Task&quot;, &quot;S1 — 테크니션 × Main Task&quot;: &quot;S1 — Technician × Main Task&quot;, &quot;연간 누적 생산성 트렌드&quot;: &quot;Annual Cumulative Productivity Trend&quot;, &quot;테크니션 × 작업종류&quot;: &quot;Technician × Task Type&quot;, &quot;테크니션별 월별 Unit&quot;: &quot;Monthly Unit by Technician&quot;, &quot;월평균 사유별 비중&quot;: &quot;Mo. Avg Share by Reason&quot;, &quot;테크니션별 Unit/Hrs&quot;: &quot;Unit/Hrs by Technician&quot;, &quot;테크니션 × Main Task&quot;: &quot;Technician × Main Task&quot;, &quot;D0 — 부서 대시보드&quot;: &quot;D0 — Dept Dashboard&quot;, &quot;S0 — 부서 대시보드&quot;: &quot;S0 — Dept Dashboard&quot;, &quot;D5 — 시간당 생산성&quot;: &quot;D5 — Hourly Productivity&quot;, &quot;S4 — 시간당 생산성&quot;: &quot;S4 — Hourly Productivity&quot;, &quot;YTD 사유별 비중&quot;: &quot;YTD Share by Reason&quot;, &quot;YTD 생산성 요약&quot;: &quot;YTD Productivity Summary&quot;, &quot;부서 전체 월별 표&quot;: &quot;Dept Total Monthly Table&quot;, &quot;Haus Link vs 수기&quot;: &quot;Haus Link vs Manual&quot;, &quot;월별 Sub-Total&quot;: &quot;Monthly Sub-Total&quot;, &quot;M5 — Redo 분석&quot;: &quot;M5 — Redo Analysis&quot;, &quot;P3 — Redo 분석&quot;: &quot;P3 — Redo Analysis&quot;, &quot;M0 — 부서종합&quot;: &quot;M0 — Dept Summary&quot;, &quot;P0 — 부서종합&quot;: &quot;P0 — Dept Summary&quot;, &quot;M3 — 기타재료&quot;: &quot;M3 — Other Materials&quot;, &quot;D3 — 고급디자인&quot;: &quot;D3 — Advanced Design&quot;, &quot;P1 — 테크니션별&quot;: &quot;P1 — By Technician&quot;, &quot;생산 리포트 2026&quot;: &quot;Production Report 2026&quot;, &quot;Unit/Hour 누적&quot;: &quot;Cumulative Unit/Hour&quot;, &quot;누적 Unit/Hour&quot;: &quot;Cumulative Unit/Hour&quot;, &quot;월별 재료 그룹&quot;: &quot;Monthly Material Group&quot;, &quot;테크니션 기여도&quot;: &quot;Technician Contribution&quot;, &quot;핵심 옵션 상세표&quot;: &quot;Core Option Detail&quot;, &quot;핵심 옵션 월별&quot;: &quot;Core Option Monthly&quot;, &quot;핵심 옵션 합계&quot;: &quot;Core Option Total&quot;, &quot;테크니션별 Redo&quot;: &quot;Redo by Technician&quot;, &quot;월평균 사유별&quot;: &quot;Mo. Avg by Reason&quot;, &quot;로컬수기_Scan&quot;: &quot;Local·Manual_Scan&quot;, &quot;Sub Task 비중&quot;: &quot;Sub Task Share&quot;, &quot;YTD ÷ 5개월&quot;: &quot;YTD ÷ 4 months&quot;, &quot;기타재료 YTD&quot;: &quot;Other Materials YTD&quot;, &quot;부서 대시보드&quot;: &quot;Dept Dashboard&quot;, &quot;사유별 상세표&quot;: &quot;Detail by Reason&quot;, &quot;최다 테크니션&quot;: &quot;Top Technician&quot;, &quot;YTD 총 생산&quot;: &quot;YTD Total Output&quot;, &quot;Paul Seo 제외&quot;: &quot;Excl. Paul Seo&quot;, &quot;핵심 옵션&quot;: &quot;Core Option&quot;, &quot;기타재료&quot;: &quot;Other Materials&quot;, &quot;고급디자인&quot;: &quot;Advanced Design&quot;, &quot;Redo 분석&quot;: &quot;Redo Analysis&quot;, &quot;시트별 분석&quot;: &quot;Sheet Analysis&quot;, &quot;테크니션 수&quot;: &quot;Technician Count&quot;, &quot;월평균 비중&quot;: &quot;Mo. Avg Share&quot;, &quot;수기 YTD&quot;: &quot;Manual YTD&quot;, &quot;YTD 비중&quot;: &quot;YTD Share&quot;, &quot;YTD 생산&quot;: &quot;YTD Output&quot;, &quot;O/S 제외&quot;: &quot;Excl. O/S&quot;, &quot;월별 막대&quot;: &quot;Monthly bars&quot;, &quot;월별 비교&quot;: &quot;Monthly comparison&quot;, &quot;누적 기준&quot;: &quot;Cumulative basis&quot;, &quot;로컬 입력&quot;: &quot;Local entry&quot;, &quot;로컬/수기&quot;: &quot;Local/Manual&quot;, &quot;최다 사유&quot;: &quot;Top Reason&quot;, &quot;합계/평균&quot;: &quot;Total/Avg&quot;, &quot;부서종합&quot;: &quot;Dept Summary&quot;, &quot;테크니션별&quot;: &quot;by Technician&quot;, &quot;테크니션&quot;: &quot;Technician&quot;, &quot;수기(로컬)&quot;: &quot;Manual(Local)&quot;, &quot;총작업&quot;: &quot;Total Tasks&quot;, &quot;월평균&quot;: &quot;Mo. Avg&quot;, &quot;기여%&quot;: &quot;Share%&quot;, &quot;스케일&quot;: &quot;Scale&quot;, &quot;로컬&quot;: &quot;Local&quot;, &quot;수기&quot;: &quot;Manual&quot;, &quot;구분&quot;: &quot;Type&quot;, &quot;그룹&quot;: &quot;Group&quot;, &quot;옵션&quot;: &quot;Option&quot;, &quot;사유&quot;: &quot;Reason&quot;, &quot;비중&quot;: &quot;Share&quot;, &quot;비율&quot;: &quot;Ratio&quot;, &quot;효율&quot;: &quot;Efficiency&quot;, &quot;평균&quot;: &quot;Avg&quot;, &quot;합계&quot;: &quot;Total&quot;, &quot;월별&quot;: &quot;Monthly&quot;, &quot;기간&quot;: &quot;Period&quot;, &quot;2명&quot;: &quot;2 ppl&quot;, &quot;5명&quot;: &quot;5 ppl&quot;, &quot;1명&quot;: &quot;1 person&quot;, &quot;없음(전원 In-house)&quot;: &quot;none (all In-house)&quot;, &quot;미입력&quot;: &quot;Not Entered&quot;, &quot;합산&quot;: &quot;Combined&quot;, &quot;전원&quot;: &quot;all&quot;, &quot;없음&quot;: &quot;none&quot;, &quot;안분&quot;: &quot;allocated&quot;, &quot;유닛&quot;: &quot;Unit&quot;, &quot;작업종류&quot;: &quot;Task Type&quot;, &quot;숨김 (계산용)&quot;: &quot;hidden (for calc)&quot;, &quot;숨김&quot;: &quot;hidden&quot;, &quot;계산용&quot;: &quot;for calc&quot;, &quot;X축&quot;: &quot;X-axis&quot;, &quot;누적 막대 (Monthly / 카테고리)&quot;: &quot;Cumulative Bars (Monthly / Category)&quot;, &quot;YTD Top 15 제품 (주문건수)&quot;: &quot;YTD Top 15 Products (Orders)&quot;, &quot;대카테고리 × Monthly 추이&quot;: &quot;Category × Monthly Trend&quot;, &quot;카테고리 Mo. Avg Share&quot;: &quot;Category Mo. Avg Share&quot;, &quot;주문 → 각 부서 처리율&quot;: &quot;Order → Dept Processing Rate&quot;, &quot;Stacked Bar + 전사 Line&quot;: &quot;Stacked Bar + Company Line&quot;, &quot;색 진할수록 Redo 多&quot;: &quot;Darker = more Redo&quot;, &quot;직전월(Mar) 13,568&quot;: &quot;Prev Month (Mar) 13,568&quot;, &quot;주문건수(케이스)&quot;: &quot;Order Count (Case)&quot;, &quot;기타=Final Item Unit&quot;: &quot;Others=Final Item Unit&quot;, &quot;YTD 스테이지 퍼널&quot;: &quot;YTD Stage Funnel&quot;, &quot;전체 64,395 기준&quot;: &quot;Based on total 64,395&quot;, &quot;스캔=Opt Qty&quot;: &quot;Scan=Opt Qty&quot;, &quot;주문전체&quot;: &quot;All Orders&quot;, &quot;Apr성장%&quot;: &quot;Apr Growth%&quot;, &quot;[간단보기]&quot;: &quot;[Simple]&quot;, &quot;[상세보기]&quot;: &quot;[Detail]&quot;, &quot;Mo. Avg 합&quot;: &quot;Mo. Avg Sum&quot;, &quot;전사 Total&quot;: &quot;Company Total&quot;, &quot;클릭 정렬&quot;: &quot;Click to sort&quot;, &quot;% 표시&quot;: &quot;% view&quot;, &quot;Avg/월&quot;: &quot;Avg/Mo&quot;, &quot;부서별 생산 리포트&quot;: &quot;Department Production Reports&quot;, &quot;전사 대시보드&quot;: &quot;Company Dashboard&quot;, &quot;3D 프린팅&quot;: &quot;3D Printing&quot;, &quot;가동 모듈&quot;: &quot;Active Modules&quot;, &quot;메탈피니싱&quot;: &quot;Metal Finishing&quot;, &quot;제품명&quot;: &quot;Product&quot;, &quot;간단보기&quot;: &quot;Simple View&quot;, &quot;상세보기&quot;: &quot;Detail View&quot;, &quot;직전월&quot;: &quot;Prev Month&quot;, &quot;대카테고리&quot;: &quot;Category&quot;, &quot;카테고리&quot;: &quot;Category&quot;, &quot;스테이지&quot;: &quot;Stage&quot;, &quot;퍼널&quot;: &quot;Funnel&quot;, &quot;처리율&quot;: &quot;Processing Rate&quot;, &quot;주문&quot;: &quot;Order&quot;, &quot;케이스&quot;: &quot;Case&quot;, &quot;디자인&quot;: &quot;Design&quot;, &quot;리포트&quot;: &quot;Report&quot;, &quot;피니싱&quot;: &quot;Finishing&quot;, &quot;밀링&quot;: &quot;Milling&quot;, &quot;스캔&quot;: &quot;Scan&quot;, &quot;전사&quot;: &quot;Company&quot;, &quot;성장&quot;: &quot;Growth&quot;, &quot;제품&quot;: &quot;Product&quot;, &quot;추이&quot;: &quot;Trend&quot;, &quot;기타&quot;: &quot;Others&quot;, &quot;지표&quot;: &quot;Metric&quot;, &quot;정렬&quot;: &quot;sort&quot;, &quot;표시&quot;: &quot;show&quot;, &quot;부서&quot;: &quot;Dept&quot;, &quot;전체&quot;: &quot;All&quot;, &quot;기준&quot;: &quot;as of&quot;, &quot;합&quot;: &quot;Sum&quot;, &quot;월&quot;: &quot;Mo&quot;, &quot;누적 막대&quot;: &quot;Cumulative Bars&quot;, &quot;누적&quot;: &quot;Cumulative&quot;, &quot;막대&quot;: &quot;Bars&quot;}, &quot;es&quot;: {&quot;부서 전체 — 월별 고급디자인 Main Task&quot;: &quot;Total Depto — Tarea Principal Diseño Avanzado Mensual&quot;, &quot;Section 2 — 월별 누적 생산성 트렌드&quot;: &quot;Sección 2 — Tendencia Acumulada de Productividad Mensual&quot;, &quot;월별 상세 — 테크니션 × 시간 × 생산성&quot;: &quot;Detalle Mensual — Técnico × Horas × Productividad&quot;, &quot;Crown / Abutment — 테크니션별&quot;: &quot;Crown / Abutment — por Técnico&quot;, &quot;Seungwoo는 부서별 Unit비율 안분&quot;: &quot;Seungwoo prorrateado por ratio de Unidad&quot;, &quot;5~12월 데이터 입력 시 자동 갱신&quot;: &quot;Se actualiza al ingresar datos de May~Dic&quot;, &quot;5~12월 데이터 입력 시 갱신&quot;: &quot;Se actualiza al ingresar datos de May~Dic&quot;, &quot;메인 태스크별 월평균 유닛&quot;: &quot;Unidad Prom. Mensual por Tarea Principal&quot;, &quot;D2 — Crown / Abutment 월별&quot;: &quot;D2 — Crown / Abutment Mensual&quot;, &quot;월별 Unit — Haus Link + 수기&quot;: &quot;Unidad Mensual — Haus Link + Manual&quot;, &quot;HAUS Design 생산 리포트 2026&quot;: &quot;HAUS Design Reporte de Producción 2026&quot;, &quot;HAUS Scan 생산 리포트 2026&quot;: &quot;HAUS Scan Reporte de Producción 2026&quot;, &quot;테크니션별 월별 생산량&quot;: &quot;Producción Mensual por Técnico&quot;, &quot;수기 + Haus Link 합계&quot;: &quot;Manual + Haus Link Total&quot;, &quot;테크니션별 월별 트렌드&quot;: &quot;Tendencia Mensual por Técnico&quot;, &quot;D1 — 테크니션 × Main Task&quot;: &quot;D1 — Técnico × Tarea Principal&quot;, &quot;S1 — 테크니션 × Main Task&quot;: &quot;S1 — Técnico × Tarea Principal&quot;, &quot;연간 누적 생산성 트렌드&quot;: &quot;Tendencia Anual Acumulada de Productividad&quot;, &quot;테크니션 × 작업종류&quot;: &quot;Técnico × Tipo de Tarea&quot;, &quot;테크니션별 월별 Unit&quot;: &quot;Unidad Mensual por Técnico&quot;, &quot;월평균 사유별 비중&quot;: &quot;Part. Prom. Mens. por Motivo&quot;, &quot;테크니션별 Unit/Hrs&quot;: &quot;Unit/Hrs por Técnico&quot;, &quot;테크니션 × Main Task&quot;: &quot;Técnico × Tarea Principal&quot;, &quot;D0 — 부서 대시보드&quot;: &quot;D0 — Panel del Depto&quot;, &quot;S0 — 부서 대시보드&quot;: &quot;S0 — Panel del Depto&quot;, &quot;D5 — 시간당 생산성&quot;: &quot;D5 — Productividad por Hora&quot;, &quot;S4 — 시간당 생산성&quot;: &quot;S4 — Productividad por Hora&quot;, &quot;YTD 사유별 비중&quot;: &quot;Part. YTD por Motivo&quot;, &quot;YTD 생산성 요약&quot;: &quot;Resumen de Productividad YTD&quot;, &quot;부서 전체 월별 표&quot;: &quot;Tabla Mensual Total Depto&quot;, &quot;Haus Link vs 수기&quot;: &quot;Haus Link vs Manual&quot;, &quot;월별 Sub-Total&quot;: &quot;Sub-Total Mensual&quot;, &quot;M5 — Redo 분석&quot;: &quot;M5 — Análisis Redo&quot;, &quot;P3 — Redo 분석&quot;: &quot;P3 — Análisis Redo&quot;, &quot;M0 — 부서종합&quot;: &quot;M0 — Resumen Depto&quot;, &quot;P0 — 부서종합&quot;: &quot;P0 — Resumen Depto&quot;, &quot;M3 — 기타재료&quot;: &quot;M3 — Otros Materiales&quot;, &quot;D3 — 고급디자인&quot;: &quot;D3 — Diseño Avanzado&quot;, &quot;P1 — 테크니션별&quot;: &quot;P1 — Por Técnico&quot;, &quot;생산 리포트 2026&quot;: &quot;Reporte de Producción 2026&quot;, &quot;Unit/Hour 누적&quot;: &quot;Unit/Hour Acumulado&quot;, &quot;누적 Unit/Hour&quot;: &quot;Unit/Hour Acumulado&quot;, &quot;월별 재료 그룹&quot;: &quot;Grupo de Material Mensual&quot;, &quot;테크니션 기여도&quot;: &quot;Contribución del Técnico&quot;, &quot;핵심 옵션 상세표&quot;: &quot;Detalle de Opción Clave&quot;, &quot;핵심 옵션 월별&quot;: &quot;Opción Clave Mensual&quot;, &quot;핵심 옵션 합계&quot;: &quot;Total Opción Clave&quot;, &quot;테크니션별 Redo&quot;: &quot;Redo por Técnico&quot;, &quot;월평균 사유별&quot;: &quot;Prom. Mens. por Motivo&quot;, &quot;로컬수기_Scan&quot;: &quot;Local·Manual_Scan&quot;, &quot;Sub Task 비중&quot;: &quot;Participación Sub Task&quot;, &quot;YTD ÷ 5개월&quot;: &quot;YTD ÷ 4 meses&quot;, &quot;기타재료 YTD&quot;: &quot;Otros Materiales YTD&quot;, &quot;부서 대시보드&quot;: &quot;Panel del Depto&quot;, &quot;사유별 상세표&quot;: &quot;Detalle por Motivo&quot;, &quot;최다 테크니션&quot;: &quot;Técnico Principal&quot;, &quot;YTD 총 생산&quot;: &quot;Producción Total YTD&quot;, &quot;Paul Seo 제외&quot;: &quot;Excl. Paul Seo&quot;, &quot;핵심 옵션&quot;: &quot;Opción Clave&quot;, &quot;기타재료&quot;: &quot;Otros Materiales&quot;, &quot;고급디자인&quot;: &quot;Diseño Avanzado&quot;, &quot;Redo 분석&quot;: &quot;Análisis Redo&quot;, &quot;시트별 분석&quot;: &quot;Análisis por Hoja&quot;, &quot;테크니션 수&quot;: &quot;N.º de Técnicos&quot;, &quot;월평균 비중&quot;: &quot;Part. Prom. Mens.&quot;, &quot;수기 YTD&quot;: &quot;Manual YTD&quot;, &quot;YTD 비중&quot;: &quot;Part. YTD&quot;, &quot;YTD 생산&quot;: &quot;Producción YTD&quot;, &quot;O/S 제외&quot;: &quot;Excl. O/S&quot;, &quot;월별 막대&quot;: &quot;Barras mensuales&quot;, &quot;월별 비교&quot;: &quot;Comparación mensual&quot;, &quot;누적 기준&quot;: &quot;Base acumulada&quot;, &quot;로컬 입력&quot;: &quot;Entrada local&quot;, &quot;로컬/수기&quot;: &quot;Local/Manual&quot;, &quot;최다 사유&quot;: &quot;Motivo Principal&quot;, &quot;합계/평균&quot;: &quot;Total/Prom.&quot;, &quot;부서종합&quot;: &quot;Resumen Depto&quot;, &quot;테크니션별&quot;: &quot;por Técnico&quot;, &quot;테크니션&quot;: &quot;Técnico&quot;, &quot;수기(로컬)&quot;: &quot;Manual(Local)&quot;, &quot;총작업&quot;: &quot;Tareas Totales&quot;, &quot;월평균&quot;: &quot;Prom. Mes&quot;, &quot;기여%&quot;: &quot;Part.%&quot;, &quot;스케일&quot;: &quot;Escala&quot;, &quot;로컬&quot;: &quot;Local&quot;, &quot;수기&quot;: &quot;Manual&quot;, &quot;구분&quot;: &quot;Tipo&quot;, &quot;그룹&quot;: &quot;Grupo&quot;, &quot;옵션&quot;: &quot;Opción&quot;, &quot;사유&quot;: &quot;Motivo&quot;, &quot;비중&quot;: &quot;Part.&quot;, &quot;비율&quot;: &quot;Ratio&quot;, &quot;효율&quot;: &quot;Eficiencia&quot;, &quot;평균&quot;: &quot;Prom.&quot;, &quot;합계&quot;: &quot;Total&quot;, &quot;월별&quot;: &quot;Mensual&quot;, &quot;기간&quot;: &quot;Período&quot;, &quot;2명&quot;: &quot;2 pers.&quot;, &quot;5명&quot;: &quot;5 pers.&quot;, &quot;1명&quot;: &quot;1 pers.&quot;, &quot;없음(전원 In-house)&quot;: &quot;ninguno (todo In-house)&quot;, &quot;미입력&quot;: &quot;No Ingresado&quot;, &quot;합산&quot;: &quot;Combinado&quot;, &quot;전원&quot;: &quot;todos&quot;, &quot;없음&quot;: &quot;ninguno&quot;, &quot;안분&quot;: &quot;prorrateado&quot;, &quot;유닛&quot;: &quot;Unidad&quot;, &quot;작업종류&quot;: &quot;Tipo de Tarea&quot;, &quot;숨김 (계산용)&quot;: &quot;oculto (para cálculo)&quot;, &quot;숨김&quot;: &quot;oculto&quot;, &quot;계산용&quot;: &quot;para cálculo&quot;, &quot;X축&quot;: &quot;Eje X&quot;, &quot;누적 막대 (Monthly / 카테고리)&quot;: &quot;Barras Acumuladas (Mensual / Categoría)&quot;, &quot;YTD Top 15 제품 (주문건수)&quot;: &quot;YTD Top 15 Productos (Pedidos)&quot;, &quot;대카테고리 × Monthly 추이&quot;: &quot;Categoría × Tendencia Mensual&quot;, &quot;카테고리 Mo. Avg Share&quot;: &quot;Categoría Part. Prom. Mens.&quot;, &quot;주문 → 각 부서 처리율&quot;: &quot;Pedido → Tasa de Proc. por Depto&quot;, &quot;Stacked Bar + 전사 Line&quot;: &quot;Barra Apilada + Línea Empresa&quot;, &quot;색 진할수록 Redo 多&quot;: &quot;Más oscuro = más Redo&quot;, &quot;직전월(Mar) 13,568&quot;: &quot;Mes Ant. (Mar) 13,568&quot;, &quot;주문건수(케이스)&quot;: &quot;N.º Pedidos (Caso)&quot;, &quot;기타=Final Item Unit&quot;: &quot;Otros=Final Item Unit&quot;, &quot;YTD 스테이지 퍼널&quot;: &quot;Embudo de Etapas YTD&quot;, &quot;전체 64,395 기준&quot;: &quot;Base total 64,395&quot;, &quot;스캔=Opt Qty&quot;: &quot;Scan=Opt Qty&quot;, &quot;주문전체&quot;: &quot;Todos los Pedidos&quot;, &quot;Apr성장%&quot;: &quot;Crec. Abr%&quot;, &quot;[간단보기]&quot;: &quot;[Simple]&quot;, &quot;[상세보기]&quot;: &quot;[Detalle]&quot;, &quot;Mo. Avg 합&quot;: &quot;Suma Prom. Mes&quot;, &quot;전사 Total&quot;: &quot;Total Empresa&quot;, &quot;클릭 정렬&quot;: &quot;Clic para ordenar&quot;, &quot;% 표시&quot;: &quot;Ver %&quot;, &quot;Avg/월&quot;: &quot;Prom./Mes&quot;, &quot;부서별 생산 리포트&quot;: &quot;Reportes de Producción por Depto&quot;, &quot;전사 대시보드&quot;: &quot;Panel de Empresa&quot;, &quot;3D 프린팅&quot;: &quot;Impresión 3D&quot;, &quot;가동 모듈&quot;: &quot;Módulos Activos&quot;, &quot;메탈피니싱&quot;: &quot;Metal Finishing&quot;, &quot;제품명&quot;: &quot;Producto&quot;, &quot;간단보기&quot;: &quot;Vista Simple&quot;, &quot;상세보기&quot;: &quot;Vista Detalle&quot;, &quot;직전월&quot;: &quot;Mes Ant.&quot;, &quot;대카테고리&quot;: &quot;Categoría&quot;, &quot;카테고리&quot;: &quot;Categoría&quot;, &quot;스테이지&quot;: &quot;Etapa&quot;, &quot;퍼널&quot;: &quot;Embudo&quot;, &quot;처리율&quot;: &quot;Tasa de Proc.&quot;, &quot;주문&quot;: &quot;Pedido&quot;, &quot;케이스&quot;: &quot;Caso&quot;, &quot;디자인&quot;: &quot;Diseño&quot;, &quot;리포트&quot;: &quot;Reporte&quot;, &quot;피니싱&quot;: &quot;Finishing&quot;, &quot;밀링&quot;: &quot;Milling&quot;, &quot;스캔&quot;: &quot;Scan&quot;, &quot;전사&quot;: &quot;Empresa&quot;, &quot;성장&quot;: &quot;Crecimiento&quot;, &quot;제품&quot;: &quot;Producto&quot;, &quot;추이&quot;: &quot;Tendencia&quot;, &quot;기타&quot;: &quot;Otros&quot;, &quot;지표&quot;: &quot;Métrica&quot;, &quot;정렬&quot;: &quot;ordenar&quot;, &quot;표시&quot;: &quot;mostrar&quot;, &quot;부서&quot;: &quot;Depto&quot;, &quot;전체&quot;: &quot;Todos&quot;, &quot;기준&quot;: &quot;al&quot;, &quot;합&quot;: &quot;Suma&quot;, &quot;월&quot;: &quot;Mes&quot;, &quot;누적 막대&quot;: &quot;Barras Acumuladas&quot;, &quot;누적&quot;: &quot;Acumulado&quot;, &quot;막대&quot;: &quot;Barras&quot;}};
+var GKEYS=Object.keys(GLOSS.en).sort(function(a,b){return b.length-a.length;});
+Object.assign(GLOSS.en,{&quot;2026 생산량 (Haus Link + 로컬/수기)&quot;: &quot;2026 Production (Haus Link + Local/Manual)&quot;, &quot;당월(4월) 생산량 (Haus Link + 로컬/수기)&quot;: &quot;Current Month (Apr) (Haus Link + Local/Manual)&quot;, &quot;전월대비 성장률&quot;: &quot;vs. Prior Month&quot;, &quot;월평균대비 증감률&quot;: &quot;vs. Monthly Avg&quot;, &quot;전월대비 특이사항&quot;: &quot;MoM Highlights&quot;, &quot;• 당월 전월비 +1.9% 증가 (+174)&quot;: &quot;• Current mo +1.9% MoM rise (+174)&quot;, &quot;• 월평균 8,251 대비 +10.8% 상회&quot;: &quot;• +10.8% above monthly avg (8,251)&quot;, &quot;• 수기 비중 26% 증가세 (2,371)&quot;: &quot;• Manual share 26%, rising (2,371)&quot;, &quot;• 당월 전월비 +14.4% 급증 (+124)&quot;: &quot;• Current mo +14.4% MoM surge (+124)&quot;, &quot;• 월평균 782 대비 +26.3% 크게 상회&quot;: &quot;• +26.3% well above monthly avg (782)&quot;, &quot;• 수기 비중 52% (517/988)&quot;: &quot;• Manual share 52% (517/988)&quot;, &quot;• 당월 전월비 −4.9% 감소 (−129)&quot;: &quot;• Current mo −4.9% MoM drop (−129)&quot;, &quot;• 월평균 2,448 대비 +2.7% 상회&quot;: &quot;• +2.7% above monthly avg (2,448)&quot;, &quot;• 수기 비중 42% (1,050/2,513)&quot;: &quot;• Manual share 42% (1,050/2,513)&quot;, &quot;• 당월 전월비 −6.1% 감소 (−56)&quot;: &quot;• Current mo −6.1% MoM drop (−56)&quot;, &quot;• 월평균 852 대비 +1.9% 상회&quot;: &quot;• +1.9% above monthly avg (852)&quot;, &quot;• 수기 비중 19% (169/868)&quot;: &quot;• Manual share 19% (169/868)&quot;});Object.assign(GLOSS.es,{&quot;2026 생산량 (Haus Link + 로컬/수기)&quot;: &quot;Producción 2026 (Haus Link + Local/Manual)&quot;, &quot;당월(4월) 생산량 (Haus Link + 로컬/수기)&quot;: &quot;Mes Actual (Abr) (HL + Local/Manual)&quot;, &quot;전월대비 성장률&quot;: &quot;vs. Mes Anterior&quot;, &quot;월평균대비 증감률&quot;: &quot;vs. Prom. Mensual&quot;, &quot;전월대비 특이사항&quot;: &quot;Destacados MoM&quot;, &quot;• 당월 전월비 +1.9% 증가 (+174)&quot;: &quot;• Mes actual +1.9% MoM alza (+174)&quot;, &quot;• 월평균 8,251 대비 +10.8% 상회&quot;: &quot;• +10.8% sobre prom. mensual (8,251)&quot;, &quot;• 수기 비중 26% 증가세 (2,371)&quot;: &quot;• Manual 26%, creciente (2,371)&quot;, &quot;• 당월 전월비 +14.4% 급증 (+124)&quot;: &quot;• Mes actual +14.4% MoM repunte (+124)&quot;, &quot;• 월평균 782 대비 +26.3% 크게 상회&quot;: &quot;• +26.3% muy sobre prom. (782)&quot;, &quot;• 수기 비중 52% (517/988)&quot;: &quot;• Manual 52% (517/988)&quot;, &quot;• 당월 전월비 −4.9% 감소 (−129)&quot;: &quot;• Mes actual −4.9% MoM caída (−129)&quot;, &quot;• 월평균 2,448 대비 +2.7% 상회&quot;: &quot;• +2.7% sobre prom. mensual (2,448)&quot;, &quot;• 수기 비중 42% (1,050/2,513)&quot;: &quot;• Manual 42% (1,050/2,513)&quot;, &quot;• 당월 전월비 −6.1% 감소 (−56)&quot;: &quot;• Mes actual −6.1% MoM caída (−56)&quot;, &quot;• 월평균 852 대비 +1.9% 상회&quot;: &quot;• +1.9% sobre prom. mensual (852)&quot;, &quot;• 수기 비중 19% (169/868)&quot;: &quot;• Manual 19% (169/868)&quot;});GKEYS=Object.keys(GLOSS.en).sort(function(a,b){return b.length-a.length;});
+function _lng(){try{return (window._lang)||&#x27;ko&#x27;;}catch(e){return &#x27;ko&#x27;;}}
+function L(s){var l=_lng();return (l!==&#x27;ko&#x27;&amp;&amp;GLOSS[l]&amp;&amp;GLOSS[l][s]!==undefined)?GLOSS[l][s]:s;}
+function _tr(s){var l=_lng();if(l===&#x27;ko&#x27;||!GLOSS[l])return s;var r=s;for(var i=0;i&lt;GKEYS.length;i++){var k=GKEYS[i];if(r.indexOf(k)&gt;=0)r=r.split(k).join(GLOSS[l][k]);}return r;}
+var _ORIG=new WeakMap(),_SWP=false;
+function sweepDOM(){if(_SWP)return;_SWP=true;try{var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null),a=[],n;while(n=w.nextNode())a.push(n);for(var i=0;i&lt;a.length;i++){var nd=a[i],p=nd.parentNode;if(p&amp;&amp;(p.tagName===&#x27;SCRIPT&#x27;||p.tagName===&#x27;STYLE&#x27;))continue;if(p&amp;&amp;p.closest&amp;&amp;p.closest(&#x27;[data-i18n]&#x27;))continue;if(!_ORIG.has(nd))_ORIG.set(nd,nd.nodeValue);var o=_ORIG.get(nd),v=(_lng()===&#x27;ko&#x27;)?o:_tr(o);if(nd.nodeValue!==v)nd.nodeValue=v;}}finally{_SWP=false;}}
+function sweepCharts(){try{if(typeof charts===&#x27;undefined&#x27;||!charts)return;Object.keys(charts).forEach(function(k){var c=charts[k];if(!c||!c.data)return;var ch=false;
+if(c.data.datasets)c.data.datasets.forEach(function(ds){if(ds._ko===undefined)ds._ko=ds.label;if(ds._ko!=null){var nv=_tr(ds._ko);if(ds.label!==nv){ds.label=nv;ch=true;}}});
+if(c.data._kl===undefined)c.data._kl=Array.isArray(c.data.labels)?c.data.labels.slice():null;
+if(c.data._kl){for(var z=0;z&lt;c.data.labels.length;z++){var o=c.data._kl[z];if(o&amp;&amp;/[가-힣]/.test(o)){var nv=_tr(o);if(c.data.labels[z]!==nv){c.data.labels[z]=nv;ch=true;}}}}
+if(ch&amp;&amp;c.update)c.update(&#x27;none&#x27;);});}catch(e){}}
+function sweepAll(){sweepDOM();sweepCharts();}
+try{var _OBS=new MutationObserver(function(ms){if(_SWP)return;for(var i=0;i&lt;ms.length;i++){if(ms[i].addedNodes.length||ms[i].type===&#x27;characterData&#x27;){sweepDOM();return;}}});_OBS.observe(document.body,{childList:true,subtree:true,characterData:true});}catch(e){}
+(function(){if(typeof setLang===&#x27;function&#x27;){var _o=setLang;setLang=function(){_o.apply(this,arguments);sweepAll();};}})();
+setTimeout(sweepAll,80);setTimeout(sweepAll,400);
+/* ===== end i18n sweep ===== */
+
+&lt;/script&gt;"></iframe><iframe class="gr-frame" id="frame-printing" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0&quot;&gt;
+&lt;title&gt;[v1.4] HAUS 3D Printing P0~P4 — 생산 리포트 2026&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;style&gt;
+@import url(&#x27;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap&#x27;);
+:root {
+  --primary:#1E40AF; --primary-md:#3B82F6; --primary-lt:#EFF6FF; --primary-xl:#DBEAFE;
+  --teal:#0891B2; --red:#DC2626; --amber:#D97706;
+  --zir:#F97316; --ticro:#16A34A; --other:#8B5CF6;
+  --t1:#0F172A; --t2:#475569; --t3:#94A3B8;
+  --surface:#FFFFFF; --bg:#F0F5FF; --bg2:#EBF0F9; --bg3:#F5F7FF;
+  --glass:rgba(255,255,255,.92); --gb:#E2EAF4;
+  --border:#E2EAF4; --border2:#CBD5E1;
+  --text2:#475569;  /* used in JS */
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --shadow-md:0 4px 12px rgba(0,0,0,.08);
+  --r:12px; --r-sm:8px;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:&#x27;Inter&#x27;,sans-serif; background:var(--bg); color:var(--t1); min-height:100vh; }
+.app-shell { display:flex; min-height:100vh; }
+
+/* DARK SIDEBAR */
+.mill-sidebar {
+  width:220px; min-width:220px;
+  background:#1E293B;
+  display:flex; flex-direction:column;
+  position:sticky; top:0; height:100vh; overflow-y:auto; z-index:100;
+}
+.mill-sb-logo { padding:18px 16px 14px; border-bottom:1px solid rgba(255,255,255,.08); }
+.mill-sb-logo-row { display:flex; align-items:center; gap:10px; }
+.mill-sb-icon {
+  width:34px; height:34px; border-radius:9px; flex-shrink:0;
+  background:linear-gradient(135deg,#F97316,#EA580C);
+  display:flex; align-items:center; justify-content:center;
+  font-size:16px; font-weight:900; color:#fff;
+}
+.mill-sb-name { font-weight:800; font-size:14px; color:#fff; }
+.mill-sb-sub { font-size:10px; color:rgba(255,255,255,.4); margin-top:1px; }
+.mill-sb-nav { padding:10px 8px; flex:1; }
+.mill-sb-section { font-size:9px; font-weight:700; color:rgba(255,255,255,.3); letter-spacing:.12em; text-transform:uppercase; padding:8px 12px 5px; }
+
+/* .stab = milling sheet tab (used by JS) */
+.stab {
+  display:flex; align-items:center; gap:10px;
+  padding:9px 12px; border-radius:7px; cursor:pointer;
+  font-size:12px; font-weight:500; color:rgba(255,255,255,.55);
+  transition:all .15s; margin-bottom:2px;
+  border:none; background:none; font-family:&#x27;Inter&#x27;; width:100%; text-align:left;
+}
+.stab:hover { background:rgba(255,255,255,.08); color:rgba(255,255,255,.85); }
+.stab.active { background:#3B82F6; color:#fff; font-weight:600; }
+.stab-icon { font-size:13px; width:18px; text-align:center; flex-shrink:0; }
+.stab-badge { font-size:9px; font-family:&#x27;JetBrains Mono&#x27;; background:rgba(255,255,255,.1); color:rgba(255,255,255,.65); padding:2px 5px; border-radius:4px; margin-left:auto; }
+.stab.active .stab-badge { background:rgba(255,255,255,.2); color:#fff; }
+.mill-sb-stat { padding:13px 15px; border-top:1px solid rgba(255,255,255,.08); }
+.mill-sb-row { display:flex; justify-content:space-between; margin-bottom:4px; }
+.mill-sb-row:last-child { margin:0; }
+.mill-sb-lbl { font-size:10px; color:rgba(255,255,255,.33); }
+.mill-sb-val { font-size:10px; font-family:&#x27;JetBrains Mono&#x27;; font-weight:700; color:rgba(255,255,255,.6); }
+
+/* MAIN */
+.main-area { flex:1; display:flex; flex-direction:column; min-width:0; }
+.top-bar { background:var(--surface); border-bottom:1px solid var(--border); padding:0 26px; height:54px; display:flex; align-items:center; gap:12px; position:sticky; top:0; z-index:90; }
+.tb-title { font-size:15px; font-weight:700; color:var(--t1); }
+.tb-tag { padding:3px 10px; border-radius:20px; font-size:10px; font-weight:700; background:var(--primary-lt); color:var(--primary); border:1px solid var(--primary-xl); }
+.tb-meta { margin-left:auto; font-size:11px; font-family:&#x27;JetBrains Mono&#x27;; color:var(--t2); }
+.content-area { padding:22px 26px; }
+
+/* SHEET PANELS */
+.sheet-panel { display:none; }
+.sheet-panel.active { display:block; animation:fadeUp .25s ease; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+.sec-label { display:flex; align-items:center; gap:8px; font-size:10px; font-weight:700; color:var(--t3); letter-spacing:.1em; text-transform:uppercase; margin:24px 0 12px; }
+.sec-label::before { content:&#x27;&#x27;; width:3px; height:12px; background:var(--primary-md); border-radius:2px; }
+.sec-label::after { content:&#x27;&#x27;; flex:1; height:1px; background:var(--border); }
+.sec-label:first-child { margin-top:0; }
+
+/* KPI */
+.kpi-row { display:flex; gap:11px; flex-wrap:wrap; margin-bottom:18px; }
+.kpi { flex:1; min-width:140px; background:var(--surface); border:1px solid var(--border); border-top:3px solid var(--accent,#3B82F6); border-radius:var(--r); padding:15px 17px; box-shadow:var(--shadow-sm); }
+.kpi-lbl { font-size:10px; font-weight:700; color:var(--t3); letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px; }
+.kpi-val { font-family:&#x27;JetBrains Mono&#x27;; font-size:22px; font-weight:700; line-height:1; }
+.kpi-sub { font-size:10px; color:var(--t2); margin-top:4px; }
+
+/* CARD */
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--r); padding:20px; box-shadow:var(--shadow-sm); }
+.card-title { font-size:13px; font-weight:700; color:var(--t1); margin-bottom:3px; }
+.card-sub { font-size:11px; color:var(--t2); margin-bottom:14px; }
+.g2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.g3 { display:grid; grid-template-columns:2fr 1fr; gap:14px; }
+.g4 { display:grid; grid-template-columns:3fr 2fr; gap:14px; }
+.mt16 { margin-top:16px; }
+
+/* TECH LEGEND */
+.tleg { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+.tleg-item { display:flex; align-items:center; gap:4px; font-size:11px; color:var(--t2); }
+.tleg-dot { width:7px; height:7px; border-radius:50%; }
+
+/* TOGGLE */
+.tog-grp { display:inline-flex; background:var(--bg); border:1px solid var(--border); border-radius:6px; padding:3px; gap:2px; margin-bottom:12px; }
+.tog { padding:6px 14px; border:none; border-radius:4px; cursor:pointer; font-family:&#x27;Inter&#x27;; font-size:11px; font-weight:600; color:var(--t2); background:none; transition:all .15s; }
+.tog:hover { color:var(--t1); }
+.tog.on { background:var(--primary-md); color:#fff; box-shadow:0 1px 3px rgba(59,130,246,.3); }
+
+/* TABLE */
+.tbl { width:100%; border-collapse:collapse; font-size:12px; }
+.tbl thead { position:sticky; top:0; z-index:1; }
+.tbl th { text-align:left; padding:9px 11px; font-size:10px; font-weight:700; color:var(--t2); letter-spacing:.06em; text-transform:uppercase; border-bottom:2px solid var(--border2); background:var(--bg); white-space:nowrap; }
+.tbl td { padding:8px 11px; border-bottom:1px solid var(--border); }
+.tbl tbody tr:hover td { background:var(--primary-lt); }
+.tbl .r { text-align:right; font-family:&#x27;JetBrains Mono&#x27;; }
+.tbl .hl { font-weight:700; color:var(--primary-md); }
+.tbl .tot td { background:var(--primary-lt); font-weight:700; }
+.rate { display:inline-flex; padding:2px 7px; border-radius:12px; font-size:10px; font-weight:700; font-family:&#x27;JetBrains Mono&#x27;; }
+.rate.hi { background:#FEE2E2; color:#DC2626; }
+.rate.mid { background:#FEF3C7; color:#D97706; }
+.rate.lo { background:#DCFCE7; color:#16A34A; }
+.bar-bg { flex:1; height:4px; background:var(--border); border-radius:2px; min-width:40px; }
+.bar-fill { height:100%; border-radius:2px; transition:width .6s ease; }
+.bar-cell { display:flex; align-items:center; gap:6px; }
+
+/* FUNNEL */
+.funnel-row { display:flex; align-items:center; gap:10px; padding:7px 0; border-bottom:1px solid var(--border); }
+.funnel-label { font-size:12px; width:78px; color:var(--t2); font-weight:500; }
+.funnel-bar-wrap { flex:1; background:var(--border); border-radius:5px; height:22px; overflow:hidden; }
+.funnel-bar { height:100%; border-radius:5px; display:flex; align-items:center; padding-left:8px; transition:width .7s cubic-bezier(.4,0,.2,1); font-size:11px; font-weight:700; font-family:&#x27;JetBrains Mono&#x27;; color:#fff; }
+.funnel-pct { font-family:&#x27;JetBrains Mono&#x27;; font-size:11px; color:var(--t2); width:36px; text-align:right; }
+
+::-webkit-scrollbar { width:5px; height:5px; }
+::-webkit-scrollbar-thumb { background:var(--border2); border-radius:3px; }
+@media(max-width:900px) { .g2,.g3,.g4{grid-template-columns:1fr} .kpi-row{flex-wrap:wrap} }
+
+.lang-sel{display:flex;align-items:center;gap:3px;margin-left:10px}
+.lang-btn{padding:4px 9px;border:1px solid var(--border);border-radius:5px;background:none;cursor:pointer;font-size:11px;font-weight:700;color:var(--t2);transition:all .15s;font-family:&#x27;Inter&#x27;;}
+.lang-btn:hover{border-color:var(--primary-md);color:var(--primary)}
+.lang-btn.lact{background:var(--primary-md);border-color:var(--primary-md);color:#fff}
+.lang-sep{font-size:10px;color:var(--t3)}
+.ver-badge{font-size:10px;font-family:&#x27;JetBrains Mono&#x27;;color:var(--t3);padding:2px 7px;border:1px solid var(--border);border-radius:4px}
+
+/* ===== 3D Printing 시안 테마 오버라이드 ===== */
+:root{ --primary:#0E7490; --primary-md:#06B6D4; --primary-lt:#ECFEFF; --primary-xl:#CFFAFE; --bg:#ECFCFF; --bg3:#F2FDFF; --border:#CBEEF3; --gb:#CBEEF3; }
+.mill-sb-icon{ background:linear-gradient(135deg,#06B6D4,#0E7490)!important; }
+.stab.active{ background:#0891B2!important; }
+.tog.on{ background:#0891B2!important; color:#fff!important; }
+.tog{ padding:6px 13px;border:1px solid var(--border);border-radius:7px;background:var(--surface);cursor:pointer;font-size:12px;font-weight:600;color:var(--t2);font-family:&#x27;Inter&#x27;;transition:all .15s; }
+.tog-grp{ display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px; }
+.tbl th{ background:var(--primary-lt);color:var(--primary);font-weight:700;padding:8px 10px;text-align:left;border-bottom:2px solid var(--primary-xl);font-size:11px; }
+.tbl td{ padding:7px 10px;border-bottom:1px solid var(--border);color:var(--t1); }
+.tbl td.r,.tbl th.r{ text-align:right;font-family:&#x27;JetBrains Mono&#x27;; }
+.tbl tr.tot td{ font-weight:700;background:var(--bg3);color:var(--primary); }
+.tbl tr.man td{ background:#FFFBEB; }
+.note-box{ background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:11px 14px;font-size:11.5px;color:#92400E;margin-top:12px;line-height:1.5; }
+.infg-row{ display:flex;align-items:center;gap:10px;margin-bottom:9px; }
+.infg-lbl{ width:120px;font-size:12px;color:var(--t1);font-weight:600; }
+.infg-track{ flex:1;height:22px;background:var(--bg);border-radius:6px;overflow:hidden;position:relative; }
+.infg-fill{ height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:10px;font-weight:700;color:#fff;font-family:&#x27;JetBrains Mono&#x27;; }
+
+/* ===== HAUS unified theme polish (v1.14) ===== */
+body{ -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility; }
+.tbl{ font-variant-numeric:tabular-nums lining-nums; }
+.tbl th{ font-weight:600;letter-spacing:.015em; }
+.tbl td.r,.tbl th.r{ font-variant-numeric:tabular-nums; }
+.kpi-v{ font-variant-numeric:tabular-nums;letter-spacing:-.015em; }
+.card-title{ letter-spacing:-.01em; }
+.card{ border-radius:12px; }
+.stab-badge,.hub-badge{ font-variant-numeric:tabular-nums; }
+&lt;/style&gt;&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;app-shell&quot;&gt;
+  &lt;aside class=&quot;mill-sidebar&quot;&gt;
+    &lt;div class=&quot;mill-sb-logo&quot;&gt;&lt;div class=&quot;mill-sb-logo-row&quot;&gt;
+      &lt;div class=&quot;mill-sb-icon&quot;&gt;🖨️&lt;/div&gt;
+      &lt;div&gt;&lt;div class=&quot;mill-sb-name&quot;&gt;3D Printing&lt;/div&gt;&lt;div class=&quot;mill-sb-sub&quot;&gt;생산 리포트 2026&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;&lt;/div&gt;
+    &lt;nav class=&quot;mill-sb-nav&quot;&gt;
+      &lt;div class=&quot;mill-sb-section&quot;&gt;시트별 분석&lt;/div&gt;
+      &lt;button class=&quot;stab active&quot; onclick=&quot;sw(0)&quot;&gt;&lt;span class=&quot;stab-icon&quot;&gt;📊&lt;/span&gt;P0 &lt;span data-i18n=&quot;nav-p0&quot;&gt;부서종합&lt;/span&gt;&lt;span class=&quot;stab-badge&quot;&gt;3,128&lt;/span&gt;&lt;/button&gt;
+      &lt;button class=&quot;stab&quot; onclick=&quot;sw(1)&quot;&gt;&lt;span class=&quot;stab-icon&quot;&gt;👤&lt;/span&gt;P1 &lt;span data-i18n=&quot;nav-p1&quot;&gt;테크니션별&lt;/span&gt;&lt;span class=&quot;stab-badge&quot;&gt;2명&lt;/span&gt;&lt;/button&gt;
+      &lt;button class=&quot;stab&quot; onclick=&quot;sw(2)&quot;&gt;&lt;span class=&quot;stab-icon&quot;&gt;🎯&lt;/span&gt;P2 &lt;span data-i18n=&quot;nav-p2&quot;&gt;Option Qty&lt;/span&gt;&lt;span class=&quot;stab-badge&quot;&gt;941&lt;/span&gt;&lt;/button&gt;
+      &lt;button class=&quot;stab&quot; onclick=&quot;sw(3)&quot;&gt;&lt;span class=&quot;stab-icon&quot;&gt;🔁&lt;/span&gt;P3 &lt;span data-i18n=&quot;nav-p3&quot;&gt;Redo 분석&lt;/span&gt;&lt;span class=&quot;stab-badge&quot;&gt;0&lt;/span&gt;&lt;/button&gt;
+      &lt;button class=&quot;stab&quot; onclick=&quot;sw(4)&quot;&gt;&lt;span class=&quot;stab-icon&quot;&gt;⏱️&lt;/span&gt;P4 &lt;span data-i18n=&quot;nav-p4&quot;&gt;Hourly&lt;/span&gt;&lt;span class=&quot;stab-badge&quot;&gt;효율&lt;/span&gt;&lt;/button&gt;
+    &lt;/nav&gt;
+    &lt;div class=&quot;mill-sb-stat&quot;&gt;
+      &lt;div class=&quot;mill-sb-row&quot;&gt;&lt;span class=&quot;mill-sb-lbl&quot; data-i18n=&quot;sb-ytd&quot;&gt;YTD 생산&lt;/span&gt;&lt;span class=&quot;mill-sb-val&quot;&gt;3,128&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;mill-sb-row&quot;&gt;&lt;span class=&quot;mill-sb-lbl&quot; data-i18n=&quot;sb-period&quot;&gt;기간&lt;/span&gt;&lt;span class=&quot;mill-sb-val&quot;&gt;Jan~May&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;mill-sb-row&quot;&gt;&lt;span class=&quot;mill-sb-lbl&quot; data-i18n=&quot;sb-tech&quot;&gt;테크니션&lt;/span&gt;&lt;span class=&quot;mill-sb-val&quot;&gt;2명&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/aside&gt;
+  &lt;div class=&quot;main-area&quot;&gt;
+    &lt;div class=&quot;top-bar&quot;&gt;
+      &lt;div class=&quot;tb-title&quot; id=&quot;pTitle&quot;&gt;P0 — 부서종합&lt;/div&gt;
+      &lt;div class=&quot;tb-tag&quot;&gt;3D Printing Dept&lt;/div&gt;
+      &lt;div class=&quot;ver-badge&quot; style=&quot;font-size:10px;font-family:&#x27;JetBrains Mono&#x27;;color:var(--t3);padding:2px 7px;border:1px solid var(--border);border-radius:5px&quot;&gt;v1.6&lt;/div&gt;
+      &lt;div class=&quot;lang-sel&quot;&gt;
+        &lt;button class=&quot;lang-btn lact&quot; data-lang=&quot;ko&quot; onclick=&quot;setLang(&#x27;ko&#x27;)&quot;&gt;🇰🇷 KO&lt;/button&gt;&lt;span class=&quot;lang-sep&quot;&gt;|&lt;/span&gt;
+        &lt;button class=&quot;lang-btn&quot; data-lang=&quot;en&quot; onclick=&quot;setLang(&#x27;en&#x27;)&quot;&gt;🇺🇸 EN&lt;/button&gt;&lt;span class=&quot;lang-sep&quot;&gt;|&lt;/span&gt;
+        &lt;button class=&quot;lang-btn&quot; data-lang=&quot;es&quot; onclick=&quot;setLang(&#x27;es&#x27;)&quot;&gt;🇪🇸 ES&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;tb-meta&quot; data-i18n=&quot;meta&quot;&gt;Paul Seo·외주(O/S) 제외 · Final Item Unit&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;content-area&quot;&gt;
+
+      &lt;!-- P0 --&gt;
+      &lt;div class=&quot;sheet-panel active&quot; id=&quot;s0&quot;&gt;
+        &lt;div class=&quot;kpi-row&quot;&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#0E7490&quot;&gt;&lt;div class=&quot;kpi-lbl&quot;&gt;2026 생산량 (Haus Link + 로컬/수기)&lt;/div&gt;&lt;div class=&quot;kpi-val&quot; style=&quot;color:#0E7490&quot;&gt;4,113&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot;&gt;월평균 823 · Jan~May&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#0E7490&quot;&gt;&lt;div class=&quot;kpi-lbl&quot;&gt;당월(5월) 생산량 (Haus Link + 로컬/수기)&lt;/div&gt;&lt;div class=&quot;kpi-val&quot; style=&quot;color:#0E7490&quot;&gt;985&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot;&gt;직전월 988&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#DC2626&quot;&gt;&lt;div class=&quot;kpi-lbl&quot;&gt;전월대비 성장률&lt;/div&gt;&lt;div class=&quot;kpi-val&quot; style=&quot;color:#DC2626&quot;&gt;−0.3%&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot;&gt;▼ 3 units&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#16A34A&quot;&gt;&lt;div class=&quot;kpi-lbl&quot;&gt;월평균대비 증감률&lt;/div&gt;&lt;div class=&quot;kpi-val&quot; style=&quot;color:#16A34A&quot;&gt;+19.7%&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot;&gt;월평균 823 → 985&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi&quot; style=&quot;--accent:#64748B&quot;&gt;&lt;div class=&quot;kpi-lbl&quot;&gt;전월대비 특이사항&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot; style=&quot;line-height:1.65;margin-top:5px&quot;&gt;• 당월 전월비 −0.3% 보합 (−3)&lt;br&gt;• 월평균 823 대비 +19.7% 크게 상회&lt;br&gt;• 수기 비중 51% (498/985)&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+        &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;p0-chart&quot;&gt;메인태스크별 월별 (막대)&lt;/div&gt;&lt;div class=&quot;card-sub&quot;&gt;Haus Link · X축 = Main Task · 월별 막대&lt;/div&gt;&lt;div class=&quot;tleg&quot; id=&quot;p0-leg&quot;&gt;&lt;/div&gt;&lt;div style=&quot;position:relative;height:300px&quot;&gt;&lt;canvas id=&quot;p0-bar&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;card mt16&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;p0-s1&quot;&gt;Section 1 — 월간 생산량 (Haus Link)&lt;/div&gt;&lt;div style=&quot;overflow-x:auto&quot;&gt;&lt;table class=&quot;tbl mt16&quot; id=&quot;p0-s1tbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;card mt16&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;p0-s2&quot;&gt;Section 2 — 월간 생산량 (수기(로컬) + Haus Link)&lt;/div&gt;&lt;div style=&quot;overflow-x:auto&quot;&gt;&lt;table class=&quot;tbl mt16&quot; id=&quot;p0-s2tbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;card mt16&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;p0-s3&quot;&gt;Section 3 — 수기(로컬) 생산량&lt;/div&gt;&lt;div style=&quot;overflow-x:auto&quot;&gt;&lt;table class=&quot;tbl mt16&quot; id=&quot;p0-s3tbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- P1 --&gt;
+      &lt;div class=&quot;sheet-panel&quot; id=&quot;s1&quot;&gt;
+        &lt;div class=&quot;tog-grp&quot;&gt;
+          &lt;button class=&quot;tog on&quot; id=&quot;tg-ytd&quot; onclick=&quot;setP1(&#x27;ytd&#x27;)&quot; data-i18n=&quot;tg-ytd&quot;&gt;YTD&lt;/button&gt;
+          &lt;button class=&quot;tog&quot; id=&quot;tg-month&quot; onclick=&quot;setP1(&#x27;month&#x27;)&quot; data-i18n=&quot;tg-month&quot;&gt;월별&lt;/button&gt;
+          &lt;button class=&quot;tog&quot; id=&quot;tg-avg&quot; onclick=&quot;setP1(&#x27;avg&#x27;)&quot; data-i18n=&quot;tg-avg&quot;&gt;월평균&lt;/button&gt;
+          &lt;span id=&quot;p1-monthsel&quot; style=&quot;display:none;margin-left:8px&quot;&gt;&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;g3&quot;&gt;
+          &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;p1-title&quot;&gt;테크니션 × Main Task&lt;/div&gt;&lt;div class=&quot;card-sub&quot; id=&quot;p1-sub&quot;&gt;YTD · Haus Link&lt;/div&gt;&lt;div style=&quot;overflow-x:auto&quot;&gt;&lt;table class=&quot;tbl mt16&quot; id=&quot;p1-tbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;p1-info&quot;&gt;테크니션 기여도&lt;/div&gt;&lt;div class=&quot;card-sub&quot; id=&quot;p1-info-sub&quot;&gt;YTD · Haus Link&lt;/div&gt;&lt;div id=&quot;p1-infg&quot; style=&quot;margin-top:14px&quot;&gt;&lt;/div&gt;&lt;div style=&quot;position:relative;height:180px;margin-top:10px&quot;&gt;&lt;canvas id=&quot;p1-donut&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;card mt16&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;p1-man&quot;&gt;수기(로컬) 테크니션 × Main Task&lt;/div&gt;&lt;div class=&quot;card-sub&quot; id=&quot;p1-man-sub&quot;&gt;YTD · 수기(로컬)&lt;/div&gt;&lt;div style=&quot;overflow-x:auto&quot;&gt;&lt;table class=&quot;tbl mt16&quot; id=&quot;p1-mantbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- P2 --&gt;
+      &lt;div class=&quot;sheet-panel&quot; id=&quot;s2&quot;&gt;
+        &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;p2-title&quot;&gt;핵심 옵션 월별 (Opt Qty)&lt;/div&gt;&lt;div class=&quot;card-sub&quot;&gt;Fuse &amp; Cure · Glaze &amp; Finish · Polishing (Haus Link) + Model In-house (수기)&lt;/div&gt;&lt;div style=&quot;position:relative;height:280px&quot;&gt;&lt;canvas id=&quot;p2-bar&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;card mt16&quot;&gt;&lt;table class=&quot;tbl&quot; id=&quot;p2-tbl&quot;&gt;&lt;/table&gt;&lt;div class=&quot;note-box&quot; data-i18n=&quot;p2-note&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- P3 --&gt;
+      &lt;div class=&quot;sheet-panel&quot; id=&quot;s3&quot;&gt;
+        &lt;div class=&quot;card&quot; style=&quot;text-align:center;padding:60px 20px&quot;&gt;&lt;div style=&quot;font-size:40px;margin-bottom:10px&quot;&gt;✅&lt;/div&gt;&lt;div class=&quot;card-title&quot; style=&quot;font-size:16px&quot; data-i18n=&quot;p3-msg&quot;&gt;YTD 기간 Redo 발생 없음 (0 Unit)&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- P4 --&gt;
+      &lt;div class=&quot;sheet-panel&quot; id=&quot;s4&quot;&gt;
+        &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;p4-s1&quot;&gt;Section 1 — YTD Summary&lt;/div&gt;&lt;div class=&quot;card-sub&quot;&gt;Unit/Hour = Final Item Unit ÷ Total Hrs · Seungwoo는 부서별 Unit비율 안분&lt;/div&gt;&lt;table class=&quot;tbl mt16&quot; id=&quot;p4-s1tbl&quot;&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;div class=&quot;card mt16&quot;&gt;&lt;div class=&quot;card-title&quot; data-i18n=&quot;p4-s2&quot;&gt;Section 2 — 월별 누적 생산성 트렌드&lt;/div&gt;&lt;div class=&quot;card-sub&quot;&gt;Cum.Qty·Cum.Hours 숨김 (계산용) · Unit/Hour 누적&lt;/div&gt;&lt;div style=&quot;position:relative;height:240px&quot;&gt;&lt;canvas id=&quot;p4-line&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;div class=&quot;g2 mt16&quot; id=&quot;p4-tables&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+
+const D={&quot;tasks&quot;: [&quot;3D Model&quot;, &quot;Denture Base&quot;, &quot;Denture Teeth&quot;, &quot;Night Guard&quot;, &quot;Try-in&quot;], &quot;months&quot;: [&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;], &quot;hl&quot;: {&quot;3D Model&quot;: [264, 332, 390, 422, 396], &quot;Denture Base&quot;: [29, 21, 32, 17, 38], &quot;Denture Teeth&quot;: [29, 17, 28, 17, 32], &quot;Night Guard&quot;: [10, 15, 9, 15, 20], &quot;Try-in&quot;: [1, 0, 0, 0, 1]}, &quot;man&quot;: {&quot;3D Model&quot;: [220, 323, 384, 493, 496], &quot;Denture Base&quot;: [0, 5, 5, 9, 1], &quot;Denture Teeth&quot;: [0, 6, 5, 10, 0], &quot;Night Guard&quot;: [0, 4, 8, 5, 1], &quot;Try-in&quot;: [0, 0, 3, 0, 0]}, &quot;p1hl&quot;: {&quot;Loren Choi&quot;: {&quot;3D Model&quot;: [264, 306, 335, 422, 388], &quot;Denture Base&quot;: [29, 19, 28, 17, 28], &quot;Denture Teeth&quot;: [29, 17, 28, 17, 30], &quot;Night Guard&quot;: [10, 15, 7, 15, 20], &quot;Try-in&quot;: [1, 0, 0, 0, 1]}, &quot;Seungwoo Han&quot;: {&quot;3D Model&quot;: [0, 26, 55, 0, 5], &quot;Denture Base&quot;: [0, 2, 4, 0, 8], &quot;Denture Teeth&quot;: [0, 0, 0, 0, 0], &quot;Night Guard&quot;: [0, 0, 2, 0, 0], &quot;Try-in&quot;: [0, 0, 0, 0, 0]}, &quot;Jaeyoung Kim&quot;: {&quot;3D Model&quot;: [0, 0, 0, 0, 3], &quot;Denture Base&quot;: [0, 0, 0, 0, 2], &quot;Denture Teeth&quot;: [0, 0, 0, 0, 2], &quot;Night Guard&quot;: [0, 0, 0, 0, 0], &quot;Try-in&quot;: [0, 0, 0, 0, 0]}}, &quot;p1man&quot;: {&quot;Loren Choi&quot;: [1803, 19, 19, 17, 2], &quot;Seungwoo Han&quot;: [113, 1, 2, 1, 1]}, &quot;p1man_m&quot;: {&quot;Loren Choi&quot;: {&quot;3D Model&quot;: [220, 321, 291, 493, 478], &quot;Denture Base&quot;: [0, 5, 4, 9, 1], &quot;Denture Teeth&quot;: [0, 5, 4, 10, 0], &quot;Night Guard&quot;: [0, 4, 7, 5, 1], &quot;Try-in&quot;: [0, 0, 2, 0, 0]}, &quot;Seungwoo Han&quot;: {&quot;3D Model&quot;: [0, 2, 93, 0, 18], &quot;Denture Base&quot;: [0, 0, 1, 0, 0], &quot;Denture Teeth&quot;: [0, 1, 1, 0, 0], &quot;Night Guard&quot;: [0, 0, 1, 0, 0], &quot;Try-in&quot;: [0, 0, 1, 0, 0]}, &quot;Jaeyoung Kim&quot;: {&quot;3D Model&quot;: [0, 0, 0, 0, 0], &quot;Denture Base&quot;: [0, 0, 0, 0, 0], &quot;Denture Teeth&quot;: [0, 0, 0, 0, 0], &quot;Night Guard&quot;: [0, 0, 0, 0, 0], &quot;Try-in&quot;: [0, 0, 0, 0, 0]}}, &quot;opt&quot;: {&quot;Fuse &amp; Cure&quot;: [58, 36, 57, 34, 67], &quot;Glaze &amp; Finish&quot;: [44, 32, 52, 32, 60], &quot;Polishing&quot;: [2, 3, 4, 6, 5], &quot;Model (In-house)&quot;: [157, 172, 135, 117, 74]}, &quot;p4&quot;: {&quot;Loren Choi&quot;: {&quot;fiu&quot;: 2026, &quot;reg&quot;: 796.72, &quot;ot&quot;: 13.82, &quot;mUnit&quot;: [333, 357, 398, 471, 467], &quot;mHrs&quot;: [157.65, 166.05, 150.13, 178.77, 157.93]}, &quot;Seungwoo Han&quot;: {&quot;fiu&quot;: 102, &quot;reg&quot;: 18.43, &quot;ot&quot;: 0.84, &quot;mUnit&quot;: [0, 28, 61, 0, 13], &quot;mHrs&quot;: [0, 4.17, 12.35, 0, 2.75]}}, &quot;tcol&quot;: {&quot;3D Model&quot;: &quot;#06B6D4&quot;, &quot;Denture Base&quot;: &quot;#F59E0B&quot;, &quot;Denture Teeth&quot;: &quot;#10B981&quot;, &quot;Night Guard&quot;: &quot;#8B5CF6&quot;, &quot;Try-in&quot;: &quot;#EC4899&quot;}};
+const I18N={&quot;ko&quot;: {&quot;nav-p0&quot;: &quot;부서종합&quot;, &quot;nav-p1&quot;: &quot;테크니션별&quot;, &quot;nav-p2&quot;: &quot;Option Qty&quot;, &quot;nav-p3&quot;: &quot;Redo 분석&quot;, &quot;nav-p4&quot;: &quot;Hourly&quot;, &quot;meta&quot;: &quot;Paul Seo·외주(O/S) 제외 · Final Item Unit&quot;, &quot;sb-ytd&quot;: &quot;YTD 생산&quot;, &quot;sb-period&quot;: &quot;기간&quot;, &quot;sb-tech&quot;: &quot;테크니션&quot;, &quot;k-hl&quot;: &quot;Haus Link YTD&quot;, &quot;k-man&quot;: &quot;수기(로컬) YTD&quot;, &quot;k-sum&quot;: &quot;합계&quot;, &quot;k-tech&quot;: &quot;테크니션 수&quot;, &quot;p0-s1&quot;: &quot;Section 1 — 월간 생산량 (Haus Link)&quot;, &quot;p0-chart&quot;: &quot;메인태스크별 월별 (막대)&quot;, &quot;p0-s2&quot;: &quot;Section 2 — 월간 생산량 (수기(로컬) + Haus Link)&quot;, &quot;p0-s3&quot;: &quot;Section 3 — 수기(로컬) 생산량&quot;, &quot;p1-title&quot;: &quot;테크니션 × Main Task&quot;, &quot;p1-info&quot;: &quot;테크니션 기여도&quot;, &quot;p1-man&quot;: &quot;수기(로컬) 테크니션 × Main Task&quot;, &quot;p2-title&quot;: &quot;핵심 옵션 월별 (Opt Qty)&quot;, &quot;p2-note&quot;: &quot;★ Model (In-house) = 3D 프린팅 자체 모델 출력 옵션. Haus Link 아님 — 수기(로컬) 입력자료 출처. (파이차트 요청에 따라 제외)&quot;, &quot;p3-msg&quot;: &quot;YTD 기간 Redo 발생 없음 (0 Unit)&quot;, &quot;p4-s1&quot;: &quot;Section 1 — YTD Summary&quot;, &quot;p4-s2&quot;: &quot;Section 2 — 월별 누적 생산성 트렌드&quot;, &quot;tg-ytd&quot;: &quot;YTD&quot;, &quot;tg-month&quot;: &quot;월별&quot;, &quot;tg-avg&quot;: &quot;월평균&quot;, &quot;titles&quot;: [&quot;P0 — 부서종합&quot;, &quot;P1 — 테크니션별&quot;, &quot;P2 — Option Qty&quot;, &quot;P3 — Redo 분석&quot;, &quot;P4 — Hourly&quot;]}, &quot;en&quot;: {&quot;nav-p0&quot;: &quot;Dept. Total&quot;, &quot;nav-p1&quot;: &quot;By Technician&quot;, &quot;nav-p2&quot;: &quot;Option Qty&quot;, &quot;nav-p3&quot;: &quot;Redo Analysis&quot;, &quot;nav-p4&quot;: &quot;Hourly&quot;, &quot;meta&quot;: &quot;Excl. Paul Seo · O/S · Final Item Unit&quot;, &quot;sb-ytd&quot;: &quot;YTD Production&quot;, &quot;sb-period&quot;: &quot;Period&quot;, &quot;sb-tech&quot;: &quot;Technicians&quot;, &quot;k-hl&quot;: &quot;Haus Link YTD&quot;, &quot;k-man&quot;: &quot;Manual (Local) YTD&quot;, &quot;k-sum&quot;: &quot;Total&quot;, &quot;k-tech&quot;: &quot;Technicians&quot;, &quot;p0-s1&quot;: &quot;Section 1 — Monthly Production (Haus Link)&quot;, &quot;p0-chart&quot;: &quot;Monthly by Main Task (Bar)&quot;, &quot;p0-s2&quot;: &quot;Section 2 — Monthly Production (Manual + Haus Link)&quot;, &quot;p0-s3&quot;: &quot;Section 3 — Manual (Local) Production&quot;, &quot;p1-title&quot;: &quot;Technician × Main Task&quot;, &quot;p1-info&quot;: &quot;Technician Contribution&quot;, &quot;p1-man&quot;: &quot;Manual (Local) Technician × Main Task&quot;, &quot;p2-title&quot;: &quot;Key Options Monthly (Opt Qty)&quot;, &quot;p2-note&quot;: &quot;★ Model (In-house) = 3D printer in-house model output. NOT Haus Link — from manual (local) input. (Pie chart excluded per request)&quot;, &quot;p3-msg&quot;: &quot;No Redo in YTD period (0 Unit)&quot;, &quot;p4-s1&quot;: &quot;Section 1 — YTD Summary&quot;, &quot;p4-s2&quot;: &quot;Section 2 — Monthly Cumulative Productivity Trend&quot;, &quot;tg-ytd&quot;: &quot;YTD&quot;, &quot;tg-month&quot;: &quot;Monthly&quot;, &quot;tg-avg&quot;: &quot;Monthly Avg&quot;, &quot;titles&quot;: [&quot;P0 — Dept. Total&quot;, &quot;P1 — By Technician&quot;, &quot;P2 — Option Qty&quot;, &quot;P3 — Redo Analysis&quot;, &quot;P4 — Hourly&quot;]}, &quot;es&quot;: {&quot;nav-p0&quot;: &quot;Total Depto.&quot;, &quot;nav-p1&quot;: &quot;Por Técnico&quot;, &quot;nav-p2&quot;: &quot;Cant. Opciones&quot;, &quot;nav-p3&quot;: &quot;Análisis Redo&quot;, &quot;nav-p4&quot;: &quot;Por Hora&quot;, &quot;meta&quot;: &quot;Excl. Paul Seo · O/S · Unidad Final&quot;, &quot;sb-ytd&quot;: &quot;Producción YTD&quot;, &quot;sb-period&quot;: &quot;Período&quot;, &quot;sb-tech&quot;: &quot;Técnicos&quot;, &quot;k-hl&quot;: &quot;Haus Link YTD&quot;, &quot;k-man&quot;: &quot;Manual (Local) YTD&quot;, &quot;k-sum&quot;: &quot;Total&quot;, &quot;k-tech&quot;: &quot;Técnicos&quot;, &quot;p0-s1&quot;: &quot;Sección 1 — Producción Mensual (Haus Link)&quot;, &quot;p0-chart&quot;: &quot;Mensual por Tarea (Barra)&quot;, &quot;p0-s2&quot;: &quot;Sección 2 — Producción Mensual (Manual + Haus Link)&quot;, &quot;p0-s3&quot;: &quot;Sección 3 — Producción Manual (Local)&quot;, &quot;p1-title&quot;: &quot;Técnico × Tarea Principal&quot;, &quot;p1-info&quot;: &quot;Contribución por Técnico&quot;, &quot;p1-man&quot;: &quot;Manual (Local) Técnico × Tarea&quot;, &quot;p2-title&quot;: &quot;Opciones Clave Mensual (Opt Qty)&quot;, &quot;p2-note&quot;: &quot;★ Model (In-house) = salida de modelo interno. NO Haus Link — de entrada manual (local). (Gráfico circular excluido)&quot;, &quot;p3-msg&quot;: &quot;Sin Redo en el período YTD (0 Unit)&quot;, &quot;p4-s1&quot;: &quot;Sección 1 — Resumen YTD&quot;, &quot;p4-s2&quot;: &quot;Sección 2 — Tendencia Mensual de Productividad Acumulada&quot;, &quot;tg-ytd&quot;: &quot;YTD&quot;, &quot;tg-month&quot;: &quot;Mensual&quot;, &quot;tg-avg&quot;: &quot;Prom. Mensual&quot;, &quot;titles&quot;: [&quot;P0 — Total Depto.&quot;, &quot;P1 — Por Técnico&quot;, &quot;P2 — Cant. Opciones&quot;, &quot;P3 — Análisis Redo&quot;, &quot;P4 — Por Hora&quot;]}};
+let LANG=&#x27;ko&#x27;, P1VIEW=&#x27;ytd&#x27;, P1MONTH=0;
+const charts={};
+function t(k){return (I18N[LANG]&amp;&amp;I18N[LANG][k])||k;}
+
+function sw(i){
+  document.querySelectorAll(&#x27;.stab&#x27;).forEach((b,j)=&gt;b.classList.toggle(&#x27;active&#x27;,j===i));
+  document.querySelectorAll(&#x27;.sheet-panel&#x27;).forEach((p,j)=&gt;p.classList.toggle(&#x27;active&#x27;,j===i));
+  document.getElementById(&#x27;pTitle&#x27;).textContent=I18N[LANG].titles[i];
+}
+function setLang(l){
+  LANG=l;
+  document.querySelectorAll(&#x27;.lang-btn&#x27;).forEach(b=&gt;b.classList.toggle(&#x27;lact&#x27;,b.dataset.lang===l));
+  document.querySelectorAll(&#x27;[data-i18n]&#x27;).forEach(e=&gt;{const k=e.getAttribute(&#x27;data-i18n&#x27;);if(I18N[l][k])e.textContent=I18N[l][k];});
+  document.getElementById(&#x27;pTitle&#x27;).textContent=I18N[l][[&#x27;titles&#x27;]][document.querySelectorAll(&#x27;.stab.active&#x27;).length?[...document.querySelectorAll(&#x27;.stab&#x27;)].findIndex(b=&gt;b.classList.contains(&#x27;active&#x27;)):0];
+  const ai=[...document.querySelectorAll(&#x27;.stab&#x27;)].findIndex(b=&gt;b.classList.contains(&#x27;active&#x27;));
+  document.getElementById(&#x27;pTitle&#x27;).textContent=I18N[l].titles[ai&lt;0?0:ai];
+  renderAll();
+}
+const fmt=n=&gt;Math.round(n).toLocaleString();
+
+// ===== P0 =====
+function drawP0(){
+  // Section1 HL table
+  let h=&#x27;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Month&lt;/th&gt;&#x27;+D.tasks.map(x=&gt;`&lt;th class=&quot;r&quot;&gt;${x}&lt;/th&gt;`).join(&#x27;&#x27;)+&#x27;&lt;th class=&quot;r&quot;&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+  D.months.forEach((m,i)=&gt;{let rt=D.tasks.reduce((a,t)=&gt;a+D.hl[t][i],0);h+=`&lt;tr&gt;&lt;td&gt;${m}&lt;/td&gt;`+D.tasks.map(t=&gt;`&lt;td class=&quot;r&quot;&gt;${D.hl[t][i]||&#x27;—&#x27;}&lt;/td&gt;`).join(&#x27;&#x27;)+`&lt;td class=&quot;r&quot; style=&quot;font-weight:700&quot;&gt;${rt}&lt;/td&gt;&lt;/tr&gt;`;});
+  let yt=D.tasks.map(t=&gt;D.hl[t].reduce((a,b)=&gt;a+b,0));
+  h+=`&lt;tr class=&quot;tot&quot;&gt;&lt;td&gt;YTD&lt;/td&gt;`+yt.map(v=&gt;`&lt;td class=&quot;r&quot;&gt;${v}&lt;/td&gt;`).join(&#x27;&#x27;)+`&lt;td class=&quot;r&quot;&gt;${yt.reduce((a,b)=&gt;a+b,0)}&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;`;
+  document.getElementById(&#x27;p0-s1tbl&#x27;).innerHTML=h;
+  // Section3 manual table
+  let h3=&#x27;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Month&lt;/th&gt;&#x27;+D.tasks.map(x=&gt;`&lt;th class=&quot;r&quot;&gt;${x}&lt;/th&gt;`).join(&#x27;&#x27;)+&#x27;&lt;th class=&quot;r&quot;&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+  D.months.forEach((m,i)=&gt;{let rt=D.tasks.reduce((a,t)=&gt;a+D.man[t][i],0);h3+=`&lt;tr class=&quot;man&quot;&gt;&lt;td&gt;${m}&lt;/td&gt;`+D.tasks.map(t=&gt;`&lt;td class=&quot;r&quot;&gt;${D.man[t][i]||&#x27;—&#x27;}&lt;/td&gt;`).join(&#x27;&#x27;)+`&lt;td class=&quot;r&quot; style=&quot;font-weight:700&quot;&gt;${rt}&lt;/td&gt;&lt;/tr&gt;`;});
+  let yt3=D.tasks.map(t=&gt;D.man[t].reduce((a,b)=&gt;a+b,0));
+  h3+=`&lt;tr class=&quot;tot&quot;&gt;&lt;td&gt;YTD&lt;/td&gt;`+yt3.map(v=&gt;`&lt;td class=&quot;r&quot;&gt;${v}&lt;/td&gt;`).join(&#x27;&#x27;)+`&lt;td class=&quot;r&quot;&gt;${yt3.reduce((a,b)=&gt;a+b,0)}&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;`;
+  document.getElementById(&#x27;p0-s3tbl&#x27;).innerHTML=h3;
+  // Section2 combined
+  const hlm=D.months.map((m,i)=&gt;D.tasks.reduce((a,t)=&gt;a+D.hl[t][i],0));
+  const mam=D.months.map((m,i)=&gt;D.tasks.reduce((a,t)=&gt;a+D.man[t][i],0));
+  let h2=&#x27;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;구분&lt;/th&gt;&#x27;+D.months.map(m=&gt;`&lt;th class=&quot;r&quot;&gt;${m}&lt;/th&gt;`).join(&#x27;&#x27;)+&#x27;&lt;th class=&quot;r&quot;&gt;YTD&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+  h2+=`&lt;tr&gt;&lt;td&gt;Haus Link&lt;/td&gt;`+hlm.map(v=&gt;`&lt;td class=&quot;r&quot;&gt;${v}&lt;/td&gt;`).join(&#x27;&#x27;)+`&lt;td class=&quot;r&quot; style=&quot;font-weight:700&quot;&gt;${hlm.reduce((a,b)=&gt;a+b,0)}&lt;/td&gt;&lt;/tr&gt;`;
+  h2+=`&lt;tr class=&quot;man&quot;&gt;&lt;td&gt;수기(로컬)&lt;/td&gt;`+mam.map(v=&gt;`&lt;td class=&quot;r&quot;&gt;${v}&lt;/td&gt;`).join(&#x27;&#x27;)+`&lt;td class=&quot;r&quot; style=&quot;font-weight:700&quot;&gt;${mam.reduce((a,b)=&gt;a+b,0)}&lt;/td&gt;&lt;/tr&gt;`;
+  h2+=`&lt;tr class=&quot;tot&quot;&gt;&lt;td&gt;합계&lt;/td&gt;`+D.months.map((m,i)=&gt;`&lt;td class=&quot;r&quot;&gt;${hlm[i]+mam[i]}&lt;/td&gt;`).join(&#x27;&#x27;)+`&lt;td class=&quot;r&quot;&gt;${hlm.reduce((a,b)=&gt;a+b,0)+mam.reduce((a,b)=&gt;a+b,0)}&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;`;
+  document.getElementById(&#x27;p0-s2tbl&#x27;).innerHTML=h2;
+  // legend(months) + bar chart (x=MainTask, series=month)
+  const MCOL=[&#x27;#0891B2&#x27;,&#x27;#06B6D4&#x27;,&#x27;#22D3EE&#x27;,&#x27;#7DD3FC&#x27;];
+  document.getElementById(&#x27;p0-leg&#x27;).innerHTML=D.months.map((m,i)=&gt;`&lt;span class=&quot;tleg-item&quot;&gt;&lt;span class=&quot;tleg-dot&quot; style=&quot;background:${MCOL[i]}&quot;&gt;&lt;/span&gt;${m}&lt;/span&gt;`).join(&#x27;&#x27;);
+  if(charts.p0)charts.p0.destroy();
+  charts.p0=new Chart(document.getElementById(&#x27;p0-bar&#x27;),{type:&#x27;bar&#x27;,data:{labels:D.tasks,datasets:D.months.map((m,i)=&gt;({label:m,data:D.tasks.map(t=&gt;D.hl[t][i]),backgroundColor:MCOL[i],borderRadius:3}))},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}});
+}
+
+// ===== P1 =====
+function setP1(v){P1VIEW=v;[&#x27;ytd&#x27;,&#x27;month&#x27;,&#x27;avg&#x27;].forEach(x=&gt;document.getElementById(&#x27;tg-&#x27;+x).classList.toggle(&#x27;on&#x27;,x===v));
+  document.getElementById(&#x27;p1-monthsel&#x27;).style.display=(v===&#x27;month&#x27;)?&#x27;inline&#x27;:&#x27;none&#x27;;drawP1();}
+function p1val(tech,ti,view,mon){
+  const arr=D.p1hl[tech][D.tasks[ti]];
+  if(view===&#x27;ytd&#x27;)return arr.reduce((a,b)=&gt;a+b,0);
+  if(view===&#x27;avg&#x27;)return +(arr.reduce((a,b)=&gt;a+b,0)/4).toFixed(1);
+  return arr[mon];
+}
+function p1manval(tech,ti,view,mon){
+  const arr=D.p1man_m[tech][D.tasks[ti]];
+  if(view===&#x27;ytd&#x27;)return arr.reduce((a,b)=&gt;a+b,0);
+  if(view===&#x27;avg&#x27;)return +(arr.reduce((a,b)=&gt;a+b,0)/4).toFixed(1);
+  return arr[mon];
+}
+function drawP1(){
+  // month selector buttons
+  if(P1VIEW===&#x27;month&#x27;){document.getElementById(&#x27;p1-monthsel&#x27;).innerHTML=D.months.map((m,i)=&gt;`&lt;button class=&quot;tog ${i===P1MONTH?&#x27;on&#x27;:&#x27;&#x27;}&quot; style=&quot;padding:4px 10px;font-size:11px&quot; onclick=&quot;P1MONTH=${i};drawP1()&quot;&gt;${m}&lt;/button&gt;`).join(&#x27; &#x27;);}
+  const techs=Object.keys(D.p1hl);
+  let sub=(P1VIEW===&#x27;ytd&#x27;?&#x27;YTD&#x27;:P1VIEW===&#x27;avg&#x27;?(t(&#x27;tg-avg&#x27;)):(D.months[P1MONTH]))+&#x27; · Haus Link&#x27;;
+  document.getElementById(&#x27;p1-sub&#x27;).textContent=sub;
+  let h=&#x27;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&#x27;+t(&#x27;sb-tech&#x27;)+&#x27;&lt;/th&gt;&#x27;+D.tasks.map(x=&gt;`&lt;th class=&quot;r&quot;&gt;${x}&lt;/th&gt;`).join(&#x27;&#x27;)+&#x27;&lt;th class=&quot;r&quot;&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+  let coltot=D.tasks.map(()=&gt;0),gt=0;
+  techs.forEach(tc=&gt;{let rt=0;h+=`&lt;tr&gt;&lt;td&gt;${tc}&lt;/td&gt;`+D.tasks.map((x,ti)=&gt;{let v=p1val(tc,ti,P1VIEW,P1MONTH);rt+=v;coltot[ti]+=v;return `&lt;td class=&quot;r&quot;&gt;${v||&#x27;—&#x27;}&lt;/td&gt;`;}).join(&#x27;&#x27;)+`&lt;td class=&quot;r&quot; style=&quot;font-weight:700&quot;&gt;${(+rt.toFixed(1))}&lt;/td&gt;`;gt+=rt;});
+  h+=`&lt;tr class=&quot;tot&quot;&gt;&lt;td&gt;합계&lt;/td&gt;`+coltot.map(v=&gt;`&lt;td class=&quot;r&quot;&gt;${+v.toFixed(1)}&lt;/td&gt;`).join(&#x27;&#x27;)+`&lt;td class=&quot;r&quot;&gt;${+gt.toFixed(1)}&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;`;
+  document.getElementById(&#x27;p1-tbl&#x27;).innerHTML=h;
+  // infographic + donut: 현재 view(YTD/월별/월평균) 동기화
+  const viewLbl=(P1VIEW===&#x27;ytd&#x27;?&#x27;YTD&#x27;:P1VIEW===&#x27;avg&#x27;?t(&#x27;tg-avg&#x27;):D.months[P1MONTH]);
+  const isub=document.getElementById(&#x27;p1-info-sub&#x27;); if(isub)isub.textContent=viewLbl+&#x27; · Haus Link&#x27;;
+  const byTech=techs.map(tc=&gt;D.tasks.reduce((a,x,ti)=&gt;a+p1val(tc,ti,P1VIEW,P1MONTH),0));
+  const tot=byTech.reduce((a,b)=&gt;a+b,0)||1;
+  const tcolArr=[&#x27;#0891B2&#x27;,&#x27;#8B5CF6&#x27;];
+  document.getElementById(&#x27;p1-infg&#x27;).innerHTML=techs.map((tc,i)=&gt;{const pct=(byTech[i]/tot*100);return `&lt;div class=&quot;infg-row&quot;&gt;&lt;div class=&quot;infg-lbl&quot;&gt;${tc}&lt;/div&gt;&lt;div class=&quot;infg-track&quot;&gt;&lt;div class=&quot;infg-fill&quot; style=&quot;width:${byTech[i]&gt;0?Math.max(pct,8):0}%;background:${tcolArr[i]}&quot;&gt;${byTech[i]&gt;0?fmt(byTech[i])+&#x27; · &#x27;+pct.toFixed(0)+&#x27;%&#x27;:&#x27;&#x27;}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;`;}).join(&#x27;&#x27;);
+  if(charts.p1d)charts.p1d.destroy();
+  charts.p1d=new Chart(document.getElementById(&#x27;p1-donut&#x27;),{type:&#x27;doughnut&#x27;,data:{labels:techs,datasets:[{data:byTech,backgroundColor:tcolArr,borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:&#x27;62%&#x27;,plugins:{legend:{position:&#x27;bottom&#x27;,labels:{font:{size:11}}}}}});
+  // manual table — 토글(YTD/월별/월평균) 반영
+  const msub=document.getElementById(&#x27;p1-man-sub&#x27;); if(msub)msub.textContent=viewLbl+&#x27; · 수기(로컬)&#x27;;
+  let hm=&#x27;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&#x27;+t(&#x27;sb-tech&#x27;)+&#x27;&lt;/th&gt;&#x27;+D.tasks.map(x=&gt;`&lt;th class=&quot;r&quot;&gt;${x}&lt;/th&gt;`).join(&#x27;&#x27;)+&#x27;&lt;th class=&quot;r&quot;&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+  let ct=D.tasks.map(()=&gt;0),mgt=0;
+  techs.forEach(tc=&gt;{let rt=0;hm+=`&lt;tr class=&quot;man&quot;&gt;&lt;td&gt;${tc}&lt;/td&gt;`+D.tasks.map((x,ti)=&gt;{let v=p1manval(tc,ti,P1VIEW,P1MONTH);rt+=v;ct[ti]+=v;return `&lt;td class=&quot;r&quot;&gt;${v||&#x27;—&#x27;}&lt;/td&gt;`;}).join(&#x27;&#x27;)+`&lt;td class=&quot;r&quot; style=&quot;font-weight:700&quot;&gt;${+rt.toFixed(1)}&lt;/td&gt;`;mgt+=rt;});
+  hm+=`&lt;tr class=&quot;tot&quot;&gt;&lt;td&gt;합계&lt;/td&gt;`+ct.map(v=&gt;`&lt;td class=&quot;r&quot;&gt;${+v.toFixed(1)}&lt;/td&gt;`).join(&#x27;&#x27;)+`&lt;td class=&quot;r&quot;&gt;${+mgt.toFixed(1)}&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;`;
+  document.getElementById(&#x27;p1-mantbl&#x27;).innerHTML=hm;
+}
+
+// ===== P2 =====
+function drawP2(){
+  const opts=Object.keys(D.opt);
+  let h=&#x27;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Month&lt;/th&gt;&#x27;+opts.map(o=&gt;`&lt;th class=&quot;r&quot;&gt;${o}&lt;/th&gt;`).join(&#x27;&#x27;)+&#x27;&lt;th class=&quot;r&quot;&gt;Sub-Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+  D.months.forEach((m,i)=&gt;{let st=opts.reduce((a,o)=&gt;a+D.opt[o][i],0);h+=`&lt;tr&gt;&lt;td&gt;${m}&lt;/td&gt;`+opts.map(o=&gt;`&lt;td class=&quot;r&quot;&gt;${D.opt[o][i]||&#x27;—&#x27;}&lt;/td&gt;`).join(&#x27;&#x27;)+`&lt;td class=&quot;r&quot; style=&quot;font-weight:700&quot;&gt;${st}&lt;/td&gt;&lt;/tr&gt;`;});
+  let yt=opts.map(o=&gt;D.opt[o].reduce((a,b)=&gt;a+b,0));
+  h+=`&lt;tr class=&quot;tot&quot;&gt;&lt;td&gt;YTD&lt;/td&gt;`+yt.map(v=&gt;`&lt;td class=&quot;r&quot;&gt;${v}&lt;/td&gt;`).join(&#x27;&#x27;)+`&lt;td class=&quot;r&quot;&gt;${yt.reduce((a,b)=&gt;a+b,0)}&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;`;
+  document.getElementById(&#x27;p2-tbl&#x27;).innerHTML=h;
+  const ocol={&#x27;Fuse &amp; Cure&#x27;:&#x27;#06B6D4&#x27;,&#x27;Glaze &amp; Finish&#x27;:&#x27;#0E7490&#x27;,&#x27;Polishing&#x27;:&#x27;#67E8F9&#x27;,&#x27;Model (In-house)&#x27;:&#x27;#D97706&#x27;};
+  if(charts.p2)charts.p2.destroy();
+  charts.p2=new Chart(document.getElementById(&#x27;p2-bar&#x27;),{type:&#x27;bar&#x27;,data:{labels:D.months,datasets:opts.map(o=&gt;({label:o,data:D.opt[o],backgroundColor:ocol[o]}))},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:&#x27;top&#x27;,labels:{font:{size:11}}}},scales:{x:{stacked:false},y:{beginAtZero:true}}}});
+}
+
+// ===== P4 =====
+function drawP4(){
+  const techs=Object.keys(D.p4);
+  // Section1
+  let h=&#x27;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Technician&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Final Item Unit&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Reg Hrs&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;OT Hrs&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Total Hrs&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Unit/Hour&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Unit/Day&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+  let sF=0,sR=0,sO=0;
+  techs.forEach(tc=&gt;{const d=D.p4[tc];const th=d.reg+d.ot;sF+=d.fiu;sR+=d.reg;sO+=d.ot;h+=`&lt;tr&gt;&lt;td&gt;${tc}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${fmt(d.fiu)}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${d.reg.toFixed(1)}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${d.ot.toFixed(1)}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${th.toFixed(1)}&lt;/td&gt;&lt;td class=&quot;r&quot; style=&quot;font-weight:700;color:#0891B2&quot;&gt;${(d.fiu/th).toFixed(2)}&lt;/td&gt;&lt;td class=&quot;r&quot; style=&quot;font-weight:700;color:#0891B2&quot;&gt;${(d.fiu/(th/8)).toFixed(1)}&lt;/td&gt;&lt;/tr&gt;`;});
+  const sT=sR+sO;
+  h+=`&lt;tr class=&quot;tot&quot;&gt;&lt;td&gt;합계/평균&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${fmt(sF)}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${sR.toFixed(1)}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${sO.toFixed(1)}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${sT.toFixed(1)}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${(sF/sT).toFixed(2)}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${(sF/(sT/8)).toFixed(1)}&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;`;
+  document.getElementById(&#x27;p4-s1tbl&#x27;).innerHTML=h;
+  // Section2 per-tech monthly (Cum hidden)
+  let tablesHtml=&#x27;&#x27;;
+  techs.forEach(tc=&gt;{const d=D.p4[tc];let cq=0,ch=0;
+    let tb=`&lt;div class=&quot;card&quot; style=&quot;box-shadow:none;border:1px solid var(--border)&quot;&gt;&lt;div class=&quot;card-title&quot; style=&quot;font-size:12px&quot;&gt;▶ ${tc}&lt;/div&gt;&lt;table class=&quot;tbl mt16&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Month&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Final Item Unit&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Hours&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Unit/Hour&lt;/th&gt;&lt;th class=&quot;r&quot;&gt;Unit/Day&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;`;
+    D.months.forEach((m,i)=&gt;{cq+=d.mUnit[i];ch+=d.mHrs[i];const uh=ch&gt;0?(cq/ch):0;const ud=ch&gt;0?(cq/(ch/8)):0;tb+=`&lt;tr&gt;&lt;td&gt;${m}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${d.mUnit[i]||&#x27;—&#x27;}&lt;/td&gt;&lt;td class=&quot;r&quot;&gt;${d.mHrs[i]?d.mHrs[i].toFixed(1):&#x27;—&#x27;}&lt;/td&gt;&lt;td class=&quot;r&quot; style=&quot;color:#0891B2;font-weight:600&quot;&gt;${uh?uh.toFixed(2):&#x27;—&#x27;}&lt;/td&gt;&lt;td class=&quot;r&quot; style=&quot;color:#0891B2;font-weight:600&quot;&gt;${ud?ud.toFixed(1):&#x27;—&#x27;}&lt;/td&gt;&lt;/tr&gt;`;});
+    tb+=&#x27;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&#x27;;tablesHtml+=tb;});
+  document.getElementById(&#x27;p4-tables&#x27;).innerHTML=tablesHtml;
+  // line chart: cumulative Unit/Hour
+  if(charts.p4)charts.p4.destroy();
+  const ds=techs.map((tc,ti)=&gt;{const d=D.p4[tc];let cq=0,ch=0;const pts=D.months.map((m,i)=&gt;{cq+=d.mUnit[i];ch+=d.mHrs[i];return ch&gt;0?+(cq/ch).toFixed(2):null;});return {label:tc,data:pts,borderColor:[&#x27;#0891B2&#x27;,&#x27;#8B5CF6&#x27;][ti],backgroundColor:&#x27;transparent&#x27;,borderWidth:2.5,pointRadius:4,tension:.3,spanGaps:true};});
+  charts.p4=new Chart(document.getElementById(&#x27;p4-line&#x27;),{type:&#x27;line&#x27;,data:{labels:D.months,datasets:ds},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:&#x27;top&#x27;}},scales:{y:{beginAtZero:true,title:{display:true,text:&#x27;Unit/Hour&#x27;}}}}});
+}
+
+function renderAll(){drawP0();drawP1();drawP2();drawP4();}
+window.addEventListener(&#x27;DOMContentLoaded&#x27;,()=&gt;{setLang(&#x27;en&#x27;);});
+
+
+
+/* ===== HAUS unified i18n sweep (외형/언어 패치) ===== */
+var GLOSS={&quot;en&quot;: {&quot;부서 전체 — 월별 고급디자인 Main Task&quot;: &quot;Dept Total — Monthly Advanced Design Main Task&quot;, &quot;Section 2 — 월별 누적 생산성 트렌드&quot;: &quot;Section 2 — Monthly Cumulative Productivity Trend&quot;, &quot;월별 상세 — 테크니션 × 시간 × 생산성&quot;: &quot;Monthly Detail — Technician × Hours × Productivity&quot;, &quot;Crown / Abutment — 테크니션별&quot;: &quot;Crown / Abutment — by Technician&quot;, &quot;Seungwoo는 부서별 Unit비율 안분&quot;: &quot;Seungwoo allocated by dept Unit ratio&quot;, &quot;5~12월 데이터 입력 시 자동 갱신&quot;: &quot;Auto-updates when May~Dec data is entered&quot;, &quot;5~12월 데이터 입력 시 갱신&quot;: &quot;Updates when May~Dec data is entered&quot;, &quot;메인 태스크별 월평균 유닛&quot;: &quot;Monthly Avg Unit by Main Task&quot;, &quot;D2 — Crown / Abutment 월별&quot;: &quot;D2 — Crown / Abutment Monthly&quot;, &quot;월별 Unit — Haus Link + 수기&quot;: &quot;Monthly Unit — Haus Link + Manual&quot;, &quot;HAUS Design 생산 리포트 2026&quot;: &quot;HAUS Design Production Report 2026&quot;, &quot;HAUS Scan 생산 리포트 2026&quot;: &quot;HAUS Scan Production Report 2026&quot;, &quot;테크니션별 월별 생산량&quot;: &quot;Monthly Output by Technician&quot;, &quot;수기 + Haus Link 합계&quot;: &quot;Manual + Haus Link Total&quot;, &quot;테크니션별 월별 트렌드&quot;: &quot;Monthly Trend by Technician&quot;, &quot;D1 — 테크니션 × Main Task&quot;: &quot;D1 — Technician × Main Task&quot;, &quot;S1 — 테크니션 × Main Task&quot;: &quot;S1 — Technician × Main Task&quot;, &quot;연간 누적 생산성 트렌드&quot;: &quot;Annual Cumulative Productivity Trend&quot;, &quot;테크니션 × 작업종류&quot;: &quot;Technician × Task Type&quot;, &quot;테크니션별 월별 Unit&quot;: &quot;Monthly Unit by Technician&quot;, &quot;월평균 사유별 비중&quot;: &quot;Mo. Avg Share by Reason&quot;, &quot;테크니션별 Unit/Hrs&quot;: &quot;Unit/Hrs by Technician&quot;, &quot;테크니션 × Main Task&quot;: &quot;Technician × Main Task&quot;, &quot;D0 — 부서 대시보드&quot;: &quot;D0 — Dept Dashboard&quot;, &quot;S0 — 부서 대시보드&quot;: &quot;S0 — Dept Dashboard&quot;, &quot;D5 — 시간당 생산성&quot;: &quot;D5 — Hourly Productivity&quot;, &quot;S4 — 시간당 생산성&quot;: &quot;S4 — Hourly Productivity&quot;, &quot;YTD 사유별 비중&quot;: &quot;YTD Share by Reason&quot;, &quot;YTD 생산성 요약&quot;: &quot;YTD Productivity Summary&quot;, &quot;부서 전체 월별 표&quot;: &quot;Dept Total Monthly Table&quot;, &quot;Haus Link vs 수기&quot;: &quot;Haus Link vs Manual&quot;, &quot;월별 Sub-Total&quot;: &quot;Monthly Sub-Total&quot;, &quot;M5 — Redo 분석&quot;: &quot;M5 — Redo Analysis&quot;, &quot;P3 — Redo 분석&quot;: &quot;P3 — Redo Analysis&quot;, &quot;M0 — 부서종합&quot;: &quot;M0 — Dept Summary&quot;, &quot;P0 — 부서종합&quot;: &quot;P0 — Dept Summary&quot;, &quot;M3 — 기타재료&quot;: &quot;M3 — Other Materials&quot;, &quot;D3 — 고급디자인&quot;: &quot;D3 — Advanced Design&quot;, &quot;P1 — 테크니션별&quot;: &quot;P1 — By Technician&quot;, &quot;생산 리포트 2026&quot;: &quot;Production Report 2026&quot;, &quot;Unit/Hour 누적&quot;: &quot;Cumulative Unit/Hour&quot;, &quot;누적 Unit/Hour&quot;: &quot;Cumulative Unit/Hour&quot;, &quot;월별 재료 그룹&quot;: &quot;Monthly Material Group&quot;, &quot;테크니션 기여도&quot;: &quot;Technician Contribution&quot;, &quot;핵심 옵션 상세표&quot;: &quot;Core Option Detail&quot;, &quot;핵심 옵션 월별&quot;: &quot;Core Option Monthly&quot;, &quot;핵심 옵션 합계&quot;: &quot;Core Option Total&quot;, &quot;테크니션별 Redo&quot;: &quot;Redo by Technician&quot;, &quot;월평균 사유별&quot;: &quot;Mo. Avg by Reason&quot;, &quot;로컬수기_Scan&quot;: &quot;Local·Manual_Scan&quot;, &quot;Sub Task 비중&quot;: &quot;Sub Task Share&quot;, &quot;YTD ÷ 5개월&quot;: &quot;YTD ÷ 4 months&quot;, &quot;기타재료 YTD&quot;: &quot;Other Materials YTD&quot;, &quot;부서 대시보드&quot;: &quot;Dept Dashboard&quot;, &quot;사유별 상세표&quot;: &quot;Detail by Reason&quot;, &quot;최다 테크니션&quot;: &quot;Top Technician&quot;, &quot;YTD 총 생산&quot;: &quot;YTD Total Output&quot;, &quot;Paul Seo 제외&quot;: &quot;Excl. Paul Seo&quot;, &quot;핵심 옵션&quot;: &quot;Core Option&quot;, &quot;기타재료&quot;: &quot;Other Materials&quot;, &quot;고급디자인&quot;: &quot;Advanced Design&quot;, &quot;Redo 분석&quot;: &quot;Redo Analysis&quot;, &quot;시트별 분석&quot;: &quot;Sheet Analysis&quot;, &quot;테크니션 수&quot;: &quot;Technician Count&quot;, &quot;월평균 비중&quot;: &quot;Mo. Avg Share&quot;, &quot;수기 YTD&quot;: &quot;Manual YTD&quot;, &quot;YTD 비중&quot;: &quot;YTD Share&quot;, &quot;YTD 생산&quot;: &quot;YTD Output&quot;, &quot;O/S 제외&quot;: &quot;Excl. O/S&quot;, &quot;월별 막대&quot;: &quot;Monthly bars&quot;, &quot;월별 비교&quot;: &quot;Monthly comparison&quot;, &quot;누적 기준&quot;: &quot;Cumulative basis&quot;, &quot;로컬 입력&quot;: &quot;Local entry&quot;, &quot;로컬/수기&quot;: &quot;Local/Manual&quot;, &quot;최다 사유&quot;: &quot;Top Reason&quot;, &quot;합계/평균&quot;: &quot;Total/Avg&quot;, &quot;부서종합&quot;: &quot;Dept Summary&quot;, &quot;테크니션별&quot;: &quot;by Technician&quot;, &quot;테크니션&quot;: &quot;Technician&quot;, &quot;수기(로컬)&quot;: &quot;Manual(Local)&quot;, &quot;총작업&quot;: &quot;Total Tasks&quot;, &quot;월평균&quot;: &quot;Mo. Avg&quot;, &quot;기여%&quot;: &quot;Share%&quot;, &quot;스케일&quot;: &quot;Scale&quot;, &quot;로컬&quot;: &quot;Local&quot;, &quot;수기&quot;: &quot;Manual&quot;, &quot;구분&quot;: &quot;Type&quot;, &quot;그룹&quot;: &quot;Group&quot;, &quot;옵션&quot;: &quot;Option&quot;, &quot;사유&quot;: &quot;Reason&quot;, &quot;비중&quot;: &quot;Share&quot;, &quot;비율&quot;: &quot;Ratio&quot;, &quot;효율&quot;: &quot;Efficiency&quot;, &quot;평균&quot;: &quot;Avg&quot;, &quot;합계&quot;: &quot;Total&quot;, &quot;월별&quot;: &quot;Monthly&quot;, &quot;기간&quot;: &quot;Period&quot;, &quot;2명&quot;: &quot;2 ppl&quot;, &quot;5명&quot;: &quot;5 ppl&quot;, &quot;1명&quot;: &quot;1 person&quot;, &quot;없음(전원 In-house)&quot;: &quot;none (all In-house)&quot;, &quot;미입력&quot;: &quot;Not Entered&quot;, &quot;합산&quot;: &quot;Combined&quot;, &quot;전원&quot;: &quot;all&quot;, &quot;없음&quot;: &quot;none&quot;, &quot;안분&quot;: &quot;allocated&quot;, &quot;유닛&quot;: &quot;Unit&quot;, &quot;작업종류&quot;: &quot;Task Type&quot;, &quot;숨김 (계산용)&quot;: &quot;hidden (for calc)&quot;, &quot;숨김&quot;: &quot;hidden&quot;, &quot;계산용&quot;: &quot;for calc&quot;, &quot;X축&quot;: &quot;X-axis&quot;, &quot;누적 막대 (Monthly / 카테고리)&quot;: &quot;Cumulative Bars (Monthly / Category)&quot;, &quot;YTD Top 15 제품 (주문건수)&quot;: &quot;YTD Top 15 Products (Orders)&quot;, &quot;대카테고리 × Monthly 추이&quot;: &quot;Category × Monthly Trend&quot;, &quot;카테고리 Mo. Avg Share&quot;: &quot;Category Mo. Avg Share&quot;, &quot;주문 → 각 부서 처리율&quot;: &quot;Order → Dept Processing Rate&quot;, &quot;Stacked Bar + 전사 Line&quot;: &quot;Stacked Bar + Company Line&quot;, &quot;색 진할수록 Redo 多&quot;: &quot;Darker = more Redo&quot;, &quot;직전월(Mar) 13,568&quot;: &quot;Prev Month (Mar) 13,568&quot;, &quot;주문건수(케이스)&quot;: &quot;Order Count (Case)&quot;, &quot;기타=Final Item Unit&quot;: &quot;Others=Final Item Unit&quot;, &quot;YTD 스테이지 퍼널&quot;: &quot;YTD Stage Funnel&quot;, &quot;전체 64,395 기준&quot;: &quot;Based on total 64,395&quot;, &quot;스캔=Opt Qty&quot;: &quot;Scan=Opt Qty&quot;, &quot;주문전체&quot;: &quot;All Orders&quot;, &quot;Apr성장%&quot;: &quot;Apr Growth%&quot;, &quot;[간단보기]&quot;: &quot;[Simple]&quot;, &quot;[상세보기]&quot;: &quot;[Detail]&quot;, &quot;Mo. Avg 합&quot;: &quot;Mo. Avg Sum&quot;, &quot;전사 Total&quot;: &quot;Company Total&quot;, &quot;클릭 정렬&quot;: &quot;Click to sort&quot;, &quot;% 표시&quot;: &quot;% view&quot;, &quot;Avg/월&quot;: &quot;Avg/Mo&quot;, &quot;부서별 생산 리포트&quot;: &quot;Department Production Reports&quot;, &quot;전사 대시보드&quot;: &quot;Company Dashboard&quot;, &quot;3D 프린팅&quot;: &quot;3D Printing&quot;, &quot;가동 모듈&quot;: &quot;Active Modules&quot;, &quot;메탈피니싱&quot;: &quot;Metal Finishing&quot;, &quot;제품명&quot;: &quot;Product&quot;, &quot;간단보기&quot;: &quot;Simple View&quot;, &quot;상세보기&quot;: &quot;Detail View&quot;, &quot;직전월&quot;: &quot;Prev Month&quot;, &quot;대카테고리&quot;: &quot;Category&quot;, &quot;카테고리&quot;: &quot;Category&quot;, &quot;스테이지&quot;: &quot;Stage&quot;, &quot;퍼널&quot;: &quot;Funnel&quot;, &quot;처리율&quot;: &quot;Processing Rate&quot;, &quot;주문&quot;: &quot;Order&quot;, &quot;케이스&quot;: &quot;Case&quot;, &quot;디자인&quot;: &quot;Design&quot;, &quot;리포트&quot;: &quot;Report&quot;, &quot;피니싱&quot;: &quot;Finishing&quot;, &quot;밀링&quot;: &quot;Milling&quot;, &quot;스캔&quot;: &quot;Scan&quot;, &quot;전사&quot;: &quot;Company&quot;, &quot;성장&quot;: &quot;Growth&quot;, &quot;제품&quot;: &quot;Product&quot;, &quot;추이&quot;: &quot;Trend&quot;, &quot;기타&quot;: &quot;Others&quot;, &quot;지표&quot;: &quot;Metric&quot;, &quot;정렬&quot;: &quot;sort&quot;, &quot;표시&quot;: &quot;show&quot;, &quot;부서&quot;: &quot;Dept&quot;, &quot;전체&quot;: &quot;All&quot;, &quot;기준&quot;: &quot;as of&quot;, &quot;합&quot;: &quot;Sum&quot;, &quot;월&quot;: &quot;Mo&quot;, &quot;누적 막대&quot;: &quot;Cumulative Bars&quot;, &quot;누적&quot;: &quot;Cumulative&quot;, &quot;막대&quot;: &quot;Bars&quot;}, &quot;es&quot;: {&quot;부서 전체 — 월별 고급디자인 Main Task&quot;: &quot;Total Depto — Tarea Principal Diseño Avanzado Mensual&quot;, &quot;Section 2 — 월별 누적 생산성 트렌드&quot;: &quot;Sección 2 — Tendencia Acumulada de Productividad Mensual&quot;, &quot;월별 상세 — 테크니션 × 시간 × 생산성&quot;: &quot;Detalle Mensual — Técnico × Horas × Productividad&quot;, &quot;Crown / Abutment — 테크니션별&quot;: &quot;Crown / Abutment — por Técnico&quot;, &quot;Seungwoo는 부서별 Unit비율 안분&quot;: &quot;Seungwoo prorrateado por ratio de Unidad&quot;, &quot;5~12월 데이터 입력 시 자동 갱신&quot;: &quot;Se actualiza al ingresar datos de May~Dic&quot;, &quot;5~12월 데이터 입력 시 갱신&quot;: &quot;Se actualiza al ingresar datos de May~Dic&quot;, &quot;메인 태스크별 월평균 유닛&quot;: &quot;Unidad Prom. Mensual por Tarea Principal&quot;, &quot;D2 — Crown / Abutment 월별&quot;: &quot;D2 — Crown / Abutment Mensual&quot;, &quot;월별 Unit — Haus Link + 수기&quot;: &quot;Unidad Mensual — Haus Link + Manual&quot;, &quot;HAUS Design 생산 리포트 2026&quot;: &quot;HAUS Design Reporte de Producción 2026&quot;, &quot;HAUS Scan 생산 리포트 2026&quot;: &quot;HAUS Scan Reporte de Producción 2026&quot;, &quot;테크니션별 월별 생산량&quot;: &quot;Producción Mensual por Técnico&quot;, &quot;수기 + Haus Link 합계&quot;: &quot;Manual + Haus Link Total&quot;, &quot;테크니션별 월별 트렌드&quot;: &quot;Tendencia Mensual por Técnico&quot;, &quot;D1 — 테크니션 × Main Task&quot;: &quot;D1 — Técnico × Tarea Principal&quot;, &quot;S1 — 테크니션 × Main Task&quot;: &quot;S1 — Técnico × Tarea Principal&quot;, &quot;연간 누적 생산성 트렌드&quot;: &quot;Tendencia Anual Acumulada de Productividad&quot;, &quot;테크니션 × 작업종류&quot;: &quot;Técnico × Tipo de Tarea&quot;, &quot;테크니션별 월별 Unit&quot;: &quot;Unidad Mensual por Técnico&quot;, &quot;월평균 사유별 비중&quot;: &quot;Part. Prom. Mens. por Motivo&quot;, &quot;테크니션별 Unit/Hrs&quot;: &quot;Unit/Hrs por Técnico&quot;, &quot;테크니션 × Main Task&quot;: &quot;Técnico × Tarea Principal&quot;, &quot;D0 — 부서 대시보드&quot;: &quot;D0 — Panel del Depto&quot;, &quot;S0 — 부서 대시보드&quot;: &quot;S0 — Panel del Depto&quot;, &quot;D5 — 시간당 생산성&quot;: &quot;D5 — Productividad por Hora&quot;, &quot;S4 — 시간당 생산성&quot;: &quot;S4 — Productividad por Hora&quot;, &quot;YTD 사유별 비중&quot;: &quot;Part. YTD por Motivo&quot;, &quot;YTD 생산성 요약&quot;: &quot;Resumen de Productividad YTD&quot;, &quot;부서 전체 월별 표&quot;: &quot;Tabla Mensual Total Depto&quot;, &quot;Haus Link vs 수기&quot;: &quot;Haus Link vs Manual&quot;, &quot;월별 Sub-Total&quot;: &quot;Sub-Total Mensual&quot;, &quot;M5 — Redo 분석&quot;: &quot;M5 — Análisis Redo&quot;, &quot;P3 — Redo 분석&quot;: &quot;P3 — Análisis Redo&quot;, &quot;M0 — 부서종합&quot;: &quot;M0 — Resumen Depto&quot;, &quot;P0 — 부서종합&quot;: &quot;P0 — Resumen Depto&quot;, &quot;M3 — 기타재료&quot;: &quot;M3 — Otros Materiales&quot;, &quot;D3 — 고급디자인&quot;: &quot;D3 — Diseño Avanzado&quot;, &quot;P1 — 테크니션별&quot;: &quot;P1 — Por Técnico&quot;, &quot;생산 리포트 2026&quot;: &quot;Reporte de Producción 2026&quot;, &quot;Unit/Hour 누적&quot;: &quot;Unit/Hour Acumulado&quot;, &quot;누적 Unit/Hour&quot;: &quot;Unit/Hour Acumulado&quot;, &quot;월별 재료 그룹&quot;: &quot;Grupo de Material Mensual&quot;, &quot;테크니션 기여도&quot;: &quot;Contribución del Técnico&quot;, &quot;핵심 옵션 상세표&quot;: &quot;Detalle de Opción Clave&quot;, &quot;핵심 옵션 월별&quot;: &quot;Opción Clave Mensual&quot;, &quot;핵심 옵션 합계&quot;: &quot;Total Opción Clave&quot;, &quot;테크니션별 Redo&quot;: &quot;Redo por Técnico&quot;, &quot;월평균 사유별&quot;: &quot;Prom. Mens. por Motivo&quot;, &quot;로컬수기_Scan&quot;: &quot;Local·Manual_Scan&quot;, &quot;Sub Task 비중&quot;: &quot;Participación Sub Task&quot;, &quot;YTD ÷ 5개월&quot;: &quot;YTD ÷ 4 meses&quot;, &quot;기타재료 YTD&quot;: &quot;Otros Materiales YTD&quot;, &quot;부서 대시보드&quot;: &quot;Panel del Depto&quot;, &quot;사유별 상세표&quot;: &quot;Detalle por Motivo&quot;, &quot;최다 테크니션&quot;: &quot;Técnico Principal&quot;, &quot;YTD 총 생산&quot;: &quot;Producción Total YTD&quot;, &quot;Paul Seo 제외&quot;: &quot;Excl. Paul Seo&quot;, &quot;핵심 옵션&quot;: &quot;Opción Clave&quot;, &quot;기타재료&quot;: &quot;Otros Materiales&quot;, &quot;고급디자인&quot;: &quot;Diseño Avanzado&quot;, &quot;Redo 분석&quot;: &quot;Análisis Redo&quot;, &quot;시트별 분석&quot;: &quot;Análisis por Hoja&quot;, &quot;테크니션 수&quot;: &quot;N.º de Técnicos&quot;, &quot;월평균 비중&quot;: &quot;Part. Prom. Mens.&quot;, &quot;수기 YTD&quot;: &quot;Manual YTD&quot;, &quot;YTD 비중&quot;: &quot;Part. YTD&quot;, &quot;YTD 생산&quot;: &quot;Producción YTD&quot;, &quot;O/S 제외&quot;: &quot;Excl. O/S&quot;, &quot;월별 막대&quot;: &quot;Barras mensuales&quot;, &quot;월별 비교&quot;: &quot;Comparación mensual&quot;, &quot;누적 기준&quot;: &quot;Base acumulada&quot;, &quot;로컬 입력&quot;: &quot;Entrada local&quot;, &quot;로컬/수기&quot;: &quot;Local/Manual&quot;, &quot;최다 사유&quot;: &quot;Motivo Principal&quot;, &quot;합계/평균&quot;: &quot;Total/Prom.&quot;, &quot;부서종합&quot;: &quot;Resumen Depto&quot;, &quot;테크니션별&quot;: &quot;por Técnico&quot;, &quot;테크니션&quot;: &quot;Técnico&quot;, &quot;수기(로컬)&quot;: &quot;Manual(Local)&quot;, &quot;총작업&quot;: &quot;Tareas Totales&quot;, &quot;월평균&quot;: &quot;Prom. Mes&quot;, &quot;기여%&quot;: &quot;Part.%&quot;, &quot;스케일&quot;: &quot;Escala&quot;, &quot;로컬&quot;: &quot;Local&quot;, &quot;수기&quot;: &quot;Manual&quot;, &quot;구분&quot;: &quot;Tipo&quot;, &quot;그룹&quot;: &quot;Grupo&quot;, &quot;옵션&quot;: &quot;Opción&quot;, &quot;사유&quot;: &quot;Motivo&quot;, &quot;비중&quot;: &quot;Part.&quot;, &quot;비율&quot;: &quot;Ratio&quot;, &quot;효율&quot;: &quot;Eficiencia&quot;, &quot;평균&quot;: &quot;Prom.&quot;, &quot;합계&quot;: &quot;Total&quot;, &quot;월별&quot;: &quot;Mensual&quot;, &quot;기간&quot;: &quot;Período&quot;, &quot;2명&quot;: &quot;2 pers.&quot;, &quot;5명&quot;: &quot;5 pers.&quot;, &quot;1명&quot;: &quot;1 pers.&quot;, &quot;없음(전원 In-house)&quot;: &quot;ninguno (todo In-house)&quot;, &quot;미입력&quot;: &quot;No Ingresado&quot;, &quot;합산&quot;: &quot;Combinado&quot;, &quot;전원&quot;: &quot;todos&quot;, &quot;없음&quot;: &quot;ninguno&quot;, &quot;안분&quot;: &quot;prorrateado&quot;, &quot;유닛&quot;: &quot;Unidad&quot;, &quot;작업종류&quot;: &quot;Tipo de Tarea&quot;, &quot;숨김 (계산용)&quot;: &quot;oculto (para cálculo)&quot;, &quot;숨김&quot;: &quot;oculto&quot;, &quot;계산용&quot;: &quot;para cálculo&quot;, &quot;X축&quot;: &quot;Eje X&quot;, &quot;누적 막대 (Monthly / 카테고리)&quot;: &quot;Barras Acumuladas (Mensual / Categoría)&quot;, &quot;YTD Top 15 제품 (주문건수)&quot;: &quot;YTD Top 15 Productos (Pedidos)&quot;, &quot;대카테고리 × Monthly 추이&quot;: &quot;Categoría × Tendencia Mensual&quot;, &quot;카테고리 Mo. Avg Share&quot;: &quot;Categoría Part. Prom. Mens.&quot;, &quot;주문 → 각 부서 처리율&quot;: &quot;Pedido → Tasa de Proc. por Depto&quot;, &quot;Stacked Bar + 전사 Line&quot;: &quot;Barra Apilada + Línea Empresa&quot;, &quot;색 진할수록 Redo 多&quot;: &quot;Más oscuro = más Redo&quot;, &quot;직전월(Mar) 13,568&quot;: &quot;Mes Ant. (Mar) 13,568&quot;, &quot;주문건수(케이스)&quot;: &quot;N.º Pedidos (Caso)&quot;, &quot;기타=Final Item Unit&quot;: &quot;Otros=Final Item Unit&quot;, &quot;YTD 스테이지 퍼널&quot;: &quot;Embudo de Etapas YTD&quot;, &quot;전체 64,395 기준&quot;: &quot;Base total 64,395&quot;, &quot;스캔=Opt Qty&quot;: &quot;Scan=Opt Qty&quot;, &quot;주문전체&quot;: &quot;Todos los Pedidos&quot;, &quot;Apr성장%&quot;: &quot;Crec. Abr%&quot;, &quot;[간단보기]&quot;: &quot;[Simple]&quot;, &quot;[상세보기]&quot;: &quot;[Detalle]&quot;, &quot;Mo. Avg 합&quot;: &quot;Suma Prom. Mes&quot;, &quot;전사 Total&quot;: &quot;Total Empresa&quot;, &quot;클릭 정렬&quot;: &quot;Clic para ordenar&quot;, &quot;% 표시&quot;: &quot;Ver %&quot;, &quot;Avg/월&quot;: &quot;Prom./Mes&quot;, &quot;부서별 생산 리포트&quot;: &quot;Reportes de Producción por Depto&quot;, &quot;전사 대시보드&quot;: &quot;Panel de Empresa&quot;, &quot;3D 프린팅&quot;: &quot;Impresión 3D&quot;, &quot;가동 모듈&quot;: &quot;Módulos Activos&quot;, &quot;메탈피니싱&quot;: &quot;Metal Finishing&quot;, &quot;제품명&quot;: &quot;Producto&quot;, &quot;간단보기&quot;: &quot;Vista Simple&quot;, &quot;상세보기&quot;: &quot;Vista Detalle&quot;, &quot;직전월&quot;: &quot;Mes Ant.&quot;, &quot;대카테고리&quot;: &quot;Categoría&quot;, &quot;카테고리&quot;: &quot;Categoría&quot;, &quot;스테이지&quot;: &quot;Etapa&quot;, &quot;퍼널&quot;: &quot;Embudo&quot;, &quot;처리율&quot;: &quot;Tasa de Proc.&quot;, &quot;주문&quot;: &quot;Pedido&quot;, &quot;케이스&quot;: &quot;Caso&quot;, &quot;디자인&quot;: &quot;Diseño&quot;, &quot;리포트&quot;: &quot;Reporte&quot;, &quot;피니싱&quot;: &quot;Finishing&quot;, &quot;밀링&quot;: &quot;Milling&quot;, &quot;스캔&quot;: &quot;Scan&quot;, &quot;전사&quot;: &quot;Empresa&quot;, &quot;성장&quot;: &quot;Crecimiento&quot;, &quot;제품&quot;: &quot;Producto&quot;, &quot;추이&quot;: &quot;Tendencia&quot;, &quot;기타&quot;: &quot;Otros&quot;, &quot;지표&quot;: &quot;Métrica&quot;, &quot;정렬&quot;: &quot;ordenar&quot;, &quot;표시&quot;: &quot;mostrar&quot;, &quot;부서&quot;: &quot;Depto&quot;, &quot;전체&quot;: &quot;Todos&quot;, &quot;기준&quot;: &quot;al&quot;, &quot;합&quot;: &quot;Suma&quot;, &quot;월&quot;: &quot;Mes&quot;, &quot;누적 막대&quot;: &quot;Barras Acumuladas&quot;, &quot;누적&quot;: &quot;Acumulado&quot;, &quot;막대&quot;: &quot;Barras&quot;}};
+var GKEYS=Object.keys(GLOSS.en).sort(function(a,b){return b.length-a.length;});
+Object.assign(GLOSS.en,{&quot;2026 생산량 (Haus Link + 로컬/수기)&quot;: &quot;2026 Production (Haus Link + Local/Manual)&quot;, &quot;당월(4월) 생산량 (Haus Link + 로컬/수기)&quot;: &quot;Current Month (Apr) (Haus Link + Local/Manual)&quot;, &quot;전월대비 성장률&quot;: &quot;vs. Prior Month&quot;, &quot;월평균대비 증감률&quot;: &quot;vs. Monthly Avg&quot;, &quot;전월대비 특이사항&quot;: &quot;MoM Highlights&quot;, &quot;• 당월 전월비 +1.9% 증가 (+174)&quot;: &quot;• Current mo +1.9% MoM rise (+174)&quot;, &quot;• 월평균 8,251 대비 +10.8% 상회&quot;: &quot;• +10.8% above monthly avg (8,251)&quot;, &quot;• 수기 비중 26% 증가세 (2,371)&quot;: &quot;• Manual share 26%, rising (2,371)&quot;, &quot;• 당월 전월비 +14.4% 급증 (+124)&quot;: &quot;• Current mo +14.4% MoM surge (+124)&quot;, &quot;• 월평균 782 대비 +26.3% 크게 상회&quot;: &quot;• +26.3% well above monthly avg (782)&quot;, &quot;• 수기 비중 52% (517/988)&quot;: &quot;• Manual share 52% (517/988)&quot;, &quot;• 당월 전월비 −4.9% 감소 (−129)&quot;: &quot;• Current mo −4.9% MoM drop (−129)&quot;, &quot;• 월평균 2,448 대비 +2.7% 상회&quot;: &quot;• +2.7% above monthly avg (2,448)&quot;, &quot;• 수기 비중 42% (1,050/2,513)&quot;: &quot;• Manual share 42% (1,050/2,513)&quot;, &quot;• 당월 전월비 −6.1% 감소 (−56)&quot;: &quot;• Current mo −6.1% MoM drop (−56)&quot;, &quot;• 월평균 852 대비 +1.9% 상회&quot;: &quot;• +1.9% above monthly avg (852)&quot;, &quot;• 수기 비중 19% (169/868)&quot;: &quot;• Manual share 19% (169/868)&quot;});Object.assign(GLOSS.es,{&quot;2026 생산량 (Haus Link + 로컬/수기)&quot;: &quot;Producción 2026 (Haus Link + Local/Manual)&quot;, &quot;당월(4월) 생산량 (Haus Link + 로컬/수기)&quot;: &quot;Mes Actual (Abr) (HL + Local/Manual)&quot;, &quot;전월대비 성장률&quot;: &quot;vs. Mes Anterior&quot;, &quot;월평균대비 증감률&quot;: &quot;vs. Prom. Mensual&quot;, &quot;전월대비 특이사항&quot;: &quot;Destacados MoM&quot;, &quot;• 당월 전월비 +1.9% 증가 (+174)&quot;: &quot;• Mes actual +1.9% MoM alza (+174)&quot;, &quot;• 월평균 8,251 대비 +10.8% 상회&quot;: &quot;• +10.8% sobre prom. mensual (8,251)&quot;, &quot;• 수기 비중 26% 증가세 (2,371)&quot;: &quot;• Manual 26%, creciente (2,371)&quot;, &quot;• 당월 전월비 +14.4% 급증 (+124)&quot;: &quot;• Mes actual +14.4% MoM repunte (+124)&quot;, &quot;• 월평균 782 대비 +26.3% 크게 상회&quot;: &quot;• +26.3% muy sobre prom. (782)&quot;, &quot;• 수기 비중 52% (517/988)&quot;: &quot;• Manual 52% (517/988)&quot;, &quot;• 당월 전월비 −4.9% 감소 (−129)&quot;: &quot;• Mes actual −4.9% MoM caída (−129)&quot;, &quot;• 월평균 2,448 대비 +2.7% 상회&quot;: &quot;• +2.7% sobre prom. mensual (2,448)&quot;, &quot;• 수기 비중 42% (1,050/2,513)&quot;: &quot;• Manual 42% (1,050/2,513)&quot;, &quot;• 당월 전월비 −6.1% 감소 (−56)&quot;: &quot;• Mes actual −6.1% MoM caída (−56)&quot;, &quot;• 월평균 852 대비 +1.9% 상회&quot;: &quot;• +1.9% sobre prom. mensual (852)&quot;, &quot;• 수기 비중 19% (169/868)&quot;: &quot;• Manual 19% (169/868)&quot;});GKEYS=Object.keys(GLOSS.en).sort(function(a,b){return b.length-a.length;});
+function _lng(){try{return (LANG)||&#x27;ko&#x27;;}catch(e){return &#x27;ko&#x27;;}}
+function L(s){var l=_lng();return (l!==&#x27;ko&#x27;&amp;&amp;GLOSS[l]&amp;&amp;GLOSS[l][s]!==undefined)?GLOSS[l][s]:s;}
+function _tr(s){var l=_lng();if(l===&#x27;ko&#x27;||!GLOSS[l])return s;var r=s;for(var i=0;i&lt;GKEYS.length;i++){var k=GKEYS[i];if(r.indexOf(k)&gt;=0)r=r.split(k).join(GLOSS[l][k]);}return r;}
+var _ORIG=new WeakMap(),_SWP=false;
+function sweepDOM(){if(_SWP)return;_SWP=true;try{var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null),a=[],n;while(n=w.nextNode())a.push(n);for(var i=0;i&lt;a.length;i++){var nd=a[i],p=nd.parentNode;if(p&amp;&amp;(p.tagName===&#x27;SCRIPT&#x27;||p.tagName===&#x27;STYLE&#x27;))continue;if(p&amp;&amp;p.closest&amp;&amp;p.closest(&#x27;[data-i18n]&#x27;))continue;if(!_ORIG.has(nd))_ORIG.set(nd,nd.nodeValue);var o=_ORIG.get(nd),v=(_lng()===&#x27;ko&#x27;)?o:_tr(o);if(nd.nodeValue!==v)nd.nodeValue=v;}}finally{_SWP=false;}}
+function sweepCharts(){try{if(typeof charts===&#x27;undefined&#x27;||!charts)return;Object.keys(charts).forEach(function(k){var c=charts[k];if(!c||!c.data)return;var ch=false;
+if(c.data.datasets)c.data.datasets.forEach(function(ds){if(ds._ko===undefined)ds._ko=ds.label;if(ds._ko!=null){var nv=_tr(ds._ko);if(ds.label!==nv){ds.label=nv;ch=true;}}});
+if(c.data._kl===undefined)c.data._kl=Array.isArray(c.data.labels)?c.data.labels.slice():null;
+if(c.data._kl){for(var z=0;z&lt;c.data.labels.length;z++){var o=c.data._kl[z];if(o&amp;&amp;/[가-힣]/.test(o)){var nv=_tr(o);if(c.data.labels[z]!==nv){c.data.labels[z]=nv;ch=true;}}}}
+if(ch&amp;&amp;c.update)c.update(&#x27;none&#x27;);});}catch(e){}}
+function sweepAll(){sweepDOM();sweepCharts();}
+try{var _OBS=new MutationObserver(function(ms){if(_SWP)return;for(var i=0;i&lt;ms.length;i++){if(ms[i].addedNodes.length||ms[i].type===&#x27;characterData&#x27;){sweepDOM();return;}}});_OBS.observe(document.body,{childList:true,subtree:true,characterData:true});}catch(e){}
+(function(){if(typeof setLang===&#x27;function&#x27;){var _o=setLang;setLang=function(){_o.apply(this,arguments);sweepAll();};}})();
+setTimeout(sweepAll,80);setTimeout(sweepAll,400);
+/* ===== end i18n sweep ===== */
+
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;"></iframe>
+  </div>
+</div>
+<script>
+var _FIDS=['milling','printing'];
+function grSwitch(id){
+  document.querySelectorAll('.gr-tab').forEach(function(t){t.classList.toggle('active',t.dataset.id===id);});
+  document.querySelectorAll('.gr-frame').forEach(function(f){f.classList.toggle('active',f.id==='frame-'+id);});
+}
+window._grLang='en';
+function setGroupLang(l){
+  window._grLang=l;
+  document.querySelectorAll('.gr-lng').forEach(function(b){b.classList.toggle('lact',b.dataset.l===l);});
+  _FIDS.forEach(function(id){try{var fr=document.getElementById('frame-'+id);if(fr&&fr.contentWindow&&fr.contentWindow.setLang)fr.contentWindow.setLang(l);}catch(e){}});
+}
+function _grPropagate(){_FIDS.forEach(function(id){try{var fr=document.getElementById('frame-'+id);if(fr&&fr.contentWindow&&fr.contentWindow.setLang)fr.contentWindow.setLang(window._grLang);}catch(e){}});}
+window.addEventListener('load',function(){setTimeout(_grPropagate,150);setTimeout(_grPropagate,600);setTimeout(_grPropagate,1400);});
+</script>
+</body></html>
