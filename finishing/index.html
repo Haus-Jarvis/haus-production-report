@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HAUS Production Report — Finishing 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:#0F172A;overflow:hidden}
+.gr-layout{display:flex;flex-direction:column;height:100vh;width:100vw}
+.gr-top{height:56px;min-height:56px;background:#1E293B;display:flex;align-items:center;gap:16px;padding:0 18px;border-bottom:1px solid rgba(255,255,255,.08);z-index:10}
+.gr-logo{display:flex;align-items:center;gap:11px}
+.gr-logo-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#F97316,#EA580C);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:#fff;flex-shrink:0}
+.gr-logo-name{font-weight:800;font-size:14px;color:#fff;line-height:1.2}
+.gr-logo-sub{font-size:9.5px;color:rgba(255,255,255,.45);margin-top:1px}
+.gr-tabs{display:flex;gap:6px;margin-left:6px}
+.gr-tab{padding:7px 15px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:rgba(255,255,255,.72);border-radius:8px;cursor:pointer;font-size:12.5px;font-weight:600;font-family:inherit;transition:.15s;display:flex;align-items:center;gap:8px}
+.gr-tab:hover{background:rgba(255,255,255,.1);color:#fff}
+.gr-tab.active{background:linear-gradient(135deg,#F97316,#EA580C);border-color:#F97316;color:#fff;box-shadow:0 3px 10px rgba(249,115,22,.35)}
+.gr-ico{font-size:14px}
+.gr-badge{font-size:9px;font-family:'JetBrains Mono';background:rgba(255,255,255,.16);color:rgba(255,255,255,.85);padding:2px 6px;border-radius:5px}
+.gr-tab.active .gr-badge{background:rgba(255,255,255,.25);color:#fff}
+.gr-spacer{flex:1}
+.gr-lang{display:flex;gap:5px}
+.gr-lng{padding:6px 12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:rgba(255,255,255,.72);border-radius:7px;cursor:pointer;font-size:11px;font-weight:700;letter-spacing:.04em;font-family:inherit;transition:.15s}
+.gr-lng:hover{background:rgba(255,255,255,.1)}
+.gr-lng.lact{background:#F97316;border-color:#F97316;color:#fff}
+.gr-content{flex:1;position:relative;background:#F8FAFC}
+.gr-frame{width:100%;height:100%;border:none;display:none}
+.gr-frame.active{display:block}</style>
+</head>
+<body>
+<div class="gr-layout">
+  <div class="gr-top">
+    <div class="gr-logo">
+      <div class="gr-logo-icon">H</div>
+      <div><div class="gr-logo-name">HAUS Production Report</div><div class="gr-logo-sub">Finishing · 2026.01–05 · v2.0</div></div>
+    </div>
+    
+    <div class="gr-spacer"></div>
+    <div class="gr-lang">
+      <button class="gr-lng" data-l="ko" onclick="setGroupLang('ko')">KO</button>
+      <button class="gr-lng lact" data-l="en" onclick="setGroupLang('en')">EN</button>
+      <button class="gr-lng" data-l="es" onclick="setGroupLang('es')">ES</button>
+    </div>
+  </div>
+  <div class="gr-content">
+    <iframe class="gr-frame active" id="frame-finishing" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+&lt;title&gt;[v2.0] HAUS Finishing 부서 리포트 2026&lt;/title&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;style&gt;
+:root{--primary:#7C3AED;--primary-md:#A78BFA;--primary-lt:#EDE9FE;--bg:#F8FAFC;--card:#FFF;
+--t1:#0F172A;--t2:#475569;--t3:#94A3B8;--border:#E2E8F0;--hl:#7C3AED;--manual:#F59E0B;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:&#x27;Inter&#x27;,-apple-system,sans-serif;background:var(--bg);color:var(--t1);font-size:14px}
+.num{font-family:&#x27;JetBrains Mono&#x27;,monospace}
+.layout{display:flex;min-height:100vh}
+.sidebar{width:228px;background:var(--card);border-right:1px solid var(--border);position:fixed;height:100vh;overflow-y:auto}
+.sb-logo{padding:18px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:11px}
+.sb-logo-icon{width:38px;height:38px;background:linear-gradient(135deg,#7C3AED,#A78BFA);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:17px}
+.sb-logo-txt b{font-size:15px}.sb-logo-txt span{font-size:11px;color:var(--t3);display:block}
+.sb-section-label{padding:16px 20px 7px;font-size:10px;font-weight:700;color:var(--t3);letter-spacing:.06em;text-transform:uppercase}
+.tab-btn{width:100%;text-align:left;padding:11px 20px;border:none;background:none;cursor:pointer;display:flex;align-items:center;gap:11px;font-size:13.5px;color:var(--t2);font-weight:500;transition:all .13s;border-left:3px solid transparent;font-family:inherit}
+.tab-btn:hover{background:var(--primary-lt)}
+.tab-btn.active{background:var(--primary-lt);color:var(--primary);font-weight:700;border-left-color:var(--primary)}
+.tb-icon{font-size:15px}.tb-badge{margin-left:auto;font-size:10px;padding:1px 7px;border-radius:9px;background:var(--border);color:var(--t2);font-family:&#x27;JetBrains Mono&#x27;}
+.sb-footer{padding:16px 20px;border-top:1px solid var(--border);margin-top:8px;font-size:11px;color:var(--t3)}
+.sb-rrow{display:flex;justify-content:space-between;margin-bottom:5px}.sb-rval{font-family:&#x27;JetBrains Mono&#x27;;font-weight:700;color:var(--t2)}
+.main{flex:1;margin-left:228px}
+.top-bar{background:var(--card);border-bottom:1px solid var(--border);padding:15px 28px;display:flex;align-items:center;gap:11px;position:sticky;top:0;z-index:20}
+.tb-title{font-size:17px;font-weight:800}
+.tb-tag{font-size:11px;padding:3px 10px;border-radius:6px;background:var(--primary-lt);color:var(--primary);font-weight:600}
+.ver-badge{font-size:10px;font-family:&#x27;JetBrains Mono&#x27;;color:var(--t2);padding:2px 7px;border:1px solid var(--border);border-radius:4px;margin-left:8px}
+.lang-sel{display:flex;align-items:center;gap:3px;margin-left:8px}
+.lang-btn{padding:4px 9px;border:1px solid var(--border);border-radius:5px;background:none;cursor:pointer;font-size:11px;font-weight:700;color:var(--t2);transition:all .15s;font-family:inherit}
+.lang-btn:hover{border-color:var(--primary-md);color:var(--primary)}
+.lang-btn.lact{background:var(--primary-md);border-color:var(--primary-md);color:#fff}
+.lang-sep{font-size:10px;color:var(--t3)}
+.tb-meta{margin-left:auto;font-size:12px;color:var(--t3);font-family:&#x27;JetBrains Mono&#x27;}
+.content-area{padding:24px 28px;max-width:1300px}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.sec-label{font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.05em;text-transform:uppercase;margin:22px 0 13px;padding-left:9px;border-left:3px solid var(--primary)}
+.sec-label:first-child{margin-top:4px}
+.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-bottom:8px}
+.kpi-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;border-top:3px solid var(--accent,var(--primary))}
+.kpi-label{font-size:12px;color:var(--t2);font-weight:600;margin-bottom:7px}
+.kpi-value{font-size:26px;font-weight:800;font-family:&#x27;JetBrains Mono&#x27;}
+.kpi-value .unit{font-size:14px;color:var(--t3);font-weight:600}
+.kpi-sub{font-size:11px;color:var(--t3);margin-top:5px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:18px}
+.card-title{font-size:14px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.card-sub{font-size:11.5px;color:var(--t3);margin-bottom:15px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.row-2{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
+.toggle-row{display:flex;gap:8px;margin-bottom:15px;flex-wrap:wrap;align-items:center}
+.toggle-group{display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.tg-btn{padding:7px 14px;border:none;background:var(--card);cursor:pointer;font-size:12.5px;font-weight:600;color:var(--t2);transition:all .13s;font-family:inherit}
+.tg-btn:not(:last-child){border-right:1px solid var(--border)}
+.tg-btn.on{background:var(--primary);color:#fff}
+.tg-label{font-size:11px;color:var(--t3);font-weight:600;margin-right:2px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--border)}
+th:first-child,td:first-child{text-align:left}
+thead th{background:#F1F5F9;font-size:11px;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:.02em}
+tbody tr:hover{background:var(--primary-lt)}
+.tot-row{font-weight:700;background:#FFF7ED}.tot-row td{border-top:2px solid var(--primary-md)}
+.hl-pill{font-size:10px;padding:1px 7px;border-radius:9px;background:#EDE9FE;color:#6D28D9;font-weight:600}
+.manual-pill{font-size:10px;padding:1px 7px;border-radius:9px;background:#FEF3C7;color:#B45309;font-weight:600}
+.notice{border-left:3px solid #F59E0B;background:#FFFBEB;padding:14px 18px;border-radius:8px;margin-bottom:18px;font-size:12.5px;color:#92400E}
+@media(max-width:980px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.row-2{grid-template-columns:1fr}}
+
+/* ===== HAUS unified theme polish (v1.14) ===== */
+body{ -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility; }
+.tbl{ font-variant-numeric:tabular-nums lining-nums; }
+.tbl th{ font-weight:600;letter-spacing:.015em; }
+.tbl td.r,.tbl th.r{ font-variant-numeric:tabular-nums; }
+.kpi-v{ font-variant-numeric:tabular-nums;letter-spacing:-.015em; }
+.card-title{ letter-spacing:-.01em; }
+.card{ border-radius:12px; }
+.stab-badge,.hub-badge{ font-variant-numeric:tabular-nums; }
+&lt;/style&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;layout&quot;&gt;
+  &lt;div class=&quot;sidebar&quot;&gt;
+    &lt;div class=&quot;sb-logo&quot;&gt;&lt;div class=&quot;sb-logo-icon&quot;&gt;F&lt;/div&gt;&lt;div class=&quot;sb-logo-txt&quot;&gt;&lt;b&gt;HAUS&lt;/b&gt;&lt;span&gt;Finishing Dept&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;sb-section-label&quot; data-i18n=&quot;sb-reports&quot;&gt;리포트&lt;/div&gt;
+    &lt;button class=&quot;tab-btn active&quot; onclick=&quot;switchTab(0)&quot;&gt;&lt;span class=&quot;tb-icon&quot;&gt;📊&lt;/span&gt;&lt;span data-i18n=&quot;page-0&quot;&gt;F0 부서종합&lt;/span&gt;&lt;span class=&quot;tb-badge&quot;&gt;9,792&lt;/span&gt;&lt;/button&gt;
+    &lt;button class=&quot;tab-btn&quot; onclick=&quot;switchTab(1)&quot;&gt;&lt;span class=&quot;tb-icon&quot;&gt;🎨&lt;/span&gt;&lt;span data-i18n=&quot;page-1&quot;&gt;F1 Stain 그룹&lt;/span&gt;&lt;/button&gt;
+    &lt;button class=&quot;tab-btn&quot; onclick=&quot;switchTab(2)&quot;&gt;&lt;span class=&quot;tb-icon&quot;&gt;🦷&lt;/span&gt;&lt;span data-i18n=&quot;page-2&quot;&gt;F2 Full Arch&lt;/span&gt;&lt;/button&gt;
+    &lt;button class=&quot;tab-btn&quot; onclick=&quot;switchTab(3)&quot;&gt;&lt;span class=&quot;tb-icon&quot;&gt;🔧&lt;/span&gt;&lt;span data-i18n=&quot;page-3&quot;&gt;F3 옵션 그룹1&lt;/span&gt;&lt;/button&gt;
+    &lt;button class=&quot;tab-btn&quot; onclick=&quot;switchTab(4)&quot;&gt;&lt;span class=&quot;tb-icon&quot;&gt;🔩&lt;/span&gt;&lt;span data-i18n=&quot;page-4&quot;&gt;F4 옵션 그룹2&lt;/span&gt;&lt;/button&gt;
+    &lt;button class=&quot;tab-btn&quot; onclick=&quot;switchTab(5)&quot;&gt;&lt;span class=&quot;tb-icon&quot;&gt;⏱️&lt;/span&gt;&lt;span data-i18n=&quot;page-5&quot;&gt;F5 Hourly&lt;/span&gt;&lt;/button&gt;
+    &lt;div class=&quot;sb-footer&quot;&gt;
+      &lt;div class=&quot;sb-rrow&quot;&gt;&lt;span data-i18n=&quot;sb-period&quot;&gt;기간&lt;/span&gt;&lt;span class=&quot;sb-rval&quot;&gt;Jan~May 2026&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;sb-rrow&quot;&gt;&lt;span&gt;Haus Link&lt;/span&gt;&lt;span class=&quot;sb-rval&quot;&gt;5,869&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;sb-rrow&quot;&gt;&lt;span data-i18n=&quot;sb-manual&quot;&gt;수기&lt;/span&gt;&lt;span class=&quot;sb-rval&quot;&gt;3,923&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;sb-rrow&quot;&gt;&lt;span data-i18n=&quot;sb-combined&quot;&gt;합계&lt;/span&gt;&lt;span class=&quot;sb-rval&quot;&gt;9,792&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;main&quot;&gt;
+    &lt;div class=&quot;top-bar&quot;&gt;
+      &lt;div class=&quot;tb-title&quot; id=&quot;pageTitle&quot;&gt;F0 부서종합&lt;/div&gt;
+      &lt;div class=&quot;tb-tag&quot;&gt;Paul Seo 제외&lt;/div&gt;
+      &lt;div class=&quot;ver-badge&quot;&gt;v2.3&lt;/div&gt;
+      &lt;div class=&quot;lang-sel&quot;&gt;
+        &lt;button class=&quot;lang-btn lact&quot; data-lang=&quot;ko&quot; onclick=&quot;setLang(&#x27;ko&#x27;)&quot;&gt;🇰🇷 KO&lt;/button&gt;
+        &lt;span class=&quot;lang-sep&quot;&gt;|&lt;/span&gt;
+        &lt;button class=&quot;lang-btn&quot; data-lang=&quot;en&quot; onclick=&quot;setLang(&#x27;en&#x27;)&quot;&gt;🇺🇸 EN&lt;/button&gt;
+        &lt;span class=&quot;lang-sep&quot;&gt;|&lt;/span&gt;
+        &lt;button class=&quot;lang-btn&quot; data-lang=&quot;es&quot; onclick=&quot;setLang(&#x27;es&#x27;)&quot;&gt;🇪🇸 ES&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;tb-meta&quot;&gt;2026 Jan — May&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;content-area&quot; id=&quot;contentArea&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+const D={&quot;months&quot;: [&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;], &quot;workers&quot;: [&quot;Doo Soon Park&quot;, &quot;Kyoungjoon Cho&quot;, &quot;Kyunga Ku&quot;, &quot;Kyungju Cho&quot;], &quot;f0&quot;: {&quot;hauslink_total&quot;: {&quot;Jan&quot;: 1324, &quot;Feb&quot;: 1507, &quot;Mar&quot;: 1575, &quot;Apr&quot;: 1463, &quot;May&quot;: 1614}, &quot;manual_total&quot;: {&quot;Jan&quot;: 793, &quot;Feb&quot;: 1013, &quot;Mar&quot;: 1067, &quot;Apr&quot;: 1050, &quot;May&quot;: 803}, &quot;combined_total&quot;: {&quot;Jan&quot;: 2117, &quot;Feb&quot;: 2520, &quot;Mar&quot;: 2642, &quot;Apr&quot;: 2513, &quot;May&quot;: 2417}, &quot;all_tasks&quot;: [&quot;Stain and Glazed&quot;, &quot;Emax Cad Crystallization&quot;, &quot;PMMA Crown Glazing&quot;, &quot;Tissue Coloring&quot;, &quot;Zir - Full Arch S&amp;G&quot;, &quot;I Bar S&amp;G&quot;, &quot;PMMA Full Arch S&amp;G&quot;], &quot;hauslink_task&quot;: {&quot;Jan&quot;: {&quot;Stain and Glazed&quot;: 1255, &quot;Emax Cad Crystallization&quot;: 23, &quot;PMMA Crown Glazing&quot;: 26, &quot;Tissue Coloring&quot;: 2, &quot;Zir - Full Arch S&amp;G&quot;: 11, &quot;I Bar S&amp;G&quot;: 5, &quot;PMMA Full Arch S&amp;G&quot;: 2}, &quot;Feb&quot;: {&quot;Stain and Glazed&quot;: 1463, &quot;Emax Cad Crystallization&quot;: 5, &quot;PMMA Crown Glazing&quot;: 0, &quot;Tissue Coloring&quot;: 20, &quot;Zir - Full Arch S&amp;G&quot;: 3, &quot;I Bar S&amp;G&quot;: 8, &quot;PMMA Full Arch S&amp;G&quot;: 8}, &quot;Mar&quot;: {&quot;Stain and Glazed&quot;: 1515, &quot;Emax Cad Crystallization&quot;: 20, &quot;PMMA Crown Glazing&quot;: 2, &quot;Tissue Coloring&quot;: 17, &quot;Zir - Full Arch S&amp;G&quot;: 12, &quot;I Bar S&amp;G&quot;: 7, &quot;PMMA Full Arch S&amp;G&quot;: 2}, &quot;Apr&quot;: {&quot;Stain and Glazed&quot;: 1407, &quot;Emax Cad Crystallization&quot;: 13, &quot;PMMA Crown Glazing&quot;: 5, &quot;Tissue Coloring&quot;: 4, &quot;Zir - Full Arch S&amp;G&quot;: 27, &quot;I Bar S&amp;G&quot;: 5, &quot;PMMA Full Arch S&amp;G&quot;: 2}, &quot;May&quot;: {&quot;Stain and Glazed&quot;: 1542, &quot;Emax Cad Crystallization&quot;: 36, &quot;PMMA Crown Glazing&quot;: 0, &quot;Tissue Coloring&quot;: 0, &quot;Zir - Full Arch S&amp;G&quot;: 23, &quot;I Bar S&amp;G&quot;: 5, &quot;PMMA Full Arch S&amp;G&quot;: 8}}, &quot;manual_worker&quot;: {&quot;Jan&quot;: {&quot;Doo Soon Park&quot;: 18, &quot;Kyoungjoon Cho&quot;: 522, &quot;Kyunga Ku&quot;: 160, &quot;Kyungju Cho&quot;: 93}, &quot;Feb&quot;: {&quot;Doo Soon Park&quot;: 39, &quot;Kyoungjoon Cho&quot;: 640, &quot;Kyunga Ku&quot;: 194, &quot;Kyungju Cho&quot;: 140}, &quot;Mar&quot;: {&quot;Doo Soon Park&quot;: 14, &quot;Kyoungjoon Cho&quot;: 719, &quot;Kyunga Ku&quot;: 179, &quot;Kyungju Cho&quot;: 155}, &quot;Apr&quot;: {&quot;Doo Soon Park&quot;: 65, &quot;Kyoungjoon Cho&quot;: 754, &quot;Kyunga Ku&quot;: 0, &quot;Kyungju Cho&quot;: 231}, &quot;May&quot;: {&quot;Kyunga Ku&quot;: 172, &quot;Kyoungjoon Cho&quot;: 581, &quot;Doo Soon Park&quot;: 41, &quot;Kyungju Cho&quot;: 9}}, &quot;manual_worker_task&quot;: {&quot;Jan&quot;: {&quot;Doo Soon Park&quot;: {&quot;Posterior&quot;: 2, &quot;Anterior&quot;: 0, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0, &quot;With Abutment&quot;: 0, &quot;Cementation&quot;: 10, &quot;Emax Cad&quot;: 0, &quot;Tissue Coloring&quot;: 3, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 0, &quot;Zir S&amp;G&quot;: 1, &quot;Zir Cementation&quot;: 2, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Posterior&quot;: 171, &quot;Anterior&quot;: 89, &quot;No Solid&quot;: 5, &quot;With Solid&quot;: 244, &quot;With Abutment&quot;: 0, &quot;Cementation&quot;: 10, &quot;Emax Cad&quot;: 0, &quot;Tissue Coloring&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 3, &quot;Zir S&amp;G&quot;: 0, &quot;Zir Cementation&quot;: 0, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Posterior&quot;: 4, &quot;Anterior&quot;: 23, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 39, &quot;With Abutment&quot;: 42, &quot;Cementation&quot;: 0, &quot;Emax Cad&quot;: 27, &quot;Tissue Coloring&quot;: 1, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 14, &quot;Zir S&amp;G&quot;: 5, &quot;Zir Cementation&quot;: 0, &quot;PMMA S&amp;G&quot;: 5, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Posterior&quot;: 64, &quot;Anterior&quot;: 21, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0, &quot;With Abutment&quot;: 0, &quot;Cementation&quot;: 0, &quot;Emax Cad&quot;: 0, &quot;Tissue Coloring&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 8, &quot;Zir S&amp;G&quot;: 0, &quot;Zir Cementation&quot;: 0, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}}, &quot;Feb&quot;: {&quot;Doo Soon Park&quot;: {&quot;Posterior&quot;: 25, &quot;Anterior&quot;: 0, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0, &quot;With Abutment&quot;: 0, &quot;Cementation&quot;: 4, &quot;Emax Cad&quot;: 0, &quot;Tissue Coloring&quot;: 7, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 0, &quot;Zir S&amp;G&quot;: 0, &quot;Zir Cementation&quot;: 3, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Posterior&quot;: 193, &quot;Anterior&quot;: 121, &quot;No Solid&quot;: 8, &quot;With Solid&quot;: 281, &quot;With Abutment&quot;: 0, &quot;Cementation&quot;: 34, &quot;Emax Cad&quot;: 0, &quot;Tissue Coloring&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 3, &quot;Zir S&amp;G&quot;: 0, &quot;Zir Cementation&quot;: 0, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Posterior&quot;: 18, &quot;Anterior&quot;: 33, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 10, &quot;With Abutment&quot;: 79, &quot;Cementation&quot;: 1, &quot;Emax Cad&quot;: 28, &quot;Tissue Coloring&quot;: 1, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 15, &quot;Zir S&amp;G&quot;: 4, &quot;Zir Cementation&quot;: 2, &quot;PMMA S&amp;G&quot;: 3, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Posterior&quot;: 89, &quot;Anterior&quot;: 42, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0, &quot;With Abutment&quot;: 0, &quot;Cementation&quot;: 0, &quot;Emax Cad&quot;: 0, &quot;Tissue Coloring&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 9, &quot;Zir S&amp;G&quot;: 0, &quot;Zir Cementation&quot;: 0, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}}, &quot;Mar&quot;: {&quot;Doo Soon Park&quot;: {&quot;Posterior&quot;: 0, &quot;Anterior&quot;: 0, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0, &quot;With Abutment&quot;: 0, &quot;Cementation&quot;: 2, &quot;Emax Cad&quot;: 0, &quot;Tissue Coloring&quot;: 5, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 0, &quot;Zir S&amp;G&quot;: 5, &quot;Zir Cementation&quot;: 2, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Posterior&quot;: 257, &quot;Anterior&quot;: 100, &quot;No Solid&quot;: 4, &quot;With Solid&quot;: 320, &quot;With Abutment&quot;: 0, &quot;Cementation&quot;: 36, &quot;Emax Cad&quot;: 0, &quot;Tissue Coloring&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 2, &quot;Zir S&amp;G&quot;: 0, &quot;Zir Cementation&quot;: 0, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Posterior&quot;: 1, &quot;Anterior&quot;: 26, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 38, &quot;With Abutment&quot;: 51, &quot;Cementation&quot;: 4, &quot;Emax Cad&quot;: 41, &quot;Tissue Coloring&quot;: 1, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 11, &quot;Zir S&amp;G&quot;: 3, &quot;Zir Cementation&quot;: 0, &quot;PMMA S&amp;G&quot;: 1, &quot;Opaque&quot;: 1, &quot;Acrylic Gum&quot;: 1}, &quot;Kyungju Cho&quot;: {&quot;Posterior&quot;: 108, &quot;Anterior&quot;: 40, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0, &quot;With Abutment&quot;: 0, &quot;Cementation&quot;: 0, &quot;Emax Cad&quot;: 0, &quot;Tissue Coloring&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 7, &quot;Zir S&amp;G&quot;: 0, &quot;Zir Cementation&quot;: 0, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}}, &quot;Apr&quot;: {&quot;Doo Soon Park&quot;: {&quot;Posterior&quot;: 28, &quot;Anterior&quot;: 0, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0, &quot;With Abutment&quot;: 0, &quot;Cementation&quot;: 8, &quot;Emax Cad&quot;: 0, &quot;Tissue Coloring&quot;: 11, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 0, &quot;Zir S&amp;G&quot;: 9, &quot;Zir Cementation&quot;: 9, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Posterior&quot;: 214, &quot;Anterior&quot;: 52, &quot;No Solid&quot;: 8, &quot;With Solid&quot;: 380, &quot;With Abutment&quot;: 34, &quot;Cementation&quot;: 16, &quot;Emax Cad&quot;: 46, &quot;Tissue Coloring&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 1, &quot;Zir S&amp;G&quot;: 3, &quot;Zir Cementation&quot;: 0, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Posterior&quot;: 0, &quot;Anterior&quot;: 0, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0, &quot;With Abutment&quot;: 0, &quot;Cementation&quot;: 0, &quot;Emax Cad&quot;: 0, &quot;Tissue Coloring&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 0, &quot;Zir S&amp;G&quot;: 0, &quot;Zir Cementation&quot;: 0, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Posterior&quot;: 113, &quot;Anterior&quot;: 97, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0, &quot;With Abutment&quot;: 0, &quot;Cementation&quot;: 0, &quot;Emax Cad&quot;: 0, &quot;Tissue Coloring&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 21, &quot;Zir S&amp;G&quot;: 0, &quot;Zir Cementation&quot;: 0, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}}, &quot;May&quot;: {&quot;Kyunga Ku&quot;: {&quot;Posterior&quot;: 7, &quot;Anterior&quot;: 13, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 17, &quot;With Abutment&quot;: 58, &quot;Cementation&quot;: 0, &quot;Emax Cad&quot;: 65, &quot;Tissue Coloring&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 7, &quot;Zir S&amp;G&quot;: 1, &quot;Zir Cementation&quot;: 1, &quot;PMMA S&amp;G&quot;: 3, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Posterior&quot;: 214, &quot;Anterior&quot;: 61, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 274, &quot;With Abutment&quot;: 0, &quot;Cementation&quot;: 32, &quot;Emax Cad&quot;: 0, &quot;Tissue Coloring&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 0, &quot;Zir S&amp;G&quot;: 0, &quot;Zir Cementation&quot;: 0, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}, &quot;Doo Soon Park&quot;: {&quot;Posterior&quot;: 9, &quot;Anterior&quot;: 0, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0, &quot;With Abutment&quot;: 0, &quot;Cementation&quot;: 2, &quot;Emax Cad&quot;: 0, &quot;Tissue Coloring&quot;: 21, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 0, &quot;Zir S&amp;G&quot;: 6, &quot;Zir Cementation&quot;: 3, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Posterior&quot;: 8, &quot;Anterior&quot;: 1, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0, &quot;With Abutment&quot;: 0, &quot;Cementation&quot;: 0, &quot;Emax Cad&quot;: 0, &quot;Tissue Coloring&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0, &quot;Picture Shade&quot;: 0, &quot;Zir S&amp;G&quot;: 0, &quot;Zir Cementation&quot;: 0, &quot;PMMA S&amp;G&quot;: 0, &quot;Opaque&quot;: 0, &quot;Acrylic Gum&quot;: 0}}}, &quot;manual_tasks&quot;: [&quot;Posterior&quot;, &quot;Anterior&quot;, &quot;No Solid&quot;, &quot;With Solid&quot;, &quot;With Abutment&quot;, &quot;Cementation&quot;, &quot;Emax Cad&quot;, &quot;Tissue Coloring&quot;, &quot;PMMA Crown Glazing&quot;, &quot;Picture Shade&quot;, &quot;Zir S&amp;G&quot;, &quot;Zir Cementation&quot;, &quot;PMMA S&amp;G&quot;, &quot;Opaque&quot;, &quot;Acrylic Gum&quot;]}, &quot;f1&quot;: {&quot;tasks&quot;: [&quot;Stain and Glazed&quot;, &quot;Emax Cad Crystallization&quot;, &quot;PMMA Crown Glazing&quot;], &quot;data&quot;: {&quot;Jan&quot;: {&quot;Doo Soon Park&quot;: {&quot;Stain and Glazed&quot;: 102, &quot;Emax Cad Crystallization&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Stain and Glazed&quot;: 305, &quot;Emax Cad Crystallization&quot;: 1, &quot;PMMA Crown Glazing&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Stain and Glazed&quot;: 196, &quot;Emax Cad Crystallization&quot;: 0, &quot;PMMA Crown Glazing&quot;: 26}, &quot;Kyungju Cho&quot;: {&quot;Stain and Glazed&quot;: 652, &quot;Emax Cad Crystallization&quot;: 22, &quot;PMMA Crown Glazing&quot;: 0}}, &quot;Feb&quot;: {&quot;Doo Soon Park&quot;: {&quot;Stain and Glazed&quot;: 80, &quot;Emax Cad Crystallization&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Stain and Glazed&quot;: 357, &quot;Emax Cad Crystallization&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Stain and Glazed&quot;: 215, &quot;Emax Cad Crystallization&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Stain and Glazed&quot;: 811, &quot;Emax Cad Crystallization&quot;: 5, &quot;PMMA Crown Glazing&quot;: 0}}, &quot;Mar&quot;: {&quot;Doo Soon Park&quot;: {&quot;Stain and Glazed&quot;: 155, &quot;Emax Cad Crystallization&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Stain and Glazed&quot;: 291, &quot;Emax Cad Crystallization&quot;: 1, &quot;PMMA Crown Glazing&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Stain and Glazed&quot;: 253, &quot;Emax Cad Crystallization&quot;: 0, &quot;PMMA Crown Glazing&quot;: 2}, &quot;Kyungju Cho&quot;: {&quot;Stain and Glazed&quot;: 816, &quot;Emax Cad Crystallization&quot;: 19, &quot;PMMA Crown Glazing&quot;: 0}}, &quot;Apr&quot;: {&quot;Doo Soon Park&quot;: {&quot;Stain and Glazed&quot;: 164, &quot;Emax Cad Crystallization&quot;: 0, &quot;PMMA Crown Glazing&quot;: 4}, &quot;Kyoungjoon Cho&quot;: {&quot;Stain and Glazed&quot;: 289, &quot;Emax Cad Crystallization&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Stain and Glazed&quot;: 96, &quot;Emax Cad Crystallization&quot;: 4, &quot;PMMA Crown Glazing&quot;: 1}, &quot;Kyungju Cho&quot;: {&quot;Stain and Glazed&quot;: 858, &quot;Emax Cad Crystallization&quot;: 9, &quot;PMMA Crown Glazing&quot;: 0}}, &quot;May&quot;: {&quot;Doo Soon Park&quot;: {&quot;Stain and Glazed&quot;: 128, &quot;Emax Cad Crystallization&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Stain and Glazed&quot;: 403, &quot;Emax Cad Crystallization&quot;: 0, &quot;PMMA Crown Glazing&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Stain and Glazed&quot;: 227, &quot;Emax Cad Crystallization&quot;: 1, &quot;PMMA Crown Glazing&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Stain and Glazed&quot;: 784, &quot;Emax Cad Crystallization&quot;: 35, &quot;PMMA Crown Glazing&quot;: 0}}}, &quot;unit&quot;: &quot;Final Item Unit&quot;, &quot;manual_tasks&quot;: [&quot;Posterior&quot;, &quot;Anterior&quot;, &quot;No Solid&quot;, &quot;With Solid&quot;, &quot;With Abutment&quot;, &quot;Cementation&quot;, &quot;Emax Cad&quot;, &quot;PMMA Crown Glazing&quot;, &quot;Picture Shade&quot;]}, &quot;f2&quot;: {&quot;tasks&quot;: [&quot;Zir - Full Arch S&amp;G&quot;, &quot;I Bar S&amp;G&quot;, &quot;PMMA Full Arch S&amp;G&quot;, &quot;Tissue Coloring&quot;], &quot;data&quot;: {&quot;Jan&quot;: {&quot;Doo Soon Park&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 11, &quot;I Bar S&amp;G&quot;: 5, &quot;PMMA Full Arch S&amp;G&quot;: 0, &quot;Tissue Coloring&quot;: 2}, &quot;Kyoungjoon Cho&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 0, &quot;I Bar S&amp;G&quot;: 0, &quot;PMMA Full Arch S&amp;G&quot;: 0, &quot;Tissue Coloring&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 0, &quot;I Bar S&amp;G&quot;: 0, &quot;PMMA Full Arch S&amp;G&quot;: 2, &quot;Tissue Coloring&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 0, &quot;I Bar S&amp;G&quot;: 0, &quot;PMMA Full Arch S&amp;G&quot;: 0, &quot;Tissue Coloring&quot;: 0}}, &quot;Feb&quot;: {&quot;Doo Soon Park&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 3, &quot;I Bar S&amp;G&quot;: 8, &quot;PMMA Full Arch S&amp;G&quot;: 3, &quot;Tissue Coloring&quot;: 20}, &quot;Kyoungjoon Cho&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 0, &quot;I Bar S&amp;G&quot;: 0, &quot;PMMA Full Arch S&amp;G&quot;: 0, &quot;Tissue Coloring&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 0, &quot;I Bar S&amp;G&quot;: 0, &quot;PMMA Full Arch S&amp;G&quot;: 5, &quot;Tissue Coloring&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 0, &quot;I Bar S&amp;G&quot;: 0, &quot;PMMA Full Arch S&amp;G&quot;: 0, &quot;Tissue Coloring&quot;: 0}}, &quot;Mar&quot;: {&quot;Doo Soon Park&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 11, &quot;I Bar S&amp;G&quot;: 4, &quot;PMMA Full Arch S&amp;G&quot;: 0, &quot;Tissue Coloring&quot;: 17}, &quot;Kyoungjoon Cho&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 0, &quot;I Bar S&amp;G&quot;: 0, &quot;PMMA Full Arch S&amp;G&quot;: 0, &quot;Tissue Coloring&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 1, &quot;I Bar S&amp;G&quot;: 3, &quot;PMMA Full Arch S&amp;G&quot;: 2, &quot;Tissue Coloring&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 0, &quot;I Bar S&amp;G&quot;: 0, &quot;PMMA Full Arch S&amp;G&quot;: 0, &quot;Tissue Coloring&quot;: 0}}, &quot;Apr&quot;: {&quot;Doo Soon Park&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 27, &quot;I Bar S&amp;G&quot;: 5, &quot;PMMA Full Arch S&amp;G&quot;: 0, &quot;Tissue Coloring&quot;: 4}, &quot;Kyoungjoon Cho&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 0, &quot;I Bar S&amp;G&quot;: 0, &quot;PMMA Full Arch S&amp;G&quot;: 0, &quot;Tissue Coloring&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 0, &quot;I Bar S&amp;G&quot;: 0, &quot;PMMA Full Arch S&amp;G&quot;: 2, &quot;Tissue Coloring&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 0, &quot;I Bar S&amp;G&quot;: 0, &quot;PMMA Full Arch S&amp;G&quot;: 0, &quot;Tissue Coloring&quot;: 0}}, &quot;May&quot;: {&quot;Doo Soon Park&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 23, &quot;I Bar S&amp;G&quot;: 4, &quot;PMMA Full Arch S&amp;G&quot;: 2, &quot;Tissue Coloring&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 0, &quot;I Bar S&amp;G&quot;: 0, &quot;PMMA Full Arch S&amp;G&quot;: 0, &quot;Tissue Coloring&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 0, &quot;I Bar S&amp;G&quot;: 1, &quot;PMMA Full Arch S&amp;G&quot;: 6, &quot;Tissue Coloring&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Zir - Full Arch S&amp;G&quot;: 0, &quot;I Bar S&amp;G&quot;: 0, &quot;PMMA Full Arch S&amp;G&quot;: 0, &quot;Tissue Coloring&quot;: 0}}}, &quot;unit&quot;: &quot;Final Item Unit&quot;, &quot;manual_tasks&quot;: [&quot;Tissue Coloring&quot;, &quot;Zir S&amp;G&quot;, &quot;Zir Cementation&quot;, &quot;PMMA S&amp;G&quot;, &quot;Opaque&quot;, &quot;Acrylic Gum&quot;]}, &quot;f3&quot;: {&quot;tasks&quot;: [&quot;Posterior&quot;, &quot;Anterior&quot;, &quot;No Solid&quot;, &quot;With Solid&quot;], &quot;data&quot;: {&quot;Jan&quot;: {&quot;Doo Soon Park&quot;: {&quot;Posterior&quot;: 110, &quot;Anterior&quot;: 9, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Posterior&quot;: 198, &quot;Anterior&quot;: 45, &quot;No Solid&quot;: 4, &quot;With Solid&quot;: 110}, &quot;Kyunga Ku&quot;: {&quot;Posterior&quot;: 1, &quot;Anterior&quot;: 1, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Posterior&quot;: 478, &quot;Anterior&quot;: 120, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0}}, &quot;Feb&quot;: {&quot;Doo Soon Park&quot;: {&quot;Posterior&quot;: 82, &quot;Anterior&quot;: 2, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Posterior&quot;: 183, &quot;Anterior&quot;: 60, &quot;No Solid&quot;: 13, &quot;With Solid&quot;: 139}, &quot;Kyunga Ku&quot;: {&quot;Posterior&quot;: 2, &quot;Anterior&quot;: 3, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Posterior&quot;: 610, &quot;Anterior&quot;: 139, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0}}, &quot;Mar&quot;: {&quot;Doo Soon Park&quot;: {&quot;Posterior&quot;: 171, &quot;Anterior&quot;: 6, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Posterior&quot;: 183, &quot;Anterior&quot;: 35, &quot;No Solid&quot;: 17, &quot;With Solid&quot;: 130}, &quot;Kyunga Ku&quot;: {&quot;Posterior&quot;: 2, &quot;Anterior&quot;: 2, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 2}, &quot;Kyungju Cho&quot;: {&quot;Posterior&quot;: 596, &quot;Anterior&quot;: 162, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0}}, &quot;Apr&quot;: {&quot;Doo Soon Park&quot;: {&quot;Posterior&quot;: 184, &quot;Anterior&quot;: 1, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Posterior&quot;: 112, &quot;Anterior&quot;: 29, &quot;No Solid&quot;: 12, &quot;With Solid&quot;: 82}, &quot;Kyunga Ku&quot;: {&quot;Posterior&quot;: 1, &quot;Anterior&quot;: 3, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 2}, &quot;Kyungju Cho&quot;: {&quot;Posterior&quot;: 565, &quot;Anterior&quot;: 141, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0}}, &quot;May&quot;: {&quot;Doo Soon Park&quot;: {&quot;Posterior&quot;: 160, &quot;Anterior&quot;: 7, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Posterior&quot;: 193, &quot;Anterior&quot;: 49, &quot;No Solid&quot;: 14, &quot;With Solid&quot;: 133}, &quot;Kyunga Ku&quot;: {&quot;Posterior&quot;: 1, &quot;Anterior&quot;: 1, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Posterior&quot;: 594, &quot;Anterior&quot;: 128, &quot;No Solid&quot;: 0, &quot;With Solid&quot;: 0}}}, &quot;unit&quot;: &quot;Opt Qty&quot;}, &quot;f4&quot;: {&quot;tasks&quot;: [&quot;Cementation&quot;, &quot;Picture Shade&quot;, &quot;With Abutment&quot;, &quot;S&amp;G&quot;], &quot;data&quot;: {&quot;Jan&quot;: {&quot;Doo Soon Park&quot;: {&quot;Cementation&quot;: 47, &quot;Picture Shade&quot;: 0, &quot;With Abutment&quot;: 0, &quot;S&amp;G&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Cementation&quot;: 5, &quot;Picture Shade&quot;: 3, &quot;With Abutment&quot;: 0, &quot;S&amp;G&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Cementation&quot;: 2, &quot;Picture Shade&quot;: 0, &quot;With Abutment&quot;: 154, &quot;S&amp;G&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Cementation&quot;: 0, &quot;Picture Shade&quot;: 83, &quot;With Abutment&quot;: 6, &quot;S&amp;G&quot;: 18}}, &quot;Feb&quot;: {&quot;Doo Soon Park&quot;: {&quot;Cementation&quot;: 56, &quot;Picture Shade&quot;: 0, &quot;With Abutment&quot;: 0, &quot;S&amp;G&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Cementation&quot;: 13, &quot;Picture Shade&quot;: 5, &quot;With Abutment&quot;: 0, &quot;S&amp;G&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Cementation&quot;: 0, &quot;Picture Shade&quot;: 0, &quot;With Abutment&quot;: 156, &quot;S&amp;G&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Cementation&quot;: 0, &quot;Picture Shade&quot;: 66, &quot;With Abutment&quot;: 9, &quot;S&amp;G&quot;: 5}}, &quot;Mar&quot;: {&quot;Doo Soon Park&quot;: {&quot;Cementation&quot;: 53, &quot;Picture Shade&quot;: 1, &quot;With Abutment&quot;: 0, &quot;S&amp;G&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Cementation&quot;: 16, &quot;Picture Shade&quot;: 6, &quot;With Abutment&quot;: 1, &quot;S&amp;G&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Cementation&quot;: 1, &quot;Picture Shade&quot;: 0, &quot;With Abutment&quot;: 183, &quot;S&amp;G&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Cementation&quot;: 0, &quot;Picture Shade&quot;: 76, &quot;With Abutment&quot;: 0, &quot;S&amp;G&quot;: 13}}, &quot;Apr&quot;: {&quot;Doo Soon Park&quot;: {&quot;Cementation&quot;: 51, &quot;Picture Shade&quot;: 0, &quot;With Abutment&quot;: 0, &quot;S&amp;G&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Cementation&quot;: 9, &quot;Picture Shade&quot;: 2, &quot;With Abutment&quot;: 83, &quot;S&amp;G&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Cementation&quot;: 1, &quot;Picture Shade&quot;: 3, &quot;With Abutment&quot;: 74, &quot;S&amp;G&quot;: 1}, &quot;Kyungju Cho&quot;: {&quot;Cementation&quot;: 12, &quot;Picture Shade&quot;: 81, &quot;With Abutment&quot;: 0, &quot;S&amp;G&quot;: 6}}, &quot;May&quot;: {&quot;Doo Soon Park&quot;: {&quot;Cementation&quot;: 59, &quot;Picture Shade&quot;: 1, &quot;With Abutment&quot;: 0, &quot;S&amp;G&quot;: 0}, &quot;Kyoungjoon Cho&quot;: {&quot;Cementation&quot;: 4, &quot;Picture Shade&quot;: 2, &quot;With Abutment&quot;: 0, &quot;S&amp;G&quot;: 0}, &quot;Kyunga Ku&quot;: {&quot;Cementation&quot;: 0, &quot;Picture Shade&quot;: 0, &quot;With Abutment&quot;: 182, &quot;S&amp;G&quot;: 0}, &quot;Kyungju Cho&quot;: {&quot;Cementation&quot;: 16, &quot;Picture Shade&quot;: 87, &quot;With Abutment&quot;: 8, &quot;S&amp;G&quot;: 20}}}, &quot;unit&quot;: &quot;Opt Qty&quot;}, &quot;f5&quot;: {&quot;Jan&quot;: {&quot;Doo Soon Park&quot;: {&quot;unit&quot;: 120, &quot;reg&quot;: 145.25, &quot;ot&quot;: 0.07, &quot;total_hrs&quot;: 145.32, &quot;per_hr&quot;: 0.83, &quot;per_day&quot;: 6.61, &quot;has_time&quot;: true}, &quot;Kyoungjoon Cho&quot;: {&quot;unit&quot;: 306, &quot;reg&quot;: 150.47, &quot;ot&quot;: 0.0, &quot;total_hrs&quot;: 150.47, &quot;per_hr&quot;: 2.03, &quot;per_day&quot;: 16.27, &quot;has_time&quot;: true}, &quot;Kyunga Ku&quot;: {&quot;unit&quot;: 224, &quot;reg&quot;: 166.48, &quot;ot&quot;: 7.93, &quot;total_hrs&quot;: 174.41, &quot;per_hr&quot;: 1.28, &quot;per_day&quot;: 10.27, &quot;has_time&quot;: true}, &quot;Kyungju Cho&quot;: {&quot;unit&quot;: 674, &quot;reg&quot;: 150.47, &quot;ot&quot;: 2.13, &quot;total_hrs&quot;: 152.6, &quot;per_hr&quot;: 4.42, &quot;per_day&quot;: 35.33, &quot;has_time&quot;: true}}, &quot;Feb&quot;: {&quot;Doo Soon Park&quot;: {&quot;unit&quot;: 114, &quot;reg&quot;: 160.0, &quot;ot&quot;: 11.72, &quot;total_hrs&quot;: 171.72, &quot;per_hr&quot;: 0.66, &quot;per_day&quot;: 5.31, &quot;has_time&quot;: true}, &quot;Kyoungjoon Cho&quot;: {&quot;unit&quot;: 357, &quot;reg&quot;: 177.52, &quot;ot&quot;: 0.0, &quot;total_hrs&quot;: 177.52, &quot;per_hr&quot;: 2.01, &quot;per_day&quot;: 16.09, &quot;has_time&quot;: true}, &quot;Kyunga Ku&quot;: {&quot;unit&quot;: 220, &quot;reg&quot;: 160.0, &quot;ot&quot;: 27.63, &quot;total_hrs&quot;: 187.63, &quot;per_hr&quot;: 1.17, &quot;per_day&quot;: 9.38, &quot;has_time&quot;: true}, &quot;Kyungju Cho&quot;: {&quot;unit&quot;: 816, &quot;reg&quot;: 160.0, &quot;ot&quot;: 11.33, &quot;total_hrs&quot;: 171.33, &quot;per_hr&quot;: 4.76, &quot;per_day&quot;: 38.1, &quot;has_time&quot;: true}}, &quot;Mar&quot;: {&quot;Doo Soon Park&quot;: {&quot;unit&quot;: 187, &quot;reg&quot;: 174.82, &quot;ot&quot;: 8.9, &quot;total_hrs&quot;: 183.72, &quot;per_hr&quot;: 1.02, &quot;per_day&quot;: 8.14, &quot;has_time&quot;: true}, &quot;Kyoungjoon Cho&quot;: {&quot;unit&quot;: 292, &quot;reg&quot;: 169.33, &quot;ot&quot;: 0.0, &quot;total_hrs&quot;: 169.33, &quot;per_hr&quot;: 1.72, &quot;per_day&quot;: 13.8, &quot;has_time&quot;: true}, &quot;Kyunga Ku&quot;: {&quot;unit&quot;: 261, &quot;reg&quot;: 168.73, &quot;ot&quot;: 11.88, &quot;total_hrs&quot;: 180.61, &quot;per_hr&quot;: 1.45, &quot;per_day&quot;: 11.56, &quot;has_time&quot;: true}, &quot;Kyungju Cho&quot;: {&quot;unit&quot;: 835, &quot;reg&quot;: 174.77, &quot;ot&quot;: 6.85, &quot;total_hrs&quot;: 181.62, &quot;per_hr&quot;: 4.6, &quot;per_day&quot;: 36.78, &quot;has_time&quot;: true}}, &quot;Apr&quot;: {&quot;Doo Soon Park&quot;: {&quot;unit&quot;: 204, &quot;reg&quot;: 188.02, &quot;ot&quot;: 16.42, &quot;total_hrs&quot;: 204.44, &quot;per_hr&quot;: 1.0, &quot;per_day&quot;: 7.98, &quot;has_time&quot;: true}, &quot;Kyoungjoon Cho&quot;: {&quot;unit&quot;: 289, &quot;reg&quot;: 218.18, &quot;ot&quot;: 0.0, &quot;total_hrs&quot;: 218.18, &quot;per_hr&quot;: 1.32, &quot;per_day&quot;: 10.6, &quot;has_time&quot;: true}, &quot;Kyunga Ku&quot;: {&quot;unit&quot;: 103, &quot;reg&quot;: 98.38, &quot;ot&quot;: 3.65, &quot;total_hrs&quot;: 102.03, &quot;per_hr&quot;: 1.01, &quot;per_day&quot;: 8.08, &quot;has_time&quot;: true}, &quot;Kyungju Cho&quot;: {&quot;unit&quot;: 867, &quot;reg&quot;: 175.87, &quot;ot&quot;: 11.27, &quot;total_hrs&quot;: 187.14, &quot;per_hr&quot;: 4.63, &quot;per_day&quot;: 37.06, &quot;has_time&quot;: true}}, &quot;May&quot;: {&quot;Doo Soon Park&quot;: {&quot;unit&quot;: 157, &quot;reg&quot;: 155.37, &quot;ot&quot;: 3.05, &quot;total_hrs&quot;: 158.42, &quot;per_hr&quot;: 0.99, &quot;per_day&quot;: 7.93, &quot;has_time&quot;: true}, &quot;Kyoungjoon Cho&quot;: {&quot;unit&quot;: 403, &quot;reg&quot;: 155.97, &quot;ot&quot;: 0, &quot;total_hrs&quot;: 155.97, &quot;per_hr&quot;: 2.58, &quot;per_day&quot;: 20.67, &quot;has_time&quot;: true}, &quot;Kyunga Ku&quot;: {&quot;unit&quot;: 235, &quot;reg&quot;: 162.05, &quot;ot&quot;: 11.98, &quot;total_hrs&quot;: 174.03, &quot;per_hr&quot;: 1.35, &quot;per_day&quot;: 10.8, &quot;has_time&quot;: true}, &quot;Kyungju Cho&quot;: {&quot;unit&quot;: 819, &quot;reg&quot;: 160.97, &quot;ot&quot;: 6.22, &quot;total_hrs&quot;: 167.18, &quot;per_hr&quot;: 4.9, &quot;per_day&quot;: 39.19, &quot;has_time&quot;: true}}}, &quot;manual_cat&quot;: {&quot;crown&quot;: [&quot;Posterior&quot;, &quot;Anterior&quot;, &quot;No Solid&quot;, &quot;With Solid&quot;, &quot;With Abutment&quot;, &quot;Cementation&quot;, &quot;Emax Cad&quot;, &quot;Tissue Coloring&quot;, &quot;PMMA Crown Glazing&quot;, &quot;Picture Shade&quot;], &quot;fullarch&quot;: [&quot;Zir S&amp;G&quot;, &quot;Zir Cementation&quot;, &quot;PMMA S&amp;G&quot;, &quot;Opaque&quot;, &quot;Acrylic Gum&quot;]}};
+const PALETTE=[&#x27;#7C3AED&#x27;,&#x27;#A78BFA&#x27;,&#x27;#F59E0B&#x27;,&#x27;#FBBF24&#x27;,&#x27;#10B981&#x27;,&#x27;#34D399&#x27;,&#x27;#3B82F6&#x27;,&#x27;#60A5FA&#x27;,&#x27;#EC4899&#x27;,&#x27;#F472B6&#x27;,&#x27;#14B8A6&#x27;,&#x27;#6366F1&#x27;,&#x27;#8B5CF6&#x27;,&#x27;#EF4444&#x27;,&#x27;#F87171&#x27;];
+const WORKER_COLOR={&#x27;Doo Soon Park&#x27;:&#x27;#7C3AED&#x27;,&#x27;Kyoungjoon Cho&#x27;:&#x27;#F59E0B&#x27;,&#x27;Kyunga Ku&#x27;:&#x27;#10B981&#x27;,&#x27;Kyungju Cho&#x27;:&#x27;#3B82F6&#x27;};
+const fmt=n=&gt;(n||0).toLocaleString();
+const wshort=w=&gt;({&#x27;Doo Soon Park&#x27;:&#x27;Doo&#x27;,&#x27;Kyoungjoon Cho&#x27;:&#x27;Kyoungjoon&#x27;,&#x27;Kyunga Ku&#x27;:&#x27;Kyunga&#x27;,&#x27;Kyungju Cho&#x27;:&#x27;Kyungju&#x27;}[w]||w);
+let charts={};
+function destroyCharts(){Object.values(charts).forEach(c=&gt;{if(c)c.destroy()});charts={};}
+function monthLabel(m){const t=I18N[window._lang]||I18N.ko;return t.mm[m]||m;}
+
+Chart.defaults.font.family=&quot;&#x27;Inter&#x27;,sans-serif&quot;;
+Chart.defaults.plugins.tooltip.backgroundColor=&#x27;rgba(255,255,255,0.97)&#x27;;
+Chart.defaults.plugins.tooltip.titleColor=&#x27;#0F172A&#x27;;
+Chart.defaults.plugins.tooltip.bodyColor=&#x27;#334155&#x27;;
+Chart.defaults.plugins.tooltip.borderColor=&#x27;rgba(124,58,237,0.3)&#x27;;
+Chart.defaults.plugins.tooltip.borderWidth=1;
+Chart.defaults.plugins.tooltip.padding=11;
+Chart.defaults.plugins.tooltip.titleFont={weight:&#x27;700&#x27;,size:12};
+Chart.defaults.interaction={mode:&#x27;index&#x27;,intersect:false};
+
+function switchTab(i){
+  document.querySelectorAll(&#x27;.tab-btn&#x27;).forEach((b,j)=&gt;b.classList.toggle(&#x27;active&#x27;,i===j));
+  const t=I18N[window._lang]||I18N.ko;
+  document.getElementById(&#x27;pageTitle&#x27;).textContent=t[&#x27;page-&#x27;+i];
+  renderTab(i);
+}
+let _curTab=0;
+function renderTab(i){
+  _curTab=i;destroyCharts();
+  const area=document.getElementById(&#x27;contentArea&#x27;);
+  if(i===0){area.innerHTML=tabF0();setTimeout(drawF0,15);}
+  else if(i&gt;=1&amp;&amp;i&lt;=4){const g=&#x27;f&#x27;+i;area.innerHTML=tabGroup(g);setTimeout(()=&gt;drawGroup(g),15);}
+  else if(i===5){area.innerHTML=tabF5();setTimeout(drawF5,15);}
+}
+
+/* ===== F0 부서종합 ===== */
+let f0view=&#x27;monthly&#x27;;   // monthly | avg
+let f0src=&#x27;both&#x27;;       // both | hauslink | manual
+function tabF0(){
+  const t=I18N[window._lang]||I18N.ko;
+  return `&lt;div class=&quot;tab-panel active&quot;&gt;
+    &lt;div class=&quot;sec-label&quot;&gt;${t[&#x27;sec-kpi&#x27;]}&lt;/div&gt;
+    &lt;div class=&quot;kpi-grid&quot;&gt;
+    &lt;div class=&quot;kpi-card&quot; style=&quot;--accent:#7C3AED&quot;&gt;&lt;div class=&quot;kpi-label&quot;&gt;2026 생산량 (Haus Link + 로컬/수기)&lt;/div&gt;&lt;div class=&quot;kpi-value&quot; style=&quot;color:#7C3AED&quot;&gt;12,209&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot;&gt;월평균 2,442 · Jan~May&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi-card&quot; style=&quot;--accent:#7C3AED&quot;&gt;&lt;div class=&quot;kpi-label&quot;&gt;당월(5월) 생산량 (Haus Link + 로컬/수기)&lt;/div&gt;&lt;div class=&quot;kpi-value&quot; style=&quot;color:#7C3AED&quot;&gt;2,417&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot;&gt;직전월 2,513&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi-card&quot; style=&quot;--accent:#DC2626&quot;&gt;&lt;div class=&quot;kpi-label&quot;&gt;전월대비 성장률&lt;/div&gt;&lt;div class=&quot;kpi-value&quot; style=&quot;color:#DC2626&quot;&gt;−3.8%&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot;&gt;▼ 96 units&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi-card&quot; style=&quot;--accent:#16A34A&quot;&gt;&lt;div class=&quot;kpi-label&quot;&gt;월평균대비 증감률&lt;/div&gt;&lt;div class=&quot;kpi-value&quot; style=&quot;color:#DC2626&quot;&gt;−1.0%&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot;&gt;월평균 2,442 → 2,417&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi-card&quot; style=&quot;--accent:#64748B&quot;&gt;&lt;div class=&quot;kpi-label&quot;&gt;전월대비 특이사항&lt;/div&gt;&lt;div class=&quot;kpi-sub&quot; style=&quot;line-height:1.65;margin-top:5px&quot;&gt;• 당월 전월비 −3.8% 감소 (−96)&lt;br&gt;• 월평균 2,442 대비 −1.0% 하회&lt;br&gt;• 수기 비중 33% (803/2,417)&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+    &lt;div class=&quot;sec-label&quot;&gt;${t[&#x27;f0-s1&#x27;]}&lt;/div&gt;
+    &lt;div class=&quot;toggle-row&quot;&gt;
+      &lt;span class=&quot;tg-label&quot;&gt;${t[&#x27;tg-view&#x27;]}&lt;/span&gt;
+      &lt;div class=&quot;toggle-group&quot;&gt;
+        &lt;button class=&quot;tg-btn on&quot; id=&quot;f0v-monthly&quot; onclick=&quot;setF0View(&#x27;monthly&#x27;)&quot;&gt;${t[&#x27;tg-monthly&#x27;]}&lt;/button&gt;
+        &lt;button class=&quot;tg-btn&quot; id=&quot;f0v-avg&quot; onclick=&quot;setF0View(&#x27;avg&#x27;)&quot;&gt;${t[&#x27;tg-avg&#x27;]}&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;span class=&quot;tg-label&quot; style=&quot;margin-left:10px&quot;&gt;${t[&#x27;tg-src&#x27;]}&lt;/span&gt;
+      &lt;div class=&quot;toggle-group&quot;&gt;
+        &lt;button class=&quot;tg-btn on&quot; id=&quot;f0s-both&quot; onclick=&quot;setF0Src(&#x27;both&#x27;)&quot;&gt;${t[&#x27;tg-both&#x27;]}&lt;/button&gt;
+        &lt;button class=&quot;tg-btn&quot; id=&quot;f0s-hauslink&quot; onclick=&quot;setF0Src(&#x27;hauslink&#x27;)&quot;&gt;Haus Link&lt;/button&gt;
+        &lt;button class=&quot;tg-btn&quot; id=&quot;f0s-manual&quot; onclick=&quot;setF0Src(&#x27;manual&#x27;)&quot;&gt;${t[&#x27;manual&#x27;]}&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row-2&quot;&gt;
+      &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot;&gt;&lt;span class=&quot;dot&quot; style=&quot;background:#7C3AED&quot;&gt;&lt;/span&gt;${t[&#x27;f0-s1-chart&#x27;]}&lt;/div&gt;
+        &lt;div class=&quot;card-sub&quot; id=&quot;f0bar-sub&quot;&gt;&lt;/div&gt;
+        &lt;div style=&quot;position:relative;height:290px&quot;&gt;&lt;canvas id=&quot;f0Bar&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot;&gt;&lt;span class=&quot;dot&quot; style=&quot;background:#A78BFA&quot;&gt;&lt;/span&gt;${t[&#x27;f0-s1-table&#x27;]}&lt;/div&gt;
+        &lt;div id=&quot;f0s1-table&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;sec-label&quot;&gt;${t[&#x27;f0-s2&#x27;]}&lt;/div&gt;
+    &lt;div class=&quot;row-2&quot;&gt;
+      &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot;&gt;&lt;span class=&quot;dot&quot; style=&quot;background:#7C3AED&quot;&gt;&lt;/span&gt;${t[&#x27;f0-s2-table&#x27;]}&lt;/div&gt;
+        &lt;div id=&quot;f0s2-table&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot;&gt;&lt;span class=&quot;dot&quot; style=&quot;background:#A78BFA&quot;&gt;&lt;/span&gt;${t[&#x27;f0-s2-donut&#x27;]}&lt;/div&gt;
+        &lt;div style=&quot;position:relative;height:300px&quot;&gt;&lt;canvas id=&quot;f0Donut&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;sec-label&quot;&gt;${t[&#x27;f0-s3&#x27;]}&lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot;&gt;&lt;span class=&quot;dot&quot; style=&quot;background:#F59E0B&quot;&gt;&lt;/span&gt;${t[&#x27;f0-s3-title&#x27;]}&lt;/div&gt;
+      &lt;div class=&quot;card-sub&quot;&gt;${t[&#x27;f0-s3-sub&#x27;]}&lt;/div&gt;
+      &lt;div style=&quot;position:relative;height:280px;margin-bottom:18px&quot;&gt;&lt;canvas id=&quot;f0s3Chart&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;
+      &lt;div id=&quot;f0s3-table&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+
+    &lt;div class=&quot;sec-label&quot;&gt;${t[&#x27;f0-s4&#x27;]}&lt;/div&gt;
+    &lt;div class=&quot;card&quot; style=&quot;background:#FFFBEB;border-color:#FDE68A&quot;&gt;&lt;div class=&quot;card-title&quot;&gt;&lt;span class=&quot;dot&quot; style=&quot;background:#F59E0B&quot;&gt;&lt;/span&gt;${t[&#x27;f0-s4-title&#x27;]}&lt;/div&gt;
+      &lt;div class=&quot;card-sub&quot;&gt;${t[&#x27;f0-s4-sub&#x27;]}&lt;/div&gt;&lt;/div&gt;
+    &lt;div id=&quot;f0s4-tables&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;`;
+}
+function setF0View(v){f0view=v;[&#x27;monthly&#x27;,&#x27;avg&#x27;].forEach(x=&gt;document.getElementById(&#x27;f0v-&#x27;+x).classList.toggle(&#x27;on&#x27;,x===v));drawF0Bar();}
+function setF0Src(s){f0src=s;[&#x27;both&#x27;,&#x27;hauslink&#x27;,&#x27;manual&#x27;].forEach(x=&gt;document.getElementById(&#x27;f0s-&#x27;+x).classList.toggle(&#x27;on&#x27;,x===s));drawF0Bar();}
+
+function drawF0(){drawF0Bar();drawF0S1Table();drawF0S2();drawF0S3();drawF0S4();}
+
+function drawF0Bar(){
+  if(charts.f0Bar)charts.f0Bar.destroy();
+  const t=I18N[window._lang]||I18N.ko;
+  const div=f0view===&#x27;avg&#x27;?4:1;
+  const labels=D.months.map(monthLabel);
+  let ds=[];
+  if(f0src===&#x27;both&#x27;||f0src===&#x27;hauslink&#x27;)ds.push({label:&#x27;Haus Link&#x27;,data:D.months.map(m=&gt;Math.round(D.f0.hauslink_total[m]/div)),backgroundColor:&#x27;#7C3AED&#x27;,borderRadius:5});
+  if(f0src===&#x27;both&#x27;||f0src===&#x27;manual&#x27;)ds.push({label:t[&#x27;manual&#x27;],data:D.months.map(m=&gt;Math.round(D.f0.manual_total[m]/div)),backgroundColor:&#x27;#F59E0B&#x27;,borderRadius:5});
+  document.getElementById(&#x27;f0bar-sub&#x27;).textContent=(f0view===&#x27;avg&#x27;?t[&#x27;sub-avg-d&#x27;]:t[&#x27;sub-monthly-d&#x27;])+(f0src===&#x27;both&#x27;?&#x27; · &#x27;+t[&#x27;stacked&#x27;]:&#x27;&#x27;);
+  charts.f0Bar=new Chart(document.getElementById(&#x27;f0Bar&#x27;),{type:&#x27;bar&#x27;,data:{labels,datasets:ds},
+    options:{responsive:true,maintainAspectRatio:false,scales:{x:{stacked:f0src===&#x27;both&#x27;,grid:{display:false}},y:{stacked:f0src===&#x27;both&#x27;,beginAtZero:true,grid:{color:&#x27;#F1F5F9&#x27;}}},plugins:{legend:{display:f0src===&#x27;both&#x27;,position:&#x27;top&#x27;}}}});
+}
+function drawF0S1Table(){
+  const t=I18N[window._lang]||I18N.ko;
+  let h=&#x27;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&#x27;+t[&#x27;gubun&#x27;]+&#x27;&lt;/th&gt;&#x27;;D.months.forEach(m=&gt;h+=&#x27;&lt;th&gt;&#x27;+monthLabel(m)+&#x27;&lt;/th&gt;&#x27;);h+=&#x27;&lt;th&gt;YTD&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+  const rows=[[&#x27;Haus Link&#x27;,D.f0.hauslink_total,&#x27;#7C3AED&#x27;],[t[&#x27;manual&#x27;],D.f0.manual_total,&#x27;#F59E0B&#x27;]];
+  rows.forEach(([nm,dt,c])=&gt;{let y=0;h+=&#x27;&lt;tr&gt;&lt;td&gt;&lt;span style=&quot;color:&#x27;+c+&#x27;;font-weight:700&quot;&gt;●&lt;/span&gt; &#x27;+nm+&#x27;&lt;/td&gt;&#x27;;D.months.forEach(m=&gt;{y+=dt[m];h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(dt[m])+&#x27;&lt;/td&gt;&#x27;;});h+=&#x27;&lt;td class=&quot;num&quot; style=&quot;font-weight:700&quot;&gt;&#x27;+fmt(y)+&#x27;&lt;/td&gt;&lt;/tr&gt;&#x27;;});
+  h+=&#x27;&lt;tr class=&quot;tot-row&quot;&gt;&lt;td&gt;&#x27;+t[&#x27;total&#x27;]+&#x27;&lt;/td&gt;&#x27;;let gy=0;D.months.forEach(m=&gt;{gy+=D.f0.combined_total[m];h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(D.f0.combined_total[m])+&#x27;&lt;/td&gt;&#x27;;});h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(gy)+&#x27;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&#x27;;
+  document.getElementById(&#x27;f0s1-table&#x27;).innerHTML=h;
+}
+function drawF0S2(){
+  const t=I18N[window._lang]||I18N.ko;
+  let h=&#x27;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Month&lt;/th&gt;&#x27;;D.f0.all_tasks.forEach(tk=&gt;h+=&#x27;&lt;th&gt;&#x27;+tk+&#x27;&lt;/th&gt;&#x27;);h+=&#x27;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+  D.months.forEach(m=&gt;{let rt=0;h+=&#x27;&lt;tr&gt;&lt;td&gt;&#x27;+monthLabel(m)+&#x27;&lt;/td&gt;&#x27;;D.f0.all_tasks.forEach(tk=&gt;{const v=D.f0.hauslink_task[m][tk]||0;rt+=v;h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+(v||&#x27;-&#x27;)+&#x27;&lt;/td&gt;&#x27;;});h+=&#x27;&lt;td class=&quot;num&quot; style=&quot;font-weight:700;color:#7C3AED&quot;&gt;&#x27;+fmt(rt)+&#x27;&lt;/td&gt;&lt;/tr&gt;&#x27;;});
+  h+=&#x27;&lt;tr class=&quot;tot-row&quot;&gt;&lt;td&gt;YTD&lt;/td&gt;&#x27;;let ct={};D.f0.all_tasks.forEach(tk=&gt;ct[tk]=0);let gt=0;
+  D.months.forEach(m=&gt;D.f0.all_tasks.forEach(tk=&gt;{ct[tk]+=(D.f0.hauslink_task[m][tk]||0)}));
+  D.f0.all_tasks.forEach(tk=&gt;{gt+=ct[tk];h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(ct[tk])+&#x27;&lt;/td&gt;&#x27;;});h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(gt)+&#x27;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&#x27;;
+  document.getElementById(&#x27;f0s2-table&#x27;).innerHTML=h;
+  // 도넛
+  if(charts.f0Donut)charts.f0Donut.destroy();
+  const totals=D.f0.all_tasks.map(tk=&gt;D.months.reduce((s,m)=&gt;s+(D.f0.hauslink_task[m][tk]||0),0));
+  charts.f0Donut=new Chart(document.getElementById(&#x27;f0Donut&#x27;),{type:&#x27;doughnut&#x27;,data:{labels:D.f0.all_tasks,datasets:[{data:totals,backgroundColor:PALETTE,borderWidth:2,borderColor:&#x27;#fff&#x27;}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:&#x27;58%&#x27;,interaction:{mode:&#x27;nearest&#x27;,intersect:true},plugins:{legend:{position:&#x27;right&#x27;,labels:{boxWidth:11,font:{size:10},padding:6}},tooltip:{callbacks:{label:c=&gt;{const tt=c.dataset.data.reduce((a,b)=&gt;a+b,0);return c.label+&#x27;: &#x27;+fmt(c.raw)+&#x27; (&#x27;+(c.raw/tt*100).toFixed(1)+&#x27;%)&#x27;;}}}}}});
+}
+function drawF0S3(){
+  const t=I18N[window._lang]||I18N.ko;
+  if(charts.f0s3)charts.f0s3.destroy();
+  charts.f0s3=new Chart(document.getElementById(&#x27;f0s3Chart&#x27;),{type:&#x27;bar&#x27;,
+    data:{labels:D.months.map(monthLabel),datasets:D.workers.map(w=&gt;({label:wshort(w),data:D.months.map(m=&gt;D.f0.manual_worker[m][w]||0),backgroundColor:WORKER_COLOR[w],borderRadius:5}))},
+    options:{responsive:true,maintainAspectRatio:false,scales:{x:{grid:{display:false}},y:{beginAtZero:true,grid:{color:&#x27;#F1F5F9&#x27;}}},plugins:{legend:{position:&#x27;top&#x27;}}}});
+  let h=&#x27;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&#x27;+t[&#x27;tech&#x27;]+&#x27;&lt;/th&gt;&#x27;;D.months.forEach(m=&gt;h+=&#x27;&lt;th&gt;&#x27;+monthLabel(m)+&#x27;&lt;/th&gt;&#x27;);h+=&#x27;&lt;th&gt;YTD&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+  D.workers.forEach(w=&gt;{let y=0;h+=&#x27;&lt;tr&gt;&lt;td&gt;&#x27;+w+&#x27;&lt;/td&gt;&#x27;;D.months.forEach(m=&gt;{const v=D.f0.manual_worker[m][w]||0;y+=v;h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(v)+&#x27;&lt;/td&gt;&#x27;;});h+=&#x27;&lt;td class=&quot;num&quot; style=&quot;font-weight:700;color:#F59E0B&quot;&gt;&#x27;+fmt(y)+&#x27;&lt;/td&gt;&lt;/tr&gt;&#x27;;});
+  h+=&#x27;&lt;tr class=&quot;tot-row&quot;&gt;&lt;td&gt;&#x27;+t[&#x27;total&#x27;]+&#x27;&lt;/td&gt;&#x27;;let gy=0;D.months.forEach(m=&gt;{const mt=D.workers.reduce((s,w)=&gt;s+(D.f0.manual_worker[m][w]||0),0);gy+=mt;h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(mt)+&#x27;&lt;/td&gt;&#x27;;});h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(gy)+&#x27;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&#x27;;
+  document.getElementById(&#x27;f0s3-table&#x27;).innerHTML=h;
+}
+function drawF0S4(){
+  const t=I18N[window._lang]||I18N.ko;
+  const crown=D.manual_cat.crown, fullarch=D.manual_cat.fullarch;
+  let html=&#x27;&#x27;;
+  D.months.forEach(m=&gt;{
+    // 해당 월 활성 테스크 (크라운/풀아치 각각)
+    const aCrown=crown.filter(tk=&gt;D.workers.some(w=&gt;(D.f0.manual_worker_task[m][w][tk]||0)&gt;0));
+    const aFull=fullarch.filter(tk=&gt;D.workers.some(w=&gt;(D.f0.manual_worker_task[m][w][tk]||0)&gt;0));
+    const allTasks=aCrown.concat(aFull);
+    html+=&#x27;&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot;&gt;&lt;span class=&quot;dot&quot; style=&quot;background:#F59E0B&quot;&gt;&lt;/span&gt;&#x27;+monthLabel(m)+&#x27; — &#x27;+t[&#x27;f0-s4-tbl&#x27;]+&#x27;&lt;/div&gt;&#x27;;
+    html+=&#x27;&lt;table&gt;&lt;thead&gt;&#x27;;
+    // 범주 헤더 행
+    html+=&#x27;&lt;tr&gt;&lt;th rowspan=&quot;2&quot; style=&quot;vertical-align:bottom&quot;&gt;&#x27;+t[&#x27;tech&#x27;]+&#x27;&lt;/th&gt;&#x27;;
+    if(aCrown.length)html+=&#x27;&lt;th colspan=&quot;&#x27;+aCrown.length+&#x27;&quot; style=&quot;text-align:center;background:#EDE9FE;color:#6D28D9&quot;&gt;&#x27;+t[&#x27;cat-crown&#x27;]+&#x27;&lt;/th&gt;&#x27;;
+    if(aFull.length)html+=&#x27;&lt;th colspan=&quot;&#x27;+aFull.length+&#x27;&quot; style=&quot;text-align:center;background:#FEF3C7;color:#B45309&quot;&gt;&#x27;+t[&#x27;cat-fullarch&#x27;]+&#x27;&lt;/th&gt;&#x27;;
+    html+=&#x27;&lt;th rowspan=&quot;2&quot; style=&quot;vertical-align:bottom&quot;&gt;Total&lt;/th&gt;&lt;/tr&gt;&#x27;;
+    // 테스크명 행
+    html+=&#x27;&lt;tr&gt;&#x27;;
+    aCrown.forEach(tk=&gt;html+=&#x27;&lt;th style=&quot;background:#F5F3FF&quot;&gt;&#x27;+tk+&#x27;&lt;/th&gt;&#x27;);
+    aFull.forEach(tk=&gt;html+=&#x27;&lt;th style=&quot;background:#FFFBEB&quot;&gt;&#x27;+tk+&#x27;&lt;/th&gt;&#x27;);
+    html+=&#x27;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+    let ct={};allTasks.forEach(tk=&gt;ct[tk]=0);let gt=0;
+    D.workers.forEach(w=&gt;{let rt=0;html+=&#x27;&lt;tr&gt;&lt;td&gt;&#x27;+w+&#x27;&lt;/td&gt;&#x27;;
+      aCrown.forEach(tk=&gt;{const v=D.f0.manual_worker_task[m][w][tk]||0;ct[tk]+=v;rt+=v;html+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+(v||&#x27;-&#x27;)+&#x27;&lt;/td&gt;&#x27;;});
+      aFull.forEach(tk=&gt;{const v=D.f0.manual_worker_task[m][w][tk]||0;ct[tk]+=v;rt+=v;html+=&#x27;&lt;td class=&quot;num&quot; style=&quot;background:#FFFEF7&quot;&gt;&#x27;+(v||&#x27;-&#x27;)+&#x27;&lt;/td&gt;&#x27;;});
+      gt+=rt;html+=&#x27;&lt;td class=&quot;num&quot; style=&quot;font-weight:700;color:#F59E0B&quot;&gt;&#x27;+fmt(rt)+&#x27;&lt;/td&gt;&lt;/tr&gt;&#x27;;});
+    html+=&#x27;&lt;tr class=&quot;tot-row&quot;&gt;&lt;td&gt;&#x27;+t[&#x27;total&#x27;]+&#x27;&lt;/td&gt;&#x27;;
+    aCrown.forEach(tk=&gt;html+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(ct[tk])+&#x27;&lt;/td&gt;&#x27;);
+    aFull.forEach(tk=&gt;html+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(ct[tk])+&#x27;&lt;/td&gt;&#x27;);
+    html+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(gt)+&#x27;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&#x27;;
+  });
+  document.getElementById(&#x27;f0s4-tables&#x27;).innerHTML=html;
+}
+
+/* ===== F1~F4 그룹 (공통 패턴) ===== */
+let gView={f1:&#x27;monthly&#x27;,f2:&#x27;monthly&#x27;,f3:&#x27;monthly&#x27;,f4:&#x27;monthly&#x27;};
+function tabGroup(g){
+  const t=I18N[window._lang]||I18N.ko;
+  const meta=GROUP_META[g];
+  return `&lt;div class=&quot;tab-panel active&quot;&gt;
+    &lt;div class=&quot;sec-label&quot;&gt;${t[&#x27;page-&#x27;+meta.idx]}&lt;/div&gt;
+    &lt;div class=&quot;card&quot; style=&quot;padding:13px 18px;background:#FAFAFA&quot;&gt;&lt;div style=&quot;font-size:12px;color:var(--t2)&quot;&gt;${t[meta.descKey]} · &lt;b&gt;${meta.unit}&lt;/b&gt; ${t[&#x27;basis&#x27;]}&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;toggle-row&quot;&gt;
+      &lt;span class=&quot;tg-label&quot;&gt;${t[&#x27;tg-view&#x27;]}&lt;/span&gt;
+      &lt;div class=&quot;toggle-group&quot;&gt;
+        &lt;button class=&quot;tg-btn on&quot; id=&quot;${g}-monthly&quot; onclick=&quot;setGView(&#x27;${g}&#x27;,&#x27;monthly&#x27;)&quot;&gt;${t[&#x27;tg-summary&#x27;]}&lt;/button&gt;
+        &lt;button class=&quot;tg-btn&quot; id=&quot;${g}-avg&quot; onclick=&quot;setGView(&#x27;${g}&#x27;,&#x27;avg&#x27;)&quot;&gt;${t[&#x27;tg-avg&#x27;]}&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;span class=&quot;tg-label&quot; style=&quot;margin-left:10px&quot;&gt;${t[&#x27;tg-month&#x27;]}&lt;/span&gt;
+      &lt;div class=&quot;toggle-group&quot;&gt;
+        ${D.months.map(m=&gt;`&lt;button class=&quot;tg-btn&quot; id=&quot;${g}-${m}&quot; onclick=&quot;setGView(&#x27;${g}&#x27;,&#x27;${m}&#x27;)&quot;&gt;${monthLabel(m)}&lt;/button&gt;`).join(&#x27;&#x27;)}
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot;&gt;&lt;span class=&quot;dot&quot; style=&quot;background:#7C3AED&quot;&gt;&lt;/span&gt;&lt;span id=&quot;${g}-ctitle&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;card-sub&quot; id=&quot;${g}-csub&quot;&gt;&lt;/div&gt;
+      &lt;div style=&quot;position:relative;height:350px&quot;&gt;&lt;canvas id=&quot;${g}Chart&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot;&gt;&lt;span class=&quot;dot&quot; style=&quot;background:#A78BFA&quot;&gt;&lt;/span&gt;${t[&#x27;detail-table&#x27;]}&lt;/div&gt;
+      &lt;div class=&quot;card-sub&quot; id=&quot;${g}-tsub&quot;&gt;&lt;/div&gt;
+      &lt;div id=&quot;${g}-table&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    ${(g===&#x27;f1&#x27;||g===&#x27;f2&#x27;)?`&lt;div class=&quot;card&quot; style=&quot;background:#FFFBEB;border-color:#FDE68A&quot;&gt;&lt;div class=&quot;card-title&quot;&gt;&lt;span class=&quot;dot&quot; style=&quot;background:#F59E0B&quot;&gt;&lt;/span&gt;${t[&#x27;manual-ref&#x27;]}&lt;/div&gt;&lt;div class=&quot;card-sub&quot;&gt;${t[&#x27;manual-ref-sub&#x27;]}&lt;/div&gt;&lt;div id=&quot;${g}-manual-wrap&quot;&gt;&lt;/div&gt;&lt;/div&gt;`:&#x27;&#x27;}
+  &lt;/div&gt;`;
+}
+function setGView(g,v){gView[g]=v;const opts=[&#x27;monthly&#x27;,&#x27;avg&#x27;].concat(D.months);opts.forEach(x=&gt;{const e=document.getElementById(g+&#x27;-&#x27;+x);if(e)e.classList.toggle(&#x27;on&#x27;,x===v);});drawGroup(g);}
+
+function drawGroup(g){
+  const t=I18N[window._lang]||I18N.ko;
+  const tasks=D[g].tasks, dd=D[g].data, v=gView[g];
+  const cid=g+&#x27;Chart&#x27;;
+  if(charts[cid])charts[cid].destroy();
+  const isMonth=D.months.includes(v);
+  let labels,datasets,ctitle,csub;
+
+  if(v===&#x27;monthly&#x27;){
+    // 월별 요약: X=월, 시리즈=테크니션
+    labels=D.months.map(monthLabel);
+    datasets=D.workers.map(w=&gt;({label:wshort(w),data:D.months.map(m=&gt;tasks.reduce((s,tk)=&gt;s+(dd[m][w][tk]||0),0)),backgroundColor:WORKER_COLOR[w],borderRadius:5}));
+    ctitle=t[&#x27;ct-summary&#x27;];csub=t[&#x27;cs-summary&#x27;];
+  } else if(v===&#x27;avg&#x27;){
+    labels=D.workers.map(wshort);
+    datasets=[{label:t[&#x27;tg-avg&#x27;],data:D.workers.map(w=&gt;Math.round(D.months.reduce((s,m)=&gt;s+tasks.reduce((ss,tk)=&gt;ss+(dd[m][w][tk]||0),0),0)/D.months.length)),backgroundColor:&#x27;#A78BFA&#x27;,borderRadius:5}];
+    ctitle=t[&#x27;ct-avg&#x27;];csub=t[&#x27;cs-avg&#x27;];
+  } else {
+    // 개별 월: X=테크니션, 시리즈=각 작업 (stacked)
+    labels=D.workers.map(wshort);
+    datasets=tasks.map((tk,i)=&gt;({label:tk,data:D.workers.map(w=&gt;dd[v][w][tk]||0),backgroundColor:PALETTE[i],borderRadius:4}));
+    ctitle=monthLabel(v)+&#x27; &#x27;+t[&#x27;ct-month&#x27;];csub=t[&#x27;cs-month&#x27;];
+  }
+  document.getElementById(g+&#x27;-ctitle&#x27;).textContent=ctitle;
+  document.getElementById(g+&#x27;-csub&#x27;).textContent=csub;
+  const stacked=isMonth;
+  charts[cid]=new Chart(document.getElementById(cid),{type:&#x27;bar&#x27;,data:{labels,datasets},
+    options:{responsive:true,maintainAspectRatio:false,scales:{x:{stacked,grid:{display:false}},y:{stacked,beginAtZero:true,grid:{color:&#x27;#F1F5F9&#x27;}}},plugins:{legend:{display:(v!==&#x27;avg&#x27;),position:&#x27;top&#x27;}}}});
+
+  document.getElementById(g+&#x27;-table&#x27;).innerHTML=buildGroupTable(g,tasks,dd,v,false);
+  document.getElementById(g+&#x27;-tsub&#x27;).textContent=
+    (v===&#x27;monthly&#x27;)?t[&#x27;tsub-monthly&#x27;]:(v===&#x27;avg&#x27;)?t[&#x27;tsub-avg&#x27;]:monthLabel(v)+&#x27; &#x27;+t[&#x27;tsub-month&#x27;];
+
+  const mwrap=document.getElementById(g+&#x27;-manual-wrap&#x27;);
+  if(mwrap){mwrap.innerHTML=buildManualTable(g,D[g].manual_tasks,v);}
+}
+
+// 보기별 표 생성: monthly=열(월), total/avg=열(작업)
+function buildGroupTable(g,tasks,dd,v,isManual){
+  const t=I18N[window._lang]||I18N.ko;
+  let h=&#x27;&#x27;;
+  if(v===&#x27;monthly&#x27;){
+    h=&#x27;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&#x27;+t[&#x27;tech&#x27;]+&#x27;&lt;/th&gt;&#x27;;D.months.forEach(m=&gt;h+=&#x27;&lt;th&gt;&#x27;+monthLabel(m)+&#x27;&lt;/th&gt;&#x27;);h+=&#x27;&lt;th&gt;YTD&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+    let colT={};D.months.forEach(m=&gt;colT[m]=0);let gT=0;
+    D.workers.forEach(w=&gt;{let rt=0;h+=&#x27;&lt;tr&gt;&lt;td&gt;&#x27;+w+&#x27;&lt;/td&gt;&#x27;;D.months.forEach(m=&gt;{const val=tasks.reduce((s,tk)=&gt;s+(dd[m][w][tk]||0),0);colT[m]+=val;rt+=val;h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+(val||&#x27;-&#x27;)+&#x27;&lt;/td&gt;&#x27;;});gT+=rt;h+=&#x27;&lt;td class=&quot;num&quot; style=&quot;font-weight:700;color:#7C3AED&quot;&gt;&#x27;+fmt(rt)+&#x27;&lt;/td&gt;&lt;/tr&gt;&#x27;;});
+    h+=&#x27;&lt;tr class=&quot;tot-row&quot;&gt;&lt;td&gt;&#x27;+t[&#x27;total&#x27;]+&#x27;&lt;/td&gt;&#x27;;D.months.forEach(m=&gt;h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(colT[m])+&#x27;&lt;/td&gt;&#x27;);h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(gT)+&#x27;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&#x27;;
+  } else {
+    // avg = YTD÷5, 개별월 = 그 달 값
+    const isMonth=D.months.includes(v);
+    h=&#x27;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&#x27;+t[&#x27;tech&#x27;]+&#x27;&lt;/th&gt;&#x27;;tasks.forEach(tk=&gt;h+=&#x27;&lt;th&gt;&#x27;+tk+&#x27;&lt;/th&gt;&#x27;);h+=&#x27;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+    let colT={};tasks.forEach(tk=&gt;colT[tk]=0);let gT=0;
+    D.workers.forEach(w=&gt;{let rt=0;h+=&#x27;&lt;tr&gt;&lt;td&gt;&#x27;+w+&#x27;&lt;/td&gt;&#x27;;tasks.forEach(tk=&gt;{let val;if(isMonth){val=dd[v][w][tk]||0;}else{val=Math.round(D.months.reduce((s,m)=&gt;s+(dd[m][w][tk]||0),0)/D.months.length);}colT[tk]+=val;rt+=val;h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+(val||&#x27;-&#x27;)+&#x27;&lt;/td&gt;&#x27;;});gT+=rt;h+=&#x27;&lt;td class=&quot;num&quot; style=&quot;font-weight:700;color:#7C3AED&quot;&gt;&#x27;+fmt(rt)+&#x27;&lt;/td&gt;&lt;/tr&gt;&#x27;;});
+    h+=&#x27;&lt;tr class=&quot;tot-row&quot;&gt;&lt;td&gt;&#x27;+t[&#x27;total&#x27;]+&#x27;&lt;/td&gt;&#x27;;tasks.forEach(tk=&gt;h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(colT[tk])+&#x27;&lt;/td&gt;&#x27;);h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(gT)+&#x27;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&#x27;;
+  }
+  return h;
+}
+
+// F1/F2 수기 참고표 (수기 데이터, 동적)
+function buildManualTable(g,mtasks,v){
+  const t=I18N[window._lang]||I18N.ko;
+  const mw=D.f0.manual_worker_task;
+  let h=&#x27;&#x27;;
+  if(v===&#x27;monthly&#x27;){
+    h=&#x27;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&#x27;+t[&#x27;tech&#x27;]+&#x27;&lt;/th&gt;&#x27;;D.months.forEach(m=&gt;h+=&#x27;&lt;th&gt;&#x27;+monthLabel(m)+&#x27;&lt;/th&gt;&#x27;);h+=&#x27;&lt;th&gt;YTD&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+    let colT={};D.months.forEach(m=&gt;colT[m]=0);let gT=0;
+    D.workers.forEach(w=&gt;{let rt=0;h+=&#x27;&lt;tr&gt;&lt;td&gt;&#x27;+w+&#x27;&lt;/td&gt;&#x27;;D.months.forEach(m=&gt;{const val=mtasks.reduce((s,tk)=&gt;s+(mw[m][w][tk]||0),0);colT[m]+=val;rt+=val;h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+(val||&#x27;-&#x27;)+&#x27;&lt;/td&gt;&#x27;;});gT+=rt;h+=&#x27;&lt;td class=&quot;num&quot; style=&quot;font-weight:700;color:#F59E0B&quot;&gt;&#x27;+fmt(rt)+&#x27;&lt;/td&gt;&lt;/tr&gt;&#x27;;});
+    h+=&#x27;&lt;tr class=&quot;tot-row&quot;&gt;&lt;td&gt;&#x27;+t[&#x27;total&#x27;]+&#x27;&lt;/td&gt;&#x27;;D.months.forEach(m=&gt;h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(colT[m])+&#x27;&lt;/td&gt;&#x27;);h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(gT)+&#x27;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&#x27;;
+  } else {
+    const isMonth=D.months.includes(v);
+    h=&#x27;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&#x27;+t[&#x27;tech&#x27;]+&#x27;&lt;/th&gt;&#x27;;mtasks.forEach(tk=&gt;h+=&#x27;&lt;th&gt;&#x27;+tk+&#x27;&lt;/th&gt;&#x27;);h+=&#x27;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+    let colT={};mtasks.forEach(tk=&gt;colT[tk]=0);let gT=0;
+    D.workers.forEach(w=&gt;{let rt=0;h+=&#x27;&lt;tr&gt;&lt;td&gt;&#x27;+w+&#x27;&lt;/td&gt;&#x27;;mtasks.forEach(tk=&gt;{let val;if(isMonth){val=mw[v][w][tk]||0;}else{val=Math.round(D.months.reduce((s,m)=&gt;s+(mw[m][w][tk]||0),0)/D.months.length);}colT[tk]+=val;rt+=val;h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+(val||&#x27;-&#x27;)+&#x27;&lt;/td&gt;&#x27;;});gT+=rt;h+=&#x27;&lt;td class=&quot;num&quot; style=&quot;font-weight:700;color:#F59E0B&quot;&gt;&#x27;+fmt(rt)+&#x27;&lt;/td&gt;&lt;/tr&gt;&#x27;;});
+    h+=&#x27;&lt;tr class=&quot;tot-row&quot;&gt;&lt;td&gt;&#x27;+t[&#x27;total&#x27;]+&#x27;&lt;/td&gt;&#x27;;mtasks.forEach(tk=&gt;h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(colT[tk])+&#x27;&lt;/td&gt;&#x27;);h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(gT)+&#x27;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&#x27;;
+  }
+  return h;
+}
+
+/* ===== F5 Hourly (실제 Timereport) ===== */
+let f5metric=&#x27;per_hr&#x27;; // per_hr | per_day
+function tabF5(){
+  const t=I18N[window._lang]||I18N.ko;
+  return `&lt;div class=&quot;tab-panel active&quot;&gt;
+    &lt;div class=&quot;sec-label&quot;&gt;${t[&#x27;page-5&#x27;]}&lt;/div&gt;
+    &lt;div class=&quot;card&quot; style=&quot;padding:13px 18px;background:#FAFAFA&quot;&gt;&lt;div style=&quot;font-size:12px;color:var(--t2)&quot;&gt;${t[&#x27;f5-info&#x27;]}&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;notice&quot;&gt;${t[&#x27;f5-notice2&#x27;]}&lt;/div&gt;
+    &lt;div class=&quot;toggle-row&quot;&gt;
+      &lt;span class=&quot;tg-label&quot;&gt;${t[&#x27;tg-metric&#x27;]}&lt;/span&gt;
+      &lt;div class=&quot;toggle-group&quot;&gt;
+        &lt;button class=&quot;tg-btn on&quot; id=&quot;f5-per_hr&quot; onclick=&quot;setF5Metric(&#x27;per_hr&#x27;)&quot;&gt;${t[&#x27;m-perhr&#x27;]}&lt;/button&gt;
+        &lt;button class=&quot;tg-btn&quot; id=&quot;f5-per_day&quot; onclick=&quot;setF5Metric(&#x27;per_day&#x27;)&quot;&gt;${t[&#x27;m-perday&#x27;]}&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot;&gt;&lt;span class=&quot;dot&quot; style=&quot;background:#7C3AED&quot;&gt;&lt;/span&gt;&lt;span id=&quot;f5-ctitle&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;card-sub&quot; id=&quot;f5-csub&quot;&gt;&lt;/div&gt;
+      &lt;div style=&quot;position:relative;height:320px&quot;&gt;&lt;canvas id=&quot;f5Chart&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-title&quot;&gt;&lt;span class=&quot;dot&quot; style=&quot;background:#A78BFA&quot;&gt;&lt;/span&gt;${t[&#x27;f5-detail&#x27;]}&lt;/div&gt;
+      &lt;div class=&quot;card-sub&quot;&gt;${t[&#x27;f5-detail-sub&#x27;]}&lt;/div&gt;
+      &lt;div id=&quot;f5-table&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;`;
+}
+function setF5Metric(m){f5metric=m;[&#x27;per_hr&#x27;,&#x27;per_day&#x27;].forEach(x=&gt;document.getElementById(&#x27;f5-&#x27;+x).classList.toggle(&#x27;on&#x27;,x===m));drawF5();}
+function drawF5(){
+  const t=I18N[window._lang]||I18N.ko;
+  if(charts.f5)charts.f5.destroy();
+  const metric=f5metric;
+  // 시간 데이터 있는 테크니션만 차트
+  const timed=D.workers.filter(w=&gt;D.months.some(m=&gt;D.f5[m][w].has_time));
+  document.getElementById(&#x27;f5-ctitle&#x27;).textContent=(metric===&#x27;per_hr&#x27;?t[&#x27;ct-perhr&#x27;]:t[&#x27;ct-perday&#x27;]);
+  document.getElementById(&#x27;f5-csub&#x27;).textContent=t[&#x27;f5-csub2&#x27;];
+  charts.f5=new Chart(document.getElementById(&#x27;f5Chart&#x27;),{type:&#x27;line&#x27;,
+    data:{labels:D.months.map(monthLabel),datasets:timed.map(w=&gt;({label:wshort(w),data:D.months.map(m=&gt;D.f5[m][w][metric]||0),borderColor:WORKER_COLOR[w],backgroundColor:WORKER_COLOR[w]+&#x27;22&#x27;,borderWidth:2.5,pointRadius:4,pointHoverRadius:6,pointBackgroundColor:WORKER_COLOR[w],tension:0.3,fill:false}))},
+    options:{responsive:true,maintainAspectRatio:false,scales:{x:{grid:{display:false}},y:{beginAtZero:true,grid:{color:&#x27;#F1F5F9&#x27;},title:{display:true,text:metric===&#x27;per_hr&#x27;?t[&#x27;unit-perhr&#x27;]:t[&#x27;unit-perday&#x27;]}}},plugins:{legend:{position:&#x27;top&#x27;}}}});
+  // 상세 표: 테크니션별 월별 (Unit / Hrs / per_hr / per_day)
+  let h=&#x27;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&#x27;+t[&#x27;tech&#x27;]+&#x27;&lt;/th&gt;&lt;th&gt;&#x27;+t[&#x27;metric-col&#x27;]+&#x27;&lt;/th&gt;&#x27;;
+  D.months.forEach(m=&gt;h+=&#x27;&lt;th&gt;&#x27;+monthLabel(m)+&#x27;&lt;/th&gt;&#x27;);h+=&#x27;&lt;th&gt;YTD/&#x27;+t[&#x27;avg&#x27;]+&#x27;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#x27;;
+  D.workers.forEach(w=&gt;{
+    const hasAny=D.months.some(m=&gt;D.f5[m][w].has_time);
+    // Unit 행
+    let uy=0;h+=&#x27;&lt;tr&gt;&lt;td rowspan=&quot;&#x27;+(hasAny?4:1)+&#x27;&quot; style=&quot;font-weight:600&quot;&gt;&#x27;+w+(hasAny?&#x27;&#x27;:&#x27; &lt;span class=&quot;manual-pill&quot;&gt;&#x27;+t[&#x27;no-time&#x27;]+&#x27;&lt;/span&gt;&#x27;)+&#x27;&lt;/td&gt;&lt;td style=&quot;color:#7C3AED&quot;&gt;Unit&lt;/td&gt;&#x27;;
+    D.months.forEach(m=&gt;{const v=D.f5[m][w].unit;uy+=v;h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+fmt(v)+&#x27;&lt;/td&gt;&#x27;;});h+=&#x27;&lt;td class=&quot;num&quot; style=&quot;font-weight:700&quot;&gt;&#x27;+fmt(uy)+&#x27;&lt;/td&gt;&lt;/tr&gt;&#x27;;
+    if(hasAny){
+      // Total Hrs
+      let hy=0;h+=&#x27;&lt;tr&gt;&lt;td style=&quot;color:#475569&quot;&gt;Total Hrs&lt;/td&gt;&#x27;;D.months.forEach(m=&gt;{const v=D.f5[m][w].total_hrs;if(v)hy+=v;h+=&#x27;&lt;td class=&quot;num&quot;&gt;&#x27;+(v!=null?v.toFixed(1):&#x27;-&#x27;)+&#x27;&lt;/td&gt;&#x27;;});h+=&#x27;&lt;td class=&quot;num&quot; style=&quot;font-weight:700&quot;&gt;&#x27;+hy.toFixed(1)+&#x27;&lt;/td&gt;&lt;/tr&gt;&#x27;;
+      // per_hr
+      h+=&#x27;&lt;tr style=&quot;background:#F5F3FF&quot;&gt;&lt;td style=&quot;color:#7C3AED;font-weight:600&quot;&gt;Fin/Hour&lt;/td&gt;&#x27;;D.months.forEach(m=&gt;{const v=D.f5[m][w].per_hr;h+=&#x27;&lt;td class=&quot;num&quot; style=&quot;font-weight:700;color:#7C3AED&quot;&gt;&#x27;+(v!=null?v.toFixed(2):&#x27;-&#x27;)+&#x27;&lt;/td&gt;&#x27;;});const avgH=hy?(uy/hy):0;h+=&#x27;&lt;td class=&quot;num&quot; style=&quot;font-weight:700;color:#7C3AED&quot;&gt;&#x27;+avgH.toFixed(2)+&#x27;&lt;/td&gt;&lt;/tr&gt;&#x27;;
+      // per_day
+      h+=&#x27;&lt;tr&gt;&lt;td style=&quot;color:#F59E0B;font-weight:600&quot;&gt;Fin/Day&lt;/td&gt;&#x27;;D.months.forEach(m=&gt;{const v=D.f5[m][w].per_day;h+=&#x27;&lt;td class=&quot;num&quot; style=&quot;color:#B45309&quot;&gt;&#x27;+(v!=null?v.toFixed(1):&#x27;-&#x27;)+&#x27;&lt;/td&gt;&#x27;;});const avgD=hy?(uy/(hy/8)):0;h+=&#x27;&lt;td class=&quot;num&quot; style=&quot;color:#B45309&quot;&gt;&#x27;+avgD.toFixed(1)+&#x27;&lt;/td&gt;&lt;/tr&gt;&#x27;;
+    }
+  });
+  h+=&#x27;&lt;/tbody&gt;&lt;/table&gt;&#x27;;
+  document.getElementById(&#x27;f5-table&#x27;).innerHTML=h;
+}
+
+const GROUP_META={
+  f1:{idx:1,descKey:&#x27;f1-desc&#x27;,unit:&#x27;Final Item Unit&#x27;},
+  f2:{idx:2,descKey:&#x27;f2-desc&#x27;,unit:&#x27;Final Item Unit&#x27;},
+  f3:{idx:3,descKey:&#x27;f3-desc&#x27;,unit:&#x27;Opt Qty&#x27;},
+  f4:{idx:4,descKey:&#x27;f4-desc&#x27;,unit:&#x27;Opt Qty&#x27;},
+};
+
+/* ===== i18n ===== */
+const I18N={
+ko:{&#x27;page-0&#x27;:&#x27;F0 부서종합&#x27;,&#x27;page-1&#x27;:&#x27;F1 Stain 그룹&#x27;,&#x27;page-2&#x27;:&#x27;F2 Full Arch&#x27;,&#x27;page-3&#x27;:&#x27;F3 옵션 그룹1&#x27;,&#x27;page-4&#x27;:&#x27;F4 옵션 그룹2&#x27;,&#x27;page-5&#x27;:&#x27;F5 Hourly&#x27;,
+&#x27;sb-reports&#x27;:&#x27;리포트&#x27;,&#x27;sb-period&#x27;:&#x27;기간&#x27;,&#x27;sb-manual&#x27;:&#x27;수기&#x27;,&#x27;sb-combined&#x27;:&#x27;합계&#x27;,
+&#x27;sec-kpi&#x27;:&#x27;핵심 KPI&#x27;,&#x27;manual&#x27;:&#x27;수기&#x27;,
+&#x27;k-ytd&#x27;:&#x27;YTD 합계 생산량&#x27;,&#x27;k-apr&#x27;:&#x27;당월(Apr) 합계&#x27;,&#x27;k-manual&#x27;:&#x27;수기 비중&#x27;,&#x27;k-manual-sub&#x27;:&#x27;Haus Link 미포함분&#x27;,&#x27;k-avg&#x27;:&#x27;월평균 합계&#x27;,
+&#x27;f0-s1&#x27;:&#x27;Section 1 — Haus Link + 수기 합계 (월별 Unit)&#x27;,&#x27;f0-s1-chart&#x27;:&#x27;월별 생산량 추세&#x27;,&#x27;f0-s1-table&#x27;:&#x27;월별 상세 표&#x27;,
+&#x27;f0-s2&#x27;:&#x27;Section 2 — Haus Link Main Task 월별&#x27;,&#x27;f0-s2-table&#x27;:&#x27;Main Task별 월별 Final Item Unit&#x27;,&#x27;f0-s2-donut&#x27;:&#x27;Main Task 비중 (YTD)&#x27;,
+&#x27;f0-s3&#x27;:&#x27;Section 3 — 월별 테크니션별 수기 Unit&#x27;,&#x27;f0-s3-title&#x27;:&#x27;테크니션별 수기 생산량 (월별 비교)&#x27;,&#x27;f0-s3-sub&#x27;:&#x27;수기(Paper) 데이터 · 테크니션별 월별&#x27;,
+&#x27;f0-s4&#x27;:&#x27;Section 4 — 월별 테크니션 × 테스크 수기 상세&#x27;,&#x27;f0-s4-title&#x27;:&#x27;각 월별 테크니션이 테스크별로 작업한 유닛&#x27;,&#x27;f0-s4-sub&#x27;:&#x27;수기(Paper) 데이터 · 1월~4월 각각 표 (총 4개)&#x27;,&#x27;f0-s4-tbl&#x27;:&#x27;테크니션 × 테스크 수기&#x27;,
+&#x27;tg-view&#x27;:&#x27;보기&#x27;,&#x27;tg-monthly&#x27;:&#x27;월별&#x27;,&#x27;tg-month&#x27;:&#x27;월&#x27;,&#x27;tg-avg&#x27;:&#x27;월평균&#x27;,&#x27;tg-total&#x27;:&#x27;월전체(YTD)&#x27;,&#x27;tg-src&#x27;:&#x27;데이터&#x27;,&#x27;tg-both&#x27;:&#x27;전체&#x27;,
+&#x27;sub-monthly-d&#x27;:&#x27;월별 생산량&#x27;,&#x27;sub-avg-d&#x27;:&#x27;월평균 (YTD÷5)&#x27;,&#x27;stacked&#x27;:&#x27;누적 막대&#x27;,
+&#x27;gubun&#x27;:&#x27;구분&#x27;,&#x27;total&#x27;:&#x27;합계&#x27;,&#x27;tech&#x27;:&#x27;테크니션&#x27;,&#x27;basis&#x27;:&#x27;기준&#x27;,&#x27;ytd-basis&#x27;:&#x27;YTD 누계 기준&#x27;,&#x27;detail-table&#x27;:&#x27;상세 표 (YTD)&#x27;,
+&#x27;ct-monthly&#x27;:&#x27;월별 생산량 (테크니션별 비교)&#x27;,&#x27;cs-monthly&#x27;:&#x27;X=월 · 테크니션별 막대&#x27;,&#x27;ct-total&#x27;:&#x27;테크니션별 YTD (테스크 누적)&#x27;,&#x27;cs-total&#x27;:&#x27;X=테크니션 · 테스크별 누적 막대&#x27;,&#x27;ct-avg&#x27;:&#x27;테크니션별 월평균&#x27;,&#x27;cs-avg&#x27;:&#x27;X=테크니션 · YTD÷5&#x27;,
+&#x27;f1-desc&#x27;:&#x27;Stain and Glazed / Emax Cad / PMMA Crown Glazing&#x27;,&#x27;f2-desc&#x27;:&#x27;Zir-FA S&amp;G / I Bar S&amp;G / PMMA FA S&amp;G + Tissue Coloring&#x27;,&#x27;f3-desc&#x27;:&#x27;Posterior / Anterior / No Solid / With Solid&#x27;,&#x27;f4-desc&#x27;:&#x27;Cementation / Picture Shade / With Abutment / S&amp;G&#x27;,
+&#x27;f5-notice&#x27;:&#x27;⏱️ 전 테크니션 1~4월 Timereport 확보. Reg + OT = 총 근무시간.&#x27;,&#x27;f5-title&#x27;:&#x27;테크니션별 월별 생산량 (Final Item Unit)&#x27;,&#x27;f5-sub&#x27;:&#x27;Haus Link 메인테스크 전체 합산&#x27;,&#x27;pending&#x27;:&#x27;대기&#x27;,
+&#x27;f5-info&#x27;:&#x27;Timereport 기준 · Reg + OT = 총 근무시간 · 시간당 = Final Item Unit ÷ 총시간&#x27;,
+&#x27;f5-notice2&#x27;:&#x27;⏱️ Kyoungjoon Cho는 Timereport에 시간 기록이 없어 생산량만 표시됩니다. (나머지 3명 1~4월 시간 데이터 확보)&#x27;,
+&#x27;tg-metric&#x27;:&#x27;지표&#x27;,&#x27;m-perhr&#x27;:&#x27;시간당&#x27;,&#x27;m-perday&#x27;:&#x27;일당(8h)&#x27;,&#x27;metric-col&#x27;:&#x27;지표&#x27;,&#x27;avg&#x27;:&#x27;평균&#x27;,&#x27;no-time&#x27;:&#x27;시간데이터 없음&#x27;,
+&#x27;ct-perhr&#x27;:&#x27;테크니션별 시간당 생산성 (Fin/Hour)&#x27;,&#x27;ct-perday&#x27;:&#x27;테크니션별 일당 생산성 (Fin/Day)&#x27;,&#x27;f5-csub2&#x27;:&#x27;X=월 · 테크니션별 비교&#x27;,
+&#x27;unit-perhr&#x27;:&#x27;units / hour&#x27;,&#x27;unit-perday&#x27;:&#x27;units / day&#x27;,&#x27;f5-detail&#x27;:&#x27;테크니션별 상세 (Unit / 시간 / 생산성)&#x27;,&#x27;f5-detail-sub&#x27;:&#x27;각 테크니션: Unit → 총시간 → Fin/Hour → Fin/Day&#x27;,
+&#x27;manual-ref&#x27;:&#x27;로컬 수기 데이터 (참고 · 해당 작업)&#x27;,&#x27;manual-ref-sub&#x27;:&#x27;수기(Paper) · 기간 버튼에 따라 동적 변환&#x27;,&#x27;tsub-monthly&#x27;:&#x27;행=테크니션 · 열=월 (그룹 합계)&#x27;,&#x27;tsub-total&#x27;:&#x27;행=테크니션 · 열=각 작업 (YTD 누계)&#x27;,&#x27;tsub-avg&#x27;:&#x27;행=테크니션 · 열=각 작업 (월평균 YTD÷5)&#x27;,&#x27;cat-crown&#x27;:&#x27;일반 크라운/Stain 유닛&#x27;,&#x27;cat-fullarch&#x27;:&#x27;Full Arch / Thimble Bar&#x27;,
+&#x27;tg-summary&#x27;:&#x27;월별 요약&#x27;,&#x27;ct-summary&#x27;:&#x27;월별 생산량 (테크니션별 비교)&#x27;,&#x27;cs-summary&#x27;:&#x27;X=월 · 테크니션별 막대&#x27;,&#x27;ct-month&#x27;:&#x27;생산량 (테크니션별 · 작업 누적)&#x27;,&#x27;cs-month&#x27;:&#x27;X=테크니션 · 작업별 누적 막대&#x27;,&#x27;tsub-month&#x27;:&#x27;· 행=테크니션 · 열=각 작업 (해당 월)&#x27;,
+&#x27;mm&#x27;:{&#x27;Jan&#x27;:&#x27;1월&#x27;,&#x27;Feb&#x27;:&#x27;2월&#x27;,&#x27;Mar&#x27;:&#x27;3월&#x27;,&#x27;Apr&#x27;:&#x27;4월&#x27;,&#x27;May&#x27;:&#x27;5월&#x27;}},
+en:{&#x27;page-0&#x27;:&#x27;F0 Dept Total&#x27;,&#x27;page-1&#x27;:&#x27;F1 Stain Group&#x27;,&#x27;page-2&#x27;:&#x27;F2 Full Arch&#x27;,&#x27;page-3&#x27;:&#x27;F3 Option Grp1&#x27;,&#x27;page-4&#x27;:&#x27;F4 Option Grp2&#x27;,&#x27;page-5&#x27;:&#x27;F5 Hourly&#x27;,
+&#x27;sb-reports&#x27;:&#x27;Reports&#x27;,&#x27;sb-period&#x27;:&#x27;Period&#x27;,&#x27;sb-manual&#x27;:&#x27;Manual&#x27;,&#x27;sb-combined&#x27;:&#x27;Combined&#x27;,
+&#x27;sec-kpi&#x27;:&#x27;Key KPIs&#x27;,&#x27;manual&#x27;:&#x27;Manual&#x27;,
+&#x27;k-ytd&#x27;:&#x27;YTD Combined&#x27;,&#x27;k-apr&#x27;:&#x27;Current Month (Apr)&#x27;,&#x27;k-manual&#x27;:&#x27;Manual Share&#x27;,&#x27;k-manual-sub&#x27;:&#x27;Not in Haus Link&#x27;,&#x27;k-avg&#x27;:&#x27;Monthly Avg&#x27;,
+&#x27;f0-s1&#x27;:&#x27;Section 1 — Haus Link + Manual Combined (Monthly Unit)&#x27;,&#x27;f0-s1-chart&#x27;:&#x27;Monthly Production Trend&#x27;,&#x27;f0-s1-table&#x27;:&#x27;Monthly Detail&#x27;,
+&#x27;f0-s2&#x27;:&#x27;Section 2 — Haus Link Main Task Monthly&#x27;,&#x27;f0-s2-table&#x27;:&#x27;Monthly Final Item Unit by Main Task&#x27;,&#x27;f0-s2-donut&#x27;:&#x27;Main Task Share (YTD)&#x27;,
+&#x27;f0-s3&#x27;:&#x27;Section 3 — Monthly Manual Unit by Worker&#x27;,&#x27;f0-s3-title&#x27;:&#x27;Manual Production by Worker (monthly)&#x27;,&#x27;f0-s3-sub&#x27;:&#x27;Manual (Paper) data · by worker monthly&#x27;,
+&#x27;f0-s4&#x27;:&#x27;Section 4 — Monthly Worker × Task Manual Detail&#x27;,&#x27;f0-s4-title&#x27;:&#x27;Units per task by worker, each month&#x27;,&#x27;f0-s4-sub&#x27;:&#x27;Manual (Paper) · Jan~May tables (4 total)&#x27;,&#x27;f0-s4-tbl&#x27;:&#x27;Worker × Task Manual&#x27;,
+&#x27;tg-view&#x27;:&#x27;View&#x27;,&#x27;tg-monthly&#x27;:&#x27;Monthly&#x27;,&#x27;tg-month&#x27;:&#x27;Month&#x27;,&#x27;tg-avg&#x27;:&#x27;Avg&#x27;,&#x27;tg-total&#x27;:&#x27;YTD&#x27;,&#x27;tg-src&#x27;:&#x27;Data&#x27;,&#x27;tg-both&#x27;:&#x27;All&#x27;,
+&#x27;sub-monthly-d&#x27;:&#x27;Monthly production&#x27;,&#x27;sub-avg-d&#x27;:&#x27;Monthly avg (YTD÷5)&#x27;,&#x27;stacked&#x27;:&#x27;stacked&#x27;,
+&#x27;gubun&#x27;:&#x27;Type&#x27;,&#x27;total&#x27;:&#x27;Total&#x27;,&#x27;tech&#x27;:&#x27;Technician&#x27;,&#x27;basis&#x27;:&#x27;basis&#x27;,&#x27;ytd-basis&#x27;:&#x27;YTD cumulative&#x27;,&#x27;detail-table&#x27;:&#x27;Detail Table (YTD)&#x27;,
+&#x27;ct-monthly&#x27;:&#x27;Monthly Production (by Worker)&#x27;,&#x27;cs-monthly&#x27;:&#x27;X=Month · by Worker&#x27;,&#x27;ct-total&#x27;:&#x27;YTD by Worker (stacked task)&#x27;,&#x27;cs-total&#x27;:&#x27;X=Worker · stacked by task&#x27;,&#x27;ct-avg&#x27;:&#x27;Monthly Avg by Worker&#x27;,&#x27;cs-avg&#x27;:&#x27;X=Worker · YTD÷5&#x27;,
+&#x27;f1-desc&#x27;:&#x27;Stain and Glazed / Emax Cad / PMMA Crown Glazing&#x27;,&#x27;f2-desc&#x27;:&#x27;Zir-FA S&amp;G / I Bar S&amp;G / PMMA FA S&amp;G + Tissue Coloring&#x27;,&#x27;f3-desc&#x27;:&#x27;Posterior / Anterior / No Solid / With Solid&#x27;,&#x27;f4-desc&#x27;:&#x27;Cementation / Picture Shade / With Abutment / S&amp;G&#x27;,
+&#x27;f5-notice&#x27;:&#x27;⏱️ Finishing Timereport collected from April. Jan~Mar shows production only.&#x27;,&#x27;f5-title&#x27;:&#x27;Monthly Production by Worker (Final Item Unit)&#x27;,&#x27;f5-sub&#x27;:&#x27;Sum of all Haus Link main tasks&#x27;,&#x27;pending&#x27;:&#x27;pending&#x27;,
+&#x27;f5-info&#x27;:&#x27;Based on Timereport · Reg + OT = Total Hours · Per Hour = Final Item Unit ÷ Total Hours&#x27;,
+&#x27;f5-notice2&#x27;:&#x27;⏱️ Kyoungjoon Cho has no time record in Timereport; production only. (Other 3: Jan~May time data available)&#x27;,
+&#x27;tg-metric&#x27;:&#x27;Metric&#x27;,&#x27;m-perhr&#x27;:&#x27;Per Hour&#x27;,&#x27;m-perday&#x27;:&#x27;Per Day(8h)&#x27;,&#x27;metric-col&#x27;:&#x27;Metric&#x27;,&#x27;avg&#x27;:&#x27;Avg&#x27;,&#x27;no-time&#x27;:&#x27;no time data&#x27;,
+&#x27;ct-perhr&#x27;:&#x27;Productivity per Hour by Worker&#x27;,&#x27;ct-perday&#x27;:&#x27;Productivity per Day by Worker&#x27;,&#x27;f5-csub2&#x27;:&#x27;X=Month · by Worker&#x27;,
+&#x27;unit-perhr&#x27;:&#x27;units / hour&#x27;,&#x27;unit-perday&#x27;:&#x27;units / day&#x27;,&#x27;f5-detail&#x27;:&#x27;Detail by Worker (Unit / Hours / Productivity)&#x27;,&#x27;f5-detail-sub&#x27;:&#x27;Each worker: Unit → Total Hrs → Fin/Hour → Fin/Day&#x27;,
+&#x27;manual-ref&#x27;:&#x27;Local Manual Data (ref · related tasks)&#x27;,&#x27;manual-ref-sub&#x27;:&#x27;Manual (Paper) · changes with period button&#x27;,&#x27;tsub-monthly&#x27;:&#x27;Row=Technician · Col=Month (group total)&#x27;,&#x27;tsub-total&#x27;:&#x27;Row=Technician · Col=Task (YTD)&#x27;,&#x27;tsub-avg&#x27;:&#x27;Row=Technician · Col=Task (Monthly avg)&#x27;,&#x27;cat-crown&#x27;:&#x27;Crown/Stain Units&#x27;,&#x27;cat-fullarch&#x27;:&#x27;Full Arch / Thimble Bar&#x27;,
+&#x27;tg-summary&#x27;:&#x27;Monthly Summary&#x27;,&#x27;ct-summary&#x27;:&#x27;Monthly Production (by Technician)&#x27;,&#x27;cs-summary&#x27;:&#x27;X=Month · by Technician&#x27;,&#x27;ct-month&#x27;:&#x27;Production (Technician · stacked task)&#x27;,&#x27;cs-month&#x27;:&#x27;X=Technician · stacked by task&#x27;,&#x27;tsub-month&#x27;:&#x27;· Row=Technician · Col=Task (this month)&#x27;,
+&#x27;mm&#x27;:{&#x27;Jan&#x27;:&#x27;Jan&#x27;,&#x27;Feb&#x27;:&#x27;Feb&#x27;,&#x27;Mar&#x27;:&#x27;Mar&#x27;,&#x27;Apr&#x27;:&#x27;Apr&#x27;,&#x27;May&#x27;:&#x27;May&#x27;}},
+es:{&#x27;page-0&#x27;:&#x27;F0 Total Depto&#x27;,&#x27;page-1&#x27;:&#x27;F1 Grupo Stain&#x27;,&#x27;page-2&#x27;:&#x27;F2 Full Arch&#x27;,&#x27;page-3&#x27;:&#x27;F3 Opción Grp1&#x27;,&#x27;page-4&#x27;:&#x27;F4 Opción Grp2&#x27;,&#x27;page-5&#x27;:&#x27;F5 Hourly&#x27;,
+&#x27;sb-reports&#x27;:&#x27;Informes&#x27;,&#x27;sb-period&#x27;:&#x27;Período&#x27;,&#x27;sb-manual&#x27;:&#x27;Manual&#x27;,&#x27;sb-combined&#x27;:&#x27;Combinado&#x27;,
+&#x27;sec-kpi&#x27;:&#x27;KPIs Clave&#x27;,&#x27;manual&#x27;:&#x27;Manual&#x27;,
+&#x27;k-ytd&#x27;:&#x27;YTD Combinado&#x27;,&#x27;k-apr&#x27;:&#x27;Mes Actual (Abr)&#x27;,&#x27;k-manual&#x27;:&#x27;Participación Manual&#x27;,&#x27;k-manual-sub&#x27;:&#x27;No en Haus Link&#x27;,&#x27;k-avg&#x27;:&#x27;Promedio Mensual&#x27;,
+&#x27;f0-s1&#x27;:&#x27;Sección 1 — Haus Link + Manual Combinado&#x27;,&#x27;f0-s1-chart&#x27;:&#x27;Tendencia Mensual&#x27;,&#x27;f0-s1-table&#x27;:&#x27;Detalle Mensual&#x27;,
+&#x27;f0-s2&#x27;:&#x27;Sección 2 — Main Task Mensual Haus Link&#x27;,&#x27;f0-s2-table&#x27;:&#x27;Unidad Final Mensual por Main Task&#x27;,&#x27;f0-s2-donut&#x27;:&#x27;Participación Main Task (YTD)&#x27;,
+&#x27;f0-s3&#x27;:&#x27;Sección 3 — Unidad Manual Mensual por Técnico&#x27;,&#x27;f0-s3-title&#x27;:&#x27;Producción Manual por Técnico (mensual)&#x27;,&#x27;f0-s3-sub&#x27;:&#x27;Datos Manual (Paper) · por técnico&#x27;,
+&#x27;f0-s4&#x27;:&#x27;Sección 4 — Detalle Manual Técnico × Tarea&#x27;,&#x27;f0-s4-title&#x27;:&#x27;Unidades por tarea por técnico, cada mes&#x27;,&#x27;f0-s4-sub&#x27;:&#x27;Manual (Paper) · tablas Ene~Abr (4)&#x27;,&#x27;f0-s4-tbl&#x27;:&#x27;Técnico × Tarea Manual&#x27;,
+&#x27;tg-view&#x27;:&#x27;Vista&#x27;,&#x27;tg-monthly&#x27;:&#x27;Mensual&#x27;,&#x27;tg-month&#x27;:&#x27;Mes&#x27;,&#x27;tg-avg&#x27;:&#x27;Prom.&#x27;,&#x27;tg-total&#x27;:&#x27;YTD&#x27;,&#x27;tg-src&#x27;:&#x27;Datos&#x27;,&#x27;tg-both&#x27;:&#x27;Todo&#x27;,
+&#x27;sub-monthly-d&#x27;:&#x27;Producción mensual&#x27;,&#x27;sub-avg-d&#x27;:&#x27;Promedio mensual&#x27;,&#x27;stacked&#x27;:&#x27;apilado&#x27;,
+&#x27;gubun&#x27;:&#x27;Tipo&#x27;,&#x27;total&#x27;:&#x27;Total&#x27;,&#x27;tech&#x27;:&#x27;Técnico&#x27;,&#x27;basis&#x27;:&#x27;base&#x27;,&#x27;ytd-basis&#x27;:&#x27;YTD acumulado&#x27;,&#x27;detail-table&#x27;:&#x27;Tabla Detalle (YTD)&#x27;,
+&#x27;ct-monthly&#x27;:&#x27;Producción Mensual (por Técnico)&#x27;,&#x27;cs-monthly&#x27;:&#x27;X=Mes · por Técnico&#x27;,&#x27;ct-total&#x27;:&#x27;YTD por Técnico (apilado)&#x27;,&#x27;cs-total&#x27;:&#x27;X=Técnico · apilado por tarea&#x27;,&#x27;ct-avg&#x27;:&#x27;Promedio por Técnico&#x27;,&#x27;cs-avg&#x27;:&#x27;X=Técnico · YTD÷5&#x27;,
+&#x27;f1-desc&#x27;:&#x27;Stain and Glazed / Emax Cad / PMMA Crown Glazing&#x27;,&#x27;f2-desc&#x27;:&#x27;Zir-FA S&amp;G / I Bar S&amp;G / PMMA FA S&amp;G + Tissue Coloring&#x27;,&#x27;f3-desc&#x27;:&#x27;Posterior / Anterior / No Solid / With Solid&#x27;,&#x27;f4-desc&#x27;:&#x27;Cementation / Picture Shade / With Abutment / S&amp;G&#x27;,
+&#x27;f5-notice&#x27;:&#x27;⏱️ Timereport de Finishing desde abril. Ene~Mar solo producción.&#x27;,&#x27;f5-title&#x27;:&#x27;Producción Mensual por Técnico&#x27;,&#x27;f5-sub&#x27;:&#x27;Suma de todos los main task de Haus Link&#x27;,&#x27;pending&#x27;:&#x27;pendiente&#x27;,
+&#x27;f5-info&#x27;:&#x27;Según Timereport · Reg + OT = Horas Totales · Por Hora = Unidad Final ÷ Horas Totales&#x27;,
+&#x27;f5-notice2&#x27;:&#x27;⏱️ Kyoungjoon Cho no tiene registro de tiempo; solo producción. (Otros 3: datos Ene~Abr)&#x27;,
+&#x27;tg-metric&#x27;:&#x27;Métrica&#x27;,&#x27;m-perhr&#x27;:&#x27;Por Hora&#x27;,&#x27;m-perday&#x27;:&#x27;Por Día(8h)&#x27;,&#x27;metric-col&#x27;:&#x27;Métrica&#x27;,&#x27;avg&#x27;:&#x27;Prom.&#x27;,&#x27;no-time&#x27;:&#x27;sin datos&#x27;,
+&#x27;ct-perhr&#x27;:&#x27;Productividad por Hora por Técnico&#x27;,&#x27;ct-perday&#x27;:&#x27;Productividad por Día por Técnico&#x27;,&#x27;f5-csub2&#x27;:&#x27;X=Mes · por Técnico&#x27;,
+&#x27;unit-perhr&#x27;:&#x27;unidades / hora&#x27;,&#x27;unit-perday&#x27;:&#x27;unidades / día&#x27;,&#x27;f5-detail&#x27;:&#x27;Detalle por Técnico (Unidad / Horas / Productividad)&#x27;,&#x27;f5-detail-sub&#x27;:&#x27;Cada técnico: Unidad → Horas → Fin/Hora → Fin/Día&#x27;,
+&#x27;manual-ref&#x27;:&#x27;Datos Manuales Locales (ref · tareas)&#x27;,&#x27;manual-ref-sub&#x27;:&#x27;Manual (Paper) · cambia con el botón de período&#x27;,&#x27;tsub-monthly&#x27;:&#x27;Fila=Técnico · Col=Mes (total grupo)&#x27;,&#x27;tsub-total&#x27;:&#x27;Fila=Técnico · Col=Tarea (YTD)&#x27;,&#x27;tsub-avg&#x27;:&#x27;Fila=Técnico · Col=Tarea (Prom. mensual)&#x27;,&#x27;cat-crown&#x27;:&#x27;Unidades Crown/Stain&#x27;,&#x27;cat-fullarch&#x27;:&#x27;Full Arch / Thimble Bar&#x27;,
+&#x27;tg-summary&#x27;:&#x27;Resumen Mensual&#x27;,&#x27;ct-summary&#x27;:&#x27;Producción Mensual (por Técnico)&#x27;,&#x27;cs-summary&#x27;:&#x27;X=Mes · por Técnico&#x27;,&#x27;ct-month&#x27;:&#x27;Producción (Técnico · tarea apilada)&#x27;,&#x27;cs-month&#x27;:&#x27;X=Técnico · apilado por tarea&#x27;,&#x27;tsub-month&#x27;:&#x27;· Fila=Técnico · Col=Tarea (este mes)&#x27;,
+&#x27;mm&#x27;:{&#x27;Jan&#x27;:&#x27;Ene&#x27;,&#x27;Feb&#x27;:&#x27;Feb&#x27;,&#x27;Mar&#x27;:&#x27;Mar&#x27;,&#x27;Apr&#x27;:&#x27;Abr&#x27;,&#x27;May&#x27;:&#x27;May&#x27;}},
+};
+window._lang=&#x27;ko&#x27;;
+function setLang(lang){
+  window._lang=lang;
+  document.querySelectorAll(&#x27;.lang-btn&#x27;).forEach(b=&gt;b.classList.toggle(&#x27;lact&#x27;,b.dataset.lang===lang));
+  const t=I18N[lang]||I18N.ko;
+  document.querySelectorAll(&#x27;[data-i18n]&#x27;).forEach(el=&gt;{const k=el.getAttribute(&#x27;data-i18n&#x27;);if(t[k]!==undefined)el.textContent=t[k];});
+  document.getElementById(&#x27;pageTitle&#x27;).textContent=t[&#x27;page-&#x27;+_curTab];
+  renderTab(_curTab);
+}
+setLang(&#x27;en&#x27;);
+
+
+/* ===== HAUS unified i18n sweep (외형/언어 패치) ===== */
+var GLOSS={&quot;en&quot;: {&quot;부서 전체 — 월별 고급디자인 Main Task&quot;: &quot;Dept Total — Monthly Advanced Design Main Task&quot;, &quot;Section 2 — 월별 누적 생산성 트렌드&quot;: &quot;Section 2 — Monthly Cumulative Productivity Trend&quot;, &quot;월별 상세 — 테크니션 × 시간 × 생산성&quot;: &quot;Monthly Detail — Technician × Hours × Productivity&quot;, &quot;Crown / Abutment — 테크니션별&quot;: &quot;Crown / Abutment — by Technician&quot;, &quot;Seungwoo는 부서별 Unit비율 안분&quot;: &quot;Seungwoo allocated by dept Unit ratio&quot;, &quot;5~12월 데이터 입력 시 자동 갱신&quot;: &quot;Auto-updates when May~Dec data is entered&quot;, &quot;5~12월 데이터 입력 시 갱신&quot;: &quot;Updates when May~Dec data is entered&quot;, &quot;메인 태스크별 월평균 유닛&quot;: &quot;Monthly Avg Unit by Main Task&quot;, &quot;D2 — Crown / Abutment 월별&quot;: &quot;D2 — Crown / Abutment Monthly&quot;, &quot;월별 Unit — Haus Link + 수기&quot;: &quot;Monthly Unit — Haus Link + Manual&quot;, &quot;HAUS Design 생산 리포트 2026&quot;: &quot;HAUS Design Production Report 2026&quot;, &quot;HAUS Scan 생산 리포트 2026&quot;: &quot;HAUS Scan Production Report 2026&quot;, &quot;테크니션별 월별 생산량&quot;: &quot;Monthly Output by Technician&quot;, &quot;수기 + Haus Link 합계&quot;: &quot;Manual + Haus Link Total&quot;, &quot;테크니션별 월별 트렌드&quot;: &quot;Monthly Trend by Technician&quot;, &quot;D1 — 테크니션 × Main Task&quot;: &quot;D1 — Technician × Main Task&quot;, &quot;S1 — 테크니션 × Main Task&quot;: &quot;S1 — Technician × Main Task&quot;, &quot;연간 누적 생산성 트렌드&quot;: &quot;Annual Cumulative Productivity Trend&quot;, &quot;테크니션 × 작업종류&quot;: &quot;Technician × Task Type&quot;, &quot;테크니션별 월별 Unit&quot;: &quot;Monthly Unit by Technician&quot;, &quot;월평균 사유별 비중&quot;: &quot;Mo. Avg Share by Reason&quot;, &quot;테크니션별 Unit/Hrs&quot;: &quot;Unit/Hrs by Technician&quot;, &quot;테크니션 × Main Task&quot;: &quot;Technician × Main Task&quot;, &quot;D0 — 부서 대시보드&quot;: &quot;D0 — Dept Dashboard&quot;, &quot;S0 — 부서 대시보드&quot;: &quot;S0 — Dept Dashboard&quot;, &quot;D5 — 시간당 생산성&quot;: &quot;D5 — Hourly Productivity&quot;, &quot;S4 — 시간당 생산성&quot;: &quot;S4 — Hourly Productivity&quot;, &quot;YTD 사유별 비중&quot;: &quot;YTD Share by Reason&quot;, &quot;YTD 생산성 요약&quot;: &quot;YTD Productivity Summary&quot;, &quot;부서 전체 월별 표&quot;: &quot;Dept Total Monthly Table&quot;, &quot;Haus Link vs 수기&quot;: &quot;Haus Link vs Manual&quot;, &quot;월별 Sub-Total&quot;: &quot;Monthly Sub-Total&quot;, &quot;M5 — Redo 분석&quot;: &quot;M5 — Redo Analysis&quot;, &quot;P3 — Redo 분석&quot;: &quot;P3 — Redo Analysis&quot;, &quot;M0 — 부서종합&quot;: &quot;M0 — Dept Summary&quot;, &quot;P0 — 부서종합&quot;: &quot;P0 — Dept Summary&quot;, &quot;M3 — 기타재료&quot;: &quot;M3 — Other Materials&quot;, &quot;D3 — 고급디자인&quot;: &quot;D3 — Advanced Design&quot;, &quot;P1 — 테크니션별&quot;: &quot;P1 — By Technician&quot;, &quot;생산 리포트 2026&quot;: &quot;Production Report 2026&quot;, &quot;Unit/Hour 누적&quot;: &quot;Cumulative Unit/Hour&quot;, &quot;누적 Unit/Hour&quot;: &quot;Cumulative Unit/Hour&quot;, &quot;월별 재료 그룹&quot;: &quot;Monthly Material Group&quot;, &quot;테크니션 기여도&quot;: &quot;Technician Contribution&quot;, &quot;핵심 옵션 상세표&quot;: &quot;Core Option Detail&quot;, &quot;핵심 옵션 월별&quot;: &quot;Core Option Monthly&quot;, &quot;핵심 옵션 합계&quot;: &quot;Core Option Total&quot;, &quot;테크니션별 Redo&quot;: &quot;Redo by Technician&quot;, &quot;월평균 사유별&quot;: &quot;Mo. Avg by Reason&quot;, &quot;로컬수기_Scan&quot;: &quot;Local·Manual_Scan&quot;, &quot;Sub Task 비중&quot;: &quot;Sub Task Share&quot;, &quot;YTD ÷ 4개월&quot;: &quot;YTD ÷ 5 months&quot;, &quot;기타재료 YTD&quot;: &quot;Other Materials YTD&quot;, &quot;부서 대시보드&quot;: &quot;Dept Dashboard&quot;, &quot;사유별 상세표&quot;: &quot;Detail by Reason&quot;, &quot;최다 테크니션&quot;: &quot;Top Technician&quot;, &quot;YTD 총 생산&quot;: &quot;YTD Total Output&quot;, &quot;Paul Seo 제외&quot;: &quot;Excl. Paul Seo&quot;, &quot;핵심 옵션&quot;: &quot;Core Option&quot;, &quot;기타재료&quot;: &quot;Other Materials&quot;, &quot;고급디자인&quot;: &quot;Advanced Design&quot;, &quot;Redo 분석&quot;: &quot;Redo Analysis&quot;, &quot;시트별 분석&quot;: &quot;Sheet Analysis&quot;, &quot;테크니션 수&quot;: &quot;Technician Count&quot;, &quot;월평균 비중&quot;: &quot;Mo. Avg Share&quot;, &quot;수기 YTD&quot;: &quot;Manual YTD&quot;, &quot;YTD 비중&quot;: &quot;YTD Share&quot;, &quot;YTD 생산&quot;: &quot;YTD Output&quot;, &quot;O/S 제외&quot;: &quot;Excl. O/S&quot;, &quot;월별 막대&quot;: &quot;Monthly bars&quot;, &quot;월별 비교&quot;: &quot;Monthly comparison&quot;, &quot;누적 기준&quot;: &quot;Cumulative basis&quot;, &quot;로컬 입력&quot;: &quot;Local entry&quot;, &quot;로컬/수기&quot;: &quot;Local/Manual&quot;, &quot;최다 사유&quot;: &quot;Top Reason&quot;, &quot;합계/평균&quot;: &quot;Total/Avg&quot;, &quot;부서종합&quot;: &quot;Dept Summary&quot;, &quot;테크니션별&quot;: &quot;by Technician&quot;, &quot;테크니션&quot;: &quot;Technician&quot;, &quot;수기(로컬)&quot;: &quot;Manual(Local)&quot;, &quot;총작업&quot;: &quot;Total Tasks&quot;, &quot;월평균&quot;: &quot;Mo. Avg&quot;, &quot;기여%&quot;: &quot;Share%&quot;, &quot;스케일&quot;: &quot;Scale&quot;, &quot;로컬&quot;: &quot;Local&quot;, &quot;수기&quot;: &quot;Manual&quot;, &quot;구분&quot;: &quot;Type&quot;, &quot;그룹&quot;: &quot;Group&quot;, &quot;옵션&quot;: &quot;Option&quot;, &quot;사유&quot;: &quot;Reason&quot;, &quot;비중&quot;: &quot;Share&quot;, &quot;비율&quot;: &quot;Ratio&quot;, &quot;효율&quot;: &quot;Efficiency&quot;, &quot;평균&quot;: &quot;Avg&quot;, &quot;합계&quot;: &quot;Total&quot;, &quot;월별&quot;: &quot;Monthly&quot;, &quot;기간&quot;: &quot;Period&quot;, &quot;2명&quot;: &quot;2 ppl&quot;, &quot;5명&quot;: &quot;5 ppl&quot;, &quot;1명&quot;: &quot;1 person&quot;, &quot;없음(전원 In-house)&quot;: &quot;none (all In-house)&quot;, &quot;미입력&quot;: &quot;Not Entered&quot;, &quot;합산&quot;: &quot;Combined&quot;, &quot;전원&quot;: &quot;all&quot;, &quot;없음&quot;: &quot;none&quot;, &quot;안분&quot;: &quot;allocated&quot;, &quot;유닛&quot;: &quot;Unit&quot;, &quot;작업종류&quot;: &quot;Task Type&quot;, &quot;숨김 (계산용)&quot;: &quot;hidden (for calc)&quot;, &quot;숨김&quot;: &quot;hidden&quot;, &quot;계산용&quot;: &quot;for calc&quot;, &quot;X축&quot;: &quot;X-axis&quot;, &quot;누적 막대 (Monthly / 카테고리)&quot;: &quot;Cumulative Bars (Monthly / Category)&quot;, &quot;YTD Top 15 제품 (주문건수)&quot;: &quot;YTD Top 15 Products (Orders)&quot;, &quot;대카테고리 × Monthly 추이&quot;: &quot;Category × Monthly Trend&quot;, &quot;카테고리 Mo. Avg Share&quot;: &quot;Category Mo. Avg Share&quot;, &quot;주문 → 각 부서 처리율&quot;: &quot;Order → Dept Processing Rate&quot;, &quot;Stacked Bar + 전사 Line&quot;: &quot;Stacked Bar + Company Line&quot;, &quot;색 진할수록 Redo 多&quot;: &quot;Darker = more Redo&quot;, &quot;직전월(Mar) 13,568&quot;: &quot;Prev Month (Mar) 13,568&quot;, &quot;주문건수(케이스)&quot;: &quot;Order Count (Case)&quot;, &quot;기타=Final Item Unit&quot;: &quot;Others=Final Item Unit&quot;, &quot;YTD 스테이지 퍼널&quot;: &quot;YTD Stage Funnel&quot;, &quot;전체 64,395 기준&quot;: &quot;Based on total 64,395&quot;, &quot;스캔=Opt Qty&quot;: &quot;Scan=Opt Qty&quot;, &quot;주문전체&quot;: &quot;All Orders&quot;, &quot;Apr성장%&quot;: &quot;Apr Growth%&quot;, &quot;[간단보기]&quot;: &quot;[Simple]&quot;, &quot;[상세보기]&quot;: &quot;[Detail]&quot;, &quot;Mo. Avg 합&quot;: &quot;Mo. Avg Sum&quot;, &quot;전사 Total&quot;: &quot;Company Total&quot;, &quot;클릭 정렬&quot;: &quot;Click to sort&quot;, &quot;% 표시&quot;: &quot;% view&quot;, &quot;Avg/월&quot;: &quot;Avg/Mo&quot;, &quot;부서별 생산 리포트&quot;: &quot;Department Production Reports&quot;, &quot;전사 대시보드&quot;: &quot;Company Dashboard&quot;, &quot;3D 프린팅&quot;: &quot;3D Printing&quot;, &quot;가동 모듈&quot;: &quot;Active Modules&quot;, &quot;메탈피니싱&quot;: &quot;Metal Finishing&quot;, &quot;제품명&quot;: &quot;Product&quot;, &quot;간단보기&quot;: &quot;Simple View&quot;, &quot;상세보기&quot;: &quot;Detail View&quot;, &quot;직전월&quot;: &quot;Prev Month&quot;, &quot;대카테고리&quot;: &quot;Category&quot;, &quot;카테고리&quot;: &quot;Category&quot;, &quot;스테이지&quot;: &quot;Stage&quot;, &quot;퍼널&quot;: &quot;Funnel&quot;, &quot;처리율&quot;: &quot;Processing Rate&quot;, &quot;주문&quot;: &quot;Order&quot;, &quot;케이스&quot;: &quot;Case&quot;, &quot;디자인&quot;: &quot;Design&quot;, &quot;리포트&quot;: &quot;Report&quot;, &quot;피니싱&quot;: &quot;Finishing&quot;, &quot;밀링&quot;: &quot;Milling&quot;, &quot;스캔&quot;: &quot;Scan&quot;, &quot;전사&quot;: &quot;Company&quot;, &quot;성장&quot;: &quot;Growth&quot;, &quot;제품&quot;: &quot;Product&quot;, &quot;추이&quot;: &quot;Trend&quot;, &quot;기타&quot;: &quot;Others&quot;, &quot;지표&quot;: &quot;Metric&quot;, &quot;정렬&quot;: &quot;sort&quot;, &quot;표시&quot;: &quot;show&quot;, &quot;부서&quot;: &quot;Dept&quot;, &quot;전체&quot;: &quot;All&quot;, &quot;기준&quot;: &quot;as of&quot;, &quot;합&quot;: &quot;Sum&quot;, &quot;월&quot;: &quot;Mo&quot;, &quot;누적 막대&quot;: &quot;Cumulative Bars&quot;, &quot;누적&quot;: &quot;Cumulative&quot;, &quot;막대&quot;: &quot;Bars&quot;}, &quot;es&quot;: {&quot;부서 전체 — 월별 고급디자인 Main Task&quot;: &quot;Total Depto — Tarea Principal Diseño Avanzado Mensual&quot;, &quot;Section 2 — 월별 누적 생산성 트렌드&quot;: &quot;Sección 2 — Tendencia Acumulada de Productividad Mensual&quot;, &quot;월별 상세 — 테크니션 × 시간 × 생산성&quot;: &quot;Detalle Mensual — Técnico × Horas × Productividad&quot;, &quot;Crown / Abutment — 테크니션별&quot;: &quot;Crown / Abutment — por Técnico&quot;, &quot;Seungwoo는 부서별 Unit비율 안분&quot;: &quot;Seungwoo prorrateado por ratio de Unidad&quot;, &quot;5~12월 데이터 입력 시 자동 갱신&quot;: &quot;Se actualiza al ingresar datos de May~Dic&quot;, &quot;5~12월 데이터 입력 시 갱신&quot;: &quot;Se actualiza al ingresar datos de May~Dic&quot;, &quot;메인 태스크별 월평균 유닛&quot;: &quot;Unidad Prom. Mensual por Tarea Principal&quot;, &quot;D2 — Crown / Abutment 월별&quot;: &quot;D2 — Crown / Abutment Mensual&quot;, &quot;월별 Unit — Haus Link + 수기&quot;: &quot;Unidad Mensual — Haus Link + Manual&quot;, &quot;HAUS Design 생산 리포트 2026&quot;: &quot;HAUS Design Reporte de Producción 2026&quot;, &quot;HAUS Scan 생산 리포트 2026&quot;: &quot;HAUS Scan Reporte de Producción 2026&quot;, &quot;테크니션별 월별 생산량&quot;: &quot;Producción Mensual por Técnico&quot;, &quot;수기 + Haus Link 합계&quot;: &quot;Manual + Haus Link Total&quot;, &quot;테크니션별 월별 트렌드&quot;: &quot;Tendencia Mensual por Técnico&quot;, &quot;D1 — 테크니션 × Main Task&quot;: &quot;D1 — Técnico × Tarea Principal&quot;, &quot;S1 — 테크니션 × Main Task&quot;: &quot;S1 — Técnico × Tarea Principal&quot;, &quot;연간 누적 생산성 트렌드&quot;: &quot;Tendencia Anual Acumulada de Productividad&quot;, &quot;테크니션 × 작업종류&quot;: &quot;Técnico × Tipo de Tarea&quot;, &quot;테크니션별 월별 Unit&quot;: &quot;Unidad Mensual por Técnico&quot;, &quot;월평균 사유별 비중&quot;: &quot;Part. Prom. Mens. por Motivo&quot;, &quot;테크니션별 Unit/Hrs&quot;: &quot;Unit/Hrs por Técnico&quot;, &quot;테크니션 × Main Task&quot;: &quot;Técnico × Tarea Principal&quot;, &quot;D0 — 부서 대시보드&quot;: &quot;D0 — Panel del Depto&quot;, &quot;S0 — 부서 대시보드&quot;: &quot;S0 — Panel del Depto&quot;, &quot;D5 — 시간당 생산성&quot;: &quot;D5 — Productividad por Hora&quot;, &quot;S4 — 시간당 생산성&quot;: &quot;S4 — Productividad por Hora&quot;, &quot;YTD 사유별 비중&quot;: &quot;Part. YTD por Motivo&quot;, &quot;YTD 생산성 요약&quot;: &quot;Resumen de Productividad YTD&quot;, &quot;부서 전체 월별 표&quot;: &quot;Tabla Mensual Total Depto&quot;, &quot;Haus Link vs 수기&quot;: &quot;Haus Link vs Manual&quot;, &quot;월별 Sub-Total&quot;: &quot;Sub-Total Mensual&quot;, &quot;M5 — Redo 분석&quot;: &quot;M5 — Análisis Redo&quot;, &quot;P3 — Redo 분석&quot;: &quot;P3 — Análisis Redo&quot;, &quot;M0 — 부서종합&quot;: &quot;M0 — Resumen Depto&quot;, &quot;P0 — 부서종합&quot;: &quot;P0 — Resumen Depto&quot;, &quot;M3 — 기타재료&quot;: &quot;M3 — Otros Materiales&quot;, &quot;D3 — 고급디자인&quot;: &quot;D3 — Diseño Avanzado&quot;, &quot;P1 — 테크니션별&quot;: &quot;P1 — Por Técnico&quot;, &quot;생산 리포트 2026&quot;: &quot;Reporte de Producción 2026&quot;, &quot;Unit/Hour 누적&quot;: &quot;Unit/Hour Acumulado&quot;, &quot;누적 Unit/Hour&quot;: &quot;Unit/Hour Acumulado&quot;, &quot;월별 재료 그룹&quot;: &quot;Grupo de Material Mensual&quot;, &quot;테크니션 기여도&quot;: &quot;Contribución del Técnico&quot;, &quot;핵심 옵션 상세표&quot;: &quot;Detalle de Opción Clave&quot;, &quot;핵심 옵션 월별&quot;: &quot;Opción Clave Mensual&quot;, &quot;핵심 옵션 합계&quot;: &quot;Total Opción Clave&quot;, &quot;테크니션별 Redo&quot;: &quot;Redo por Técnico&quot;, &quot;월평균 사유별&quot;: &quot;Prom. Mens. por Motivo&quot;, &quot;로컬수기_Scan&quot;: &quot;Local·Manual_Scan&quot;, &quot;Sub Task 비중&quot;: &quot;Participación Sub Task&quot;, &quot;YTD ÷ 4개월&quot;: &quot;YTD ÷ 5 meses&quot;, &quot;기타재료 YTD&quot;: &quot;Otros Materiales YTD&quot;, &quot;부서 대시보드&quot;: &quot;Panel del Depto&quot;, &quot;사유별 상세표&quot;: &quot;Detalle por Motivo&quot;, &quot;최다 테크니션&quot;: &quot;Técnico Principal&quot;, &quot;YTD 총 생산&quot;: &quot;Producción Total YTD&quot;, &quot;Paul Seo 제외&quot;: &quot;Excl. Paul Seo&quot;, &quot;핵심 옵션&quot;: &quot;Opción Clave&quot;, &quot;기타재료&quot;: &quot;Otros Materiales&quot;, &quot;고급디자인&quot;: &quot;Diseño Avanzado&quot;, &quot;Redo 분석&quot;: &quot;Análisis Redo&quot;, &quot;시트별 분석&quot;: &quot;Análisis por Hoja&quot;, &quot;테크니션 수&quot;: &quot;N.º de Técnicos&quot;, &quot;월평균 비중&quot;: &quot;Part. Prom. Mens.&quot;, &quot;수기 YTD&quot;: &quot;Manual YTD&quot;, &quot;YTD 비중&quot;: &quot;Part. YTD&quot;, &quot;YTD 생산&quot;: &quot;Producción YTD&quot;, &quot;O/S 제외&quot;: &quot;Excl. O/S&quot;, &quot;월별 막대&quot;: &quot;Barras mensuales&quot;, &quot;월별 비교&quot;: &quot;Comparación mensual&quot;, &quot;누적 기준&quot;: &quot;Base acumulada&quot;, &quot;로컬 입력&quot;: &quot;Entrada local&quot;, &quot;로컬/수기&quot;: &quot;Local/Manual&quot;, &quot;최다 사유&quot;: &quot;Motivo Principal&quot;, &quot;합계/평균&quot;: &quot;Total/Prom.&quot;, &quot;부서종합&quot;: &quot;Resumen Depto&quot;, &quot;테크니션별&quot;: &quot;por Técnico&quot;, &quot;테크니션&quot;: &quot;Técnico&quot;, &quot;수기(로컬)&quot;: &quot;Manual(Local)&quot;, &quot;총작업&quot;: &quot;Tareas Totales&quot;, &quot;월평균&quot;: &quot;Prom. Mes&quot;, &quot;기여%&quot;: &quot;Part.%&quot;, &quot;스케일&quot;: &quot;Escala&quot;, &quot;로컬&quot;: &quot;Local&quot;, &quot;수기&quot;: &quot;Manual&quot;, &quot;구분&quot;: &quot;Tipo&quot;, &quot;그룹&quot;: &quot;Grupo&quot;, &quot;옵션&quot;: &quot;Opción&quot;, &quot;사유&quot;: &quot;Motivo&quot;, &quot;비중&quot;: &quot;Part.&quot;, &quot;비율&quot;: &quot;Ratio&quot;, &quot;효율&quot;: &quot;Eficiencia&quot;, &quot;평균&quot;: &quot;Prom.&quot;, &quot;합계&quot;: &quot;Total&quot;, &quot;월별&quot;: &quot;Mensual&quot;, &quot;기간&quot;: &quot;Período&quot;, &quot;2명&quot;: &quot;2 pers.&quot;, &quot;5명&quot;: &quot;5 pers.&quot;, &quot;1명&quot;: &quot;1 pers.&quot;, &quot;없음(전원 In-house)&quot;: &quot;ninguno (todo In-house)&quot;, &quot;미입력&quot;: &quot;No Ingresado&quot;, &quot;합산&quot;: &quot;Combinado&quot;, &quot;전원&quot;: &quot;todos&quot;, &quot;없음&quot;: &quot;ninguno&quot;, &quot;안분&quot;: &quot;prorrateado&quot;, &quot;유닛&quot;: &quot;Unidad&quot;, &quot;작업종류&quot;: &quot;Tipo de Tarea&quot;, &quot;숨김 (계산용)&quot;: &quot;oculto (para cálculo)&quot;, &quot;숨김&quot;: &quot;oculto&quot;, &quot;계산용&quot;: &quot;para cálculo&quot;, &quot;X축&quot;: &quot;Eje X&quot;, &quot;누적 막대 (Monthly / 카테고리)&quot;: &quot;Barras Acumuladas (Mensual / Categoría)&quot;, &quot;YTD Top 15 제품 (주문건수)&quot;: &quot;YTD Top 15 Productos (Pedidos)&quot;, &quot;대카테고리 × Monthly 추이&quot;: &quot;Categoría × Tendencia Mensual&quot;, &quot;카테고리 Mo. Avg Share&quot;: &quot;Categoría Part. Prom. Mens.&quot;, &quot;주문 → 각 부서 처리율&quot;: &quot;Pedido → Tasa de Proc. por Depto&quot;, &quot;Stacked Bar + 전사 Line&quot;: &quot;Barra Apilada + Línea Empresa&quot;, &quot;색 진할수록 Redo 多&quot;: &quot;Más oscuro = más Redo&quot;, &quot;직전월(Mar) 13,568&quot;: &quot;Mes Ant. (Mar) 13,568&quot;, &quot;주문건수(케이스)&quot;: &quot;N.º Pedidos (Caso)&quot;, &quot;기타=Final Item Unit&quot;: &quot;Otros=Final Item Unit&quot;, &quot;YTD 스테이지 퍼널&quot;: &quot;Embudo de Etapas YTD&quot;, &quot;전체 64,395 기준&quot;: &quot;Base total 64,395&quot;, &quot;스캔=Opt Qty&quot;: &quot;Scan=Opt Qty&quot;, &quot;주문전체&quot;: &quot;Todos los Pedidos&quot;, &quot;Apr성장%&quot;: &quot;Crec. Abr%&quot;, &quot;[간단보기]&quot;: &quot;[Simple]&quot;, &quot;[상세보기]&quot;: &quot;[Detalle]&quot;, &quot;Mo. Avg 합&quot;: &quot;Suma Prom. Mes&quot;, &quot;전사 Total&quot;: &quot;Total Empresa&quot;, &quot;클릭 정렬&quot;: &quot;Clic para ordenar&quot;, &quot;% 표시&quot;: &quot;Ver %&quot;, &quot;Avg/월&quot;: &quot;Prom./Mes&quot;, &quot;부서별 생산 리포트&quot;: &quot;Reportes de Producción por Depto&quot;, &quot;전사 대시보드&quot;: &quot;Panel de Empresa&quot;, &quot;3D 프린팅&quot;: &quot;Impresión 3D&quot;, &quot;가동 모듈&quot;: &quot;Módulos Activos&quot;, &quot;메탈피니싱&quot;: &quot;Metal Finishing&quot;, &quot;제품명&quot;: &quot;Producto&quot;, &quot;간단보기&quot;: &quot;Vista Simple&quot;, &quot;상세보기&quot;: &quot;Vista Detalle&quot;, &quot;직전월&quot;: &quot;Mes Ant.&quot;, &quot;대카테고리&quot;: &quot;Categoría&quot;, &quot;카테고리&quot;: &quot;Categoría&quot;, &quot;스테이지&quot;: &quot;Etapa&quot;, &quot;퍼널&quot;: &quot;Embudo&quot;, &quot;처리율&quot;: &quot;Tasa de Proc.&quot;, &quot;주문&quot;: &quot;Pedido&quot;, &quot;케이스&quot;: &quot;Caso&quot;, &quot;디자인&quot;: &quot;Diseño&quot;, &quot;리포트&quot;: &quot;Reporte&quot;, &quot;피니싱&quot;: &quot;Finishing&quot;, &quot;밀링&quot;: &quot;Milling&quot;, &quot;스캔&quot;: &quot;Scan&quot;, &quot;전사&quot;: &quot;Empresa&quot;, &quot;성장&quot;: &quot;Crecimiento&quot;, &quot;제품&quot;: &quot;Producto&quot;, &quot;추이&quot;: &quot;Tendencia&quot;, &quot;기타&quot;: &quot;Otros&quot;, &quot;지표&quot;: &quot;Métrica&quot;, &quot;정렬&quot;: &quot;ordenar&quot;, &quot;표시&quot;: &quot;mostrar&quot;, &quot;부서&quot;: &quot;Depto&quot;, &quot;전체&quot;: &quot;Todos&quot;, &quot;기준&quot;: &quot;al&quot;, &quot;합&quot;: &quot;Suma&quot;, &quot;월&quot;: &quot;Mes&quot;, &quot;누적 막대&quot;: &quot;Barras Acumuladas&quot;, &quot;누적&quot;: &quot;Acumulado&quot;, &quot;막대&quot;: &quot;Barras&quot;}};
+var GKEYS=Object.keys(GLOSS.en).sort(function(a,b){return b.length-a.length;});
+Object.assign(GLOSS.en,{&quot;2026 생산량 (Haus Link + 로컬/수기)&quot;: &quot;2026 Production (Haus Link + Local/Manual)&quot;, &quot;당월(4월) 생산량 (Haus Link + 로컬/수기)&quot;: &quot;Current Month (Apr) (Haus Link + Local/Manual)&quot;, &quot;전월대비 성장률&quot;: &quot;vs. Prior Month&quot;, &quot;월평균대비 증감률&quot;: &quot;vs. Monthly Avg&quot;, &quot;전월대비 특이사항&quot;: &quot;MoM Highlights&quot;, &quot;• 당월 전월비 +1.9% 증가 (+174)&quot;: &quot;• Current mo +1.9% MoM rise (+174)&quot;, &quot;• 월평균 8,251 대비 +10.8% 상회&quot;: &quot;• +10.8% above monthly avg (8,251)&quot;, &quot;• 수기 비중 26% 증가세 (2,371)&quot;: &quot;• Manual share 26%, rising (2,371)&quot;, &quot;• 당월 전월비 +14.4% 급증 (+124)&quot;: &quot;• Current mo +14.4% MoM surge (+124)&quot;, &quot;• 월평균 782 대비 +26.3% 크게 상회&quot;: &quot;• +26.3% well above monthly avg (782)&quot;, &quot;• 수기 비중 52% (517/988)&quot;: &quot;• Manual share 52% (517/988)&quot;, &quot;• 당월 전월비 −4.9% 감소 (−129)&quot;: &quot;• Current mo −4.9% MoM drop (−129)&quot;, &quot;• 월평균 2,448 대비 +2.7% 상회&quot;: &quot;• +2.7% above monthly avg (2,448)&quot;, &quot;• 수기 비중 42% (1,050/2,513)&quot;: &quot;• Manual share 42% (1,050/2,513)&quot;, &quot;• 당월 전월비 −6.1% 감소 (−56)&quot;: &quot;• Current mo −6.1% MoM drop (−56)&quot;, &quot;• 월평균 852 대비 +1.9% 상회&quot;: &quot;• +1.9% above monthly avg (852)&quot;, &quot;• 수기 비중 19% (169/868)&quot;: &quot;• Manual share 19% (169/868)&quot;});Object.assign(GLOSS.es,{&quot;2026 생산량 (Haus Link + 로컬/수기)&quot;: &quot;Producción 2026 (Haus Link + Local/Manual)&quot;, &quot;당월(4월) 생산량 (Haus Link + 로컬/수기)&quot;: &quot;Mes Actual (Abr) (HL + Local/Manual)&quot;, &quot;전월대비 성장률&quot;: &quot;vs. Mes Anterior&quot;, &quot;월평균대비 증감률&quot;: &quot;vs. Prom. Mensual&quot;, &quot;전월대비 특이사항&quot;: &quot;Destacados MoM&quot;, &quot;• 당월 전월비 +1.9% 증가 (+174)&quot;: &quot;• Mes actual +1.9% MoM alza (+174)&quot;, &quot;• 월평균 8,251 대비 +10.8% 상회&quot;: &quot;• +10.8% sobre prom. mensual (8,251)&quot;, &quot;• 수기 비중 26% 증가세 (2,371)&quot;: &quot;• Manual 26%, creciente (2,371)&quot;, &quot;• 당월 전월비 +14.4% 급증 (+124)&quot;: &quot;• Mes actual +14.4% MoM repunte (+124)&quot;, &quot;• 월평균 782 대비 +26.3% 크게 상회&quot;: &quot;• +26.3% muy sobre prom. (782)&quot;, &quot;• 수기 비중 52% (517/988)&quot;: &quot;• Manual 52% (517/988)&quot;, &quot;• 당월 전월비 −4.9% 감소 (−129)&quot;: &quot;• Mes actual −4.9% MoM caída (−129)&quot;, &quot;• 월평균 2,448 대비 +2.7% 상회&quot;: &quot;• +2.7% sobre prom. mensual (2,448)&quot;, &quot;• 수기 비중 42% (1,050/2,513)&quot;: &quot;• Manual 42% (1,050/2,513)&quot;, &quot;• 당월 전월비 −6.1% 감소 (−56)&quot;: &quot;• Mes actual −6.1% MoM caída (−56)&quot;, &quot;• 월평균 852 대비 +1.9% 상회&quot;: &quot;• +1.9% sobre prom. mensual (852)&quot;, &quot;• 수기 비중 19% (169/868)&quot;: &quot;• Manual 19% (169/868)&quot;});GKEYS=Object.keys(GLOSS.en).sort(function(a,b){return b.length-a.length;});
+function _lng(){try{return (window._lang)||&#x27;ko&#x27;;}catch(e){return &#x27;ko&#x27;;}}
+function L(s){var l=_lng();return (l!==&#x27;ko&#x27;&amp;&amp;GLOSS[l]&amp;&amp;GLOSS[l][s]!==undefined)?GLOSS[l][s]:s;}
+function _tr(s){var l=_lng();if(l===&#x27;ko&#x27;||!GLOSS[l])return s;var r=s;for(var i=0;i&lt;GKEYS.length;i++){var k=GKEYS[i];if(r.indexOf(k)&gt;=0)r=r.split(k).join(GLOSS[l][k]);}return r;}
+var _ORIG=new WeakMap(),_SWP=false;
+function sweepDOM(){if(_SWP)return;_SWP=true;try{var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null),a=[],n;while(n=w.nextNode())a.push(n);for(var i=0;i&lt;a.length;i++){var nd=a[i],p=nd.parentNode;if(p&amp;&amp;(p.tagName===&#x27;SCRIPT&#x27;||p.tagName===&#x27;STYLE&#x27;))continue;if(p&amp;&amp;p.closest&amp;&amp;p.closest(&#x27;[data-i18n]&#x27;))continue;if(!_ORIG.has(nd))_ORIG.set(nd,nd.nodeValue);var o=_ORIG.get(nd),v=(_lng()===&#x27;ko&#x27;)?o:_tr(o);if(nd.nodeValue!==v)nd.nodeValue=v;}}finally{_SWP=false;}}
+function sweepCharts(){try{if(typeof charts===&#x27;undefined&#x27;||!charts)return;Object.keys(charts).forEach(function(k){var c=charts[k];if(!c||!c.data)return;var ch=false;
+if(c.data.datasets)c.data.datasets.forEach(function(ds){if(ds._ko===undefined)ds._ko=ds.label;if(ds._ko!=null){var nv=_tr(ds._ko);if(ds.label!==nv){ds.label=nv;ch=true;}}});
+if(c.data._kl===undefined)c.data._kl=Array.isArray(c.data.labels)?c.data.labels.slice():null;
+if(c.data._kl){for(var z=0;z&lt;c.data.labels.length;z++){var o=c.data._kl[z];if(o&amp;&amp;/[가-힣]/.test(o)){var nv=_tr(o);if(c.data.labels[z]!==nv){c.data.labels[z]=nv;ch=true;}}}}
+if(ch&amp;&amp;c.update)c.update(&#x27;none&#x27;);});}catch(e){}}
+function sweepAll(){sweepDOM();sweepCharts();}
+try{var _OBS=new MutationObserver(function(ms){if(_SWP)return;for(var i=0;i&lt;ms.length;i++){if(ms[i].addedNodes.length||ms[i].type===&#x27;characterData&#x27;){sweepDOM();return;}}});_OBS.observe(document.body,{childList:true,subtree:true,characterData:true});}catch(e){}
+(function(){if(typeof setLang===&#x27;function&#x27;){var _o=setLang;setLang=function(){_o.apply(this,arguments);sweepAll();};}})();
+setTimeout(sweepAll,80);setTimeout(sweepAll,400);
+/* ===== end i18n sweep ===== */
+
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+"></iframe>
+  </div>
+</div>
+<script>
+var _FIDS=['finishing'];
+function grSwitch(id){
+  document.querySelectorAll('.gr-tab').forEach(function(t){t.classList.toggle('active',t.dataset.id===id);});
+  document.querySelectorAll('.gr-frame').forEach(function(f){f.classList.toggle('active',f.id==='frame-'+id);});
+}
+window._grLang='en';
+function setGroupLang(l){
+  window._grLang=l;
+  document.querySelectorAll('.gr-lng').forEach(function(b){b.classList.toggle('lact',b.dataset.l===l);});
+  _FIDS.forEach(function(id){try{var fr=document.getElementById('frame-'+id);if(fr&&fr.contentWindow&&fr.contentWindow.setLang)fr.contentWindow.setLang(l);}catch(e){}});
+}
+function _grPropagate(){_FIDS.forEach(function(id){try{var fr=document.getElementById('frame-'+id);if(fr&&fr.contentWindow&&fr.contentWindow.setLang)fr.contentWindow.setLang(window._grLang);}catch(e){}});}
+window.addEventListener('load',function(){setTimeout(_grPropagate,150);setTimeout(_grPropagate,600);setTimeout(_grPropagate,1400);});
+</script>
+</body></html>
