@@ -142,7 +142,7 @@ body{ -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-
     &lt;div class=&quot;top-bar&quot;&gt;
       &lt;div class=&quot;tb-title&quot; id=&quot;pageTitle&quot;&gt;F0 부서종합&lt;/div&gt;
       &lt;div class=&quot;tb-tag&quot;&gt;Paul Seo 제외&lt;/div&gt;
-      &lt;div class=&quot;ver-badge&quot;&gt;v2.3&lt;/div&gt;
+      &lt;div class=&quot;ver-badge&quot;&gt;v2.4&lt;/div&gt;
       &lt;div class=&quot;lang-sel&quot;&gt;
         &lt;button class=&quot;lang-btn lact&quot; data-lang=&quot;ko&quot; onclick=&quot;setLang(&#x27;ko&#x27;)&quot;&gt;🇰🇷 KO&lt;/button&gt;
         &lt;span class=&quot;lang-sep&quot;&gt;|&lt;/span&gt;
@@ -587,8 +587,8 @@ var GLOSS={&quot;en&quot;: {&quot;부서 전체 — 월별 고급디자인 Main 
 var GKEYS=Object.keys(GLOSS.en).sort(function(a,b){return b.length-a.length;});
 Object.assign(GLOSS.en,{&quot;2026 생산량 (Haus Link + 로컬/수기)&quot;: &quot;2026 Production (Haus Link + Local/Manual)&quot;, &quot;당월(4월) 생산량 (Haus Link + 로컬/수기)&quot;: &quot;Current Month (Apr) (Haus Link + Local/Manual)&quot;, &quot;전월대비 성장률&quot;: &quot;vs. Prior Month&quot;, &quot;월평균대비 증감률&quot;: &quot;vs. Monthly Avg&quot;, &quot;전월대비 특이사항&quot;: &quot;MoM Highlights&quot;, &quot;• 당월 전월비 +1.9% 증가 (+174)&quot;: &quot;• Current mo +1.9% MoM rise (+174)&quot;, &quot;• 월평균 8,251 대비 +10.8% 상회&quot;: &quot;• +10.8% above monthly avg (8,251)&quot;, &quot;• 수기 비중 26% 증가세 (2,371)&quot;: &quot;• Manual share 26%, rising (2,371)&quot;, &quot;• 당월 전월비 +14.4% 급증 (+124)&quot;: &quot;• Current mo +14.4% MoM surge (+124)&quot;, &quot;• 월평균 782 대비 +26.3% 크게 상회&quot;: &quot;• +26.3% well above monthly avg (782)&quot;, &quot;• 수기 비중 52% (517/988)&quot;: &quot;• Manual share 52% (517/988)&quot;, &quot;• 당월 전월비 −4.9% 감소 (−129)&quot;: &quot;• Current mo −4.9% MoM drop (−129)&quot;, &quot;• 월평균 2,448 대비 +2.7% 상회&quot;: &quot;• +2.7% above monthly avg (2,448)&quot;, &quot;• 수기 비중 42% (1,050/2,513)&quot;: &quot;• Manual share 42% (1,050/2,513)&quot;, &quot;• 당월 전월비 −6.1% 감소 (−56)&quot;: &quot;• Current mo −6.1% MoM drop (−56)&quot;, &quot;• 월평균 852 대비 +1.9% 상회&quot;: &quot;• +1.9% above monthly avg (852)&quot;, &quot;• 수기 비중 19% (169/868)&quot;: &quot;• Manual share 19% (169/868)&quot;});Object.assign(GLOSS.es,{&quot;2026 생산량 (Haus Link + 로컬/수기)&quot;: &quot;Producción 2026 (Haus Link + Local/Manual)&quot;, &quot;당월(4월) 생산량 (Haus Link + 로컬/수기)&quot;: &quot;Mes Actual (Abr) (HL + Local/Manual)&quot;, &quot;전월대비 성장률&quot;: &quot;vs. Mes Anterior&quot;, &quot;월평균대비 증감률&quot;: &quot;vs. Prom. Mensual&quot;, &quot;전월대비 특이사항&quot;: &quot;Destacados MoM&quot;, &quot;• 당월 전월비 +1.9% 증가 (+174)&quot;: &quot;• Mes actual +1.9% MoM alza (+174)&quot;, &quot;• 월평균 8,251 대비 +10.8% 상회&quot;: &quot;• +10.8% sobre prom. mensual (8,251)&quot;, &quot;• 수기 비중 26% 증가세 (2,371)&quot;: &quot;• Manual 26%, creciente (2,371)&quot;, &quot;• 당월 전월비 +14.4% 급증 (+124)&quot;: &quot;• Mes actual +14.4% MoM repunte (+124)&quot;, &quot;• 월평균 782 대비 +26.3% 크게 상회&quot;: &quot;• +26.3% muy sobre prom. (782)&quot;, &quot;• 수기 비중 52% (517/988)&quot;: &quot;• Manual 52% (517/988)&quot;, &quot;• 당월 전월비 −4.9% 감소 (−129)&quot;: &quot;• Mes actual −4.9% MoM caída (−129)&quot;, &quot;• 월평균 2,448 대비 +2.7% 상회&quot;: &quot;• +2.7% sobre prom. mensual (2,448)&quot;, &quot;• 수기 비중 42% (1,050/2,513)&quot;: &quot;• Manual 42% (1,050/2,513)&quot;, &quot;• 당월 전월비 −6.1% 감소 (−56)&quot;: &quot;• Mes actual −6.1% MoM caída (−56)&quot;, &quot;• 월평균 852 대비 +1.9% 상회&quot;: &quot;• +1.9% sobre prom. mensual (852)&quot;, &quot;• 수기 비중 19% (169/868)&quot;: &quot;• Manual 19% (169/868)&quot;});GKEYS=Object.keys(GLOSS.en).sort(function(a,b){return b.length-a.length;});
 function _lng(){try{return (window._lang)||&#x27;ko&#x27;;}catch(e){return &#x27;ko&#x27;;}}
-function L(s){var l=_lng();return (l!==&#x27;ko&#x27;&amp;&amp;GLOSS[l]&amp;&amp;GLOSS[l][s]!==undefined)?GLOSS[l][s]:s;}
-function _tr(s){var l=_lng();if(l===&#x27;ko&#x27;||!GLOSS[l])return s;var r=s;for(var i=0;i&lt;GKEYS.length;i++){var k=GKEYS[i];if(r.indexOf(k)&gt;=0)r=r.split(k).join(GLOSS[l][k]);}return r;}
+function L(s){var l=_lng();return (l!==&#x27;ko&#x27;&amp;&amp;typeof GLOSS!==&#x27;undefined&#x27;&amp;&amp;GLOSS[l]&amp;&amp;GLOSS[l][s]!==undefined)?GLOSS[l][s]:s;}
+function _tr(s){var l=_lng();if(l===&#x27;ko&#x27;||typeof GLOSS===&#x27;undefined&#x27;||!GLOSS[l])return s;var r=s;for(var i=0;i&lt;GKEYS.length;i++){var k=GKEYS[i];if(r.indexOf(k)&gt;=0)r=r.split(k).join(GLOSS[l][k]);}return r;}
 var _ORIG=new WeakMap(),_SWP=false;
 function sweepDOM(){if(_SWP)return;_SWP=true;try{var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null),a=[],n;while(n=w.nextNode())a.push(n);for(var i=0;i&lt;a.length;i++){var nd=a[i],p=nd.parentNode;if(p&amp;&amp;(p.tagName===&#x27;SCRIPT&#x27;||p.tagName===&#x27;STYLE&#x27;))continue;if(p&amp;&amp;p.closest&amp;&amp;p.closest(&#x27;[data-i18n]&#x27;))continue;if(!_ORIG.has(nd))_ORIG.set(nd,nd.nodeValue);var o=_ORIG.get(nd),v=(_lng()===&#x27;ko&#x27;)?o:_tr(o);if(nd.nodeValue!==v)nd.nodeValue=v;}}finally{_SWP=false;}}
 function sweepCharts(){try{if(typeof charts===&#x27;undefined&#x27;||!charts)return;Object.keys(charts).forEach(function(k){var c=charts[k];if(!c||!c.data)return;var ch=false;
@@ -599,7 +599,7 @@ if(ch&amp;&amp;c.update)c.update(&#x27;none&#x27;);});}catch(e){}}
 function sweepAll(){sweepDOM();sweepCharts();}
 try{var _OBS=new MutationObserver(function(ms){if(_SWP)return;for(var i=0;i&lt;ms.length;i++){if(ms[i].addedNodes.length||ms[i].type===&#x27;characterData&#x27;){sweepDOM();return;}}});_OBS.observe(document.body,{childList:true,subtree:true,characterData:true});}catch(e){}
 (function(){if(typeof setLang===&#x27;function&#x27;){var _o=setLang;setLang=function(){_o.apply(this,arguments);sweepAll();};}})();
-setTimeout(sweepAll,80);setTimeout(sweepAll,400);
+setTimeout(sweepAll,80);setTimeout(sweepAll,400);;(function(){var _done=false,_t=null;function _r(){if(_done)return;var w=document.documentElement.clientWidth||0;if(w&lt;=0)return;_done=true;clearTimeout(_t);_t=setTimeout(function(){try{setLang(document.documentElement.lang||&#x27;en&#x27;);}catch(e){}},40);}if((document.documentElement.clientWidth||0)&gt;0){_done=true;}window.__rdSafe=_r;if(window.ResizeObserver){try{new ResizeObserver(_r).observe(document.documentElement);}catch(e){}}})();
 /* ===== end i18n sweep ===== */
 
 &lt;/script&gt;
@@ -612,6 +612,8 @@ var _FIDS=['finishing'];
 function grSwitch(id){
   document.querySelectorAll('.gr-tab').forEach(function(t){t.classList.toggle('active',t.dataset.id===id);});
   document.querySelectorAll('.gr-frame').forEach(function(f){f.classList.toggle('active',f.id==='frame-'+id);});
+  var _fr=document.getElementById('frame-'+id);
+  setTimeout(function(){try{if(_fr&&_fr.contentWindow&&_fr.contentWindow.__rdSafe)_fr.contentWindow.__rdSafe();}catch(e){}},120);
 }
 window._grLang='en';
 function setGroupLang(l){
@@ -620,6 +622,7 @@ function setGroupLang(l){
   _FIDS.forEach(function(id){try{var fr=document.getElementById('frame-'+id);if(fr&&fr.contentWindow&&fr.contentWindow.setLang)fr.contentWindow.setLang(l);}catch(e){}});
 }
 function _grPropagate(){_FIDS.forEach(function(id){try{var fr=document.getElementById('frame-'+id);if(fr&&fr.contentWindow&&fr.contentWindow.setLang)fr.contentWindow.setLang(window._grLang);}catch(e){}});}
-window.addEventListener('load',function(){setTimeout(_grPropagate,150);setTimeout(_grPropagate,600);setTimeout(_grPropagate,1400);});
+
+(function(){_FIDS.forEach(function(id){var fr=document.getElementById('frame-'+id);if(!fr)return;var rd=function(){try{if(fr.contentWindow&&fr.contentWindow.setLang)fr.contentWindow.setLang(window._grLang||'en');}catch(e){}};fr.addEventListener('load',function(){rd();setTimeout(rd,150);setTimeout(rd,600);});});})();
 </script>
 </body></html>
